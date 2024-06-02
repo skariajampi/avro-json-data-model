@@ -1,0 +1,13 @@
+@namespace("uk.gov.ho.pppt.nsap.aggregate")
+/**
+ * Business Invariant
+ */
+protocol InvariantFailureProtocol {
+
+    record InvariantFailureRecord {
+        string      invariantId;
+        string      invariantName;
+        string      externalDescription;
+        string      internalDescription;
+    }
+}

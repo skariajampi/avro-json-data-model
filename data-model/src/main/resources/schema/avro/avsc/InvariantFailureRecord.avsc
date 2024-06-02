@@ -1,0 +1,18 @@
+{
+  "type" : "record",
+  "name" : "InvariantFailureRecord",
+  "namespace" : "org.example",
+  "fields" : [ {
+    "name" : "invariantId",
+    "type" : "string"
+  }, {
+    "name" : "invariantName",
+    "type" : "string"
+  }, {
+    "name" : "externalDescription",
+    "type" : "string"
+  }, {
+    "name" : "internalDescription",
+    "type" : "string"
+  } ]
+}

@@ -1,0 +1,23 @@
+@namespace("uk.gov.ho.pppt.nsap")
+
+protocol ErrorProtocol {
+
+   import idl "InvariantFailureProtocol.avdl";
+
+  record PocErrorRecord {
+    union {null, string} correlationId = null;
+    union {null, string} timestamp = null;
+
+    union {null, string} message = null;
+    union {null, string} componentType = null;
+    union {null, string} componentInstance = null;
+    union {null, string} entityId = null;
+    union {null, string} entityType = null;
+    union {null, string} exceptionStackTrace = null;
+    union {null, string} payload = null;
+    union {null, string} externalRefId = null;
+
+
+    union {null, array<uk.gov.ho.pppt.nsap.aggregate.InvariantFailureRecord>} invariantFailures = null;
+  }
+}
