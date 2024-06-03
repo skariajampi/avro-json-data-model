@@ -1,4 +1,4 @@
-@namespace("uk.gov.ho.pppt.nsap")
+@namespace("org.example")
 
 protocol ErrorProtocol {
 
@@ -18,6 +18,6 @@ protocol ErrorProtocol {
     union {null, string} externalRefId = null;
 
 
-    union {null, array<uk.gov.ho.pppt.nsap.aggregate.InvariantFailureRecord>} invariantFailures = null;
+    union {null, array<org.example.InvariantFailureRecord>} invariantFailures = null;
   }
 }

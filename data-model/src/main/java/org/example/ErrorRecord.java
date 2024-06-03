@@ -14,10 +14,10 @@ import org.apache.avro.message.SchemaStore;
 import java.util.Optional;
 @org.apache.avro.specific.AvroGenerated
 public class ErrorRecord extends org.apache.avro.specific.SpecificRecordBase implements org.apache.avro.specific.SpecificRecord {
-  private static final long serialVersionUID = 67849546263608081L;
+  private static final long serialVersionUID = -1489544208791714544L;
 
 
-  public static final org.apache.avro.Schema SCHEMA$ = new org.apache.avro.Schema.Parser().parse("{\"type\":\"record\",\"name\":\"ErrorRecord\",\"namespace\":\"org.example\",\"fields\":[{\"name\":\"correlationId\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}],\"default\":null},{\"name\":\"timestamp\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}],\"default\":null},{\"name\":\"message\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}],\"default\":null},{\"name\":\"componentType\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}],\"default\":null},{\"name\":\"componentInstance\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}],\"default\":null},{\"name\":\"entityId\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}],\"default\":null},{\"name\":\"entityType\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}],\"default\":null},{\"name\":\"exceptionStackTrace\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}],\"default\":null},{\"name\":\"payload\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}],\"default\":null},{\"name\":\"externalRefId\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}],\"default\":null},{\"name\":\"invariantFailures\",\"type\":[\"null\",{\"type\":\"array\",\"items\":{\"type\":\"record\",\"name\":\"InvariantFailureRecord\",\"namespace\":\"uk.gov.ho.pppt.nsap.aggregate\",\"fields\":[{\"name\":\"invariantId\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"}},{\"name\":\"invariantName\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"}},{\"name\":\"externalDescription\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"}},{\"name\":\"internalDescription\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"}}]}}],\"default\":null}]}");
+  public static final org.apache.avro.Schema SCHEMA$ = new org.apache.avro.Schema.Parser().parse("{\"type\":\"record\",\"name\":\"ErrorRecord\",\"namespace\":\"org.example\",\"fields\":[{\"name\":\"correlationId\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}],\"default\":null},{\"name\":\"timestamp\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}],\"default\":null},{\"name\":\"message\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}],\"default\":null},{\"name\":\"componentType\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}],\"default\":null},{\"name\":\"componentInstance\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}],\"default\":null},{\"name\":\"entityId\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}],\"default\":null},{\"name\":\"entityType\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}],\"default\":null},{\"name\":\"exceptionStackTrace\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}],\"default\":null},{\"name\":\"payload\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}],\"default\":null},{\"name\":\"externalRefId\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}],\"default\":null},{\"name\":\"invariantFailures\",\"type\":[\"null\",{\"type\":\"array\",\"items\":{\"type\":\"record\",\"name\":\"InvariantFailureRecord\",\"fields\":[{\"name\":\"invariantId\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"}},{\"name\":\"invariantName\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"}},{\"name\":\"externalDescription\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"}},{\"name\":\"internalDescription\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"}}]}}],\"default\":null}]}");
   public static org.apache.avro.Schema getClassSchema() { return SCHEMA$; }
 
   private static final SpecificData MODEL$ = new SpecificData();
@@ -83,7 +83,7 @@ public class ErrorRecord extends org.apache.avro.specific.SpecificRecordBase imp
   private java.lang.String exceptionStackTrace;
   private java.lang.String payload;
   private java.lang.String externalRefId;
-  private java.util.List<uk.gov.ho.pppt.nsap.aggregate.InvariantFailureRecord> invariantFailures;
+  private java.util.List<org.example.InvariantFailureRecord> invariantFailures;
 
   /**
    * Default constructor.  Note that this does not initialize fields
@@ -106,7 +106,7 @@ public class ErrorRecord extends org.apache.avro.specific.SpecificRecordBase imp
    * @param externalRefId The new value for externalRefId
    * @param invariantFailures The new value for invariantFailures
    */
-  public ErrorRecord(java.lang.String correlationId, java.lang.String timestamp, java.lang.String message, java.lang.String componentType, java.lang.String componentInstance, java.lang.String entityId, java.lang.String entityType, java.lang.String exceptionStackTrace, java.lang.String payload, java.lang.String externalRefId, java.util.List<uk.gov.ho.pppt.nsap.aggregate.InvariantFailureRecord> invariantFailures) {
+  public ErrorRecord(java.lang.String correlationId, java.lang.String timestamp, java.lang.String message, java.lang.String componentType, java.lang.String componentInstance, java.lang.String entityId, java.lang.String entityType, java.lang.String exceptionStackTrace, java.lang.String payload, java.lang.String externalRefId, java.util.List<org.example.InvariantFailureRecord> invariantFailures) {
     this.correlationId = correlationId;
     this.timestamp = timestamp;
     this.message = message;
@@ -160,7 +160,7 @@ public class ErrorRecord extends org.apache.avro.specific.SpecificRecordBase imp
     case 7: exceptionStackTrace = value$ != null ? value$.toString() : null; break;
     case 8: payload = value$ != null ? value$.toString() : null; break;
     case 9: externalRefId = value$ != null ? value$.toString() : null; break;
-    case 10: invariantFailures = (java.util.List<uk.gov.ho.pppt.nsap.aggregate.InvariantFailureRecord>)value$; break;
+    case 10: invariantFailures = (java.util.List<org.example.InvariantFailureRecord>)value$; break;
     default: throw new IndexOutOfBoundsException("Invalid index: " + field$);
     }
   }
@@ -409,23 +409,23 @@ public class ErrorRecord extends org.apache.avro.specific.SpecificRecordBase imp
    * Gets the value of the 'invariantFailures' field.
    * @return The value of the 'invariantFailures' field.
    */
-  public java.util.List<uk.gov.ho.pppt.nsap.aggregate.InvariantFailureRecord> getInvariantFailures() {
+  public java.util.List<org.example.InvariantFailureRecord> getInvariantFailures() {
     return invariantFailures;
   }
 
   /**
-   * Gets the value of the 'invariantFailures' field as an Optional&lt;java.util.List<uk.gov.ho.pppt.nsap.aggregate.InvariantFailureRecord>&gt;.
-   * @return The value wrapped in an Optional&lt;java.util.List<uk.gov.ho.pppt.nsap.aggregate.InvariantFailureRecord>&gt;.
+   * Gets the value of the 'invariantFailures' field as an Optional&lt;java.util.List<org.example.InvariantFailureRecord>&gt;.
+   * @return The value wrapped in an Optional&lt;java.util.List<org.example.InvariantFailureRecord>&gt;.
    */
-  public Optional<java.util.List<uk.gov.ho.pppt.nsap.aggregate.InvariantFailureRecord>> getOptionalInvariantFailures() {
-    return Optional.<java.util.List<uk.gov.ho.pppt.nsap.aggregate.InvariantFailureRecord>>ofNullable(invariantFailures);
+  public Optional<java.util.List<org.example.InvariantFailureRecord>> getOptionalInvariantFailures() {
+    return Optional.<java.util.List<org.example.InvariantFailureRecord>>ofNullable(invariantFailures);
   }
 
   /**
    * Sets the value of the 'invariantFailures' field.
    * @param value the value to set.
    */
-  public void setInvariantFailures(java.util.List<uk.gov.ho.pppt.nsap.aggregate.InvariantFailureRecord> value) {
+  public void setInvariantFailures(java.util.List<org.example.InvariantFailureRecord> value) {
     this.invariantFailures = value;
   }
 
@@ -480,7 +480,7 @@ public class ErrorRecord extends org.apache.avro.specific.SpecificRecordBase imp
     private java.lang.String exceptionStackTrace;
     private java.lang.String payload;
     private java.lang.String externalRefId;
-    private java.util.List<uk.gov.ho.pppt.nsap.aggregate.InvariantFailureRecord> invariantFailures;
+    private java.util.List<org.example.InvariantFailureRecord> invariantFailures;
 
     /** Creates a new Builder */
     private Builder() {
@@ -1065,16 +1065,16 @@ public class ErrorRecord extends org.apache.avro.specific.SpecificRecordBase imp
       * Gets the value of the 'invariantFailures' field.
       * @return The value.
       */
-    public java.util.List<uk.gov.ho.pppt.nsap.aggregate.InvariantFailureRecord> getInvariantFailures() {
+    public java.util.List<org.example.InvariantFailureRecord> getInvariantFailures() {
       return invariantFailures;
     }
 
     /**
-      * Gets the value of the 'invariantFailures' field as an Optional&lt;java.util.List<uk.gov.ho.pppt.nsap.aggregate.InvariantFailureRecord>&gt;.
-      * @return The value wrapped in an Optional&lt;java.util.List<uk.gov.ho.pppt.nsap.aggregate.InvariantFailureRecord>&gt;.
+      * Gets the value of the 'invariantFailures' field as an Optional&lt;java.util.List<org.example.InvariantFailureRecord>&gt;.
+      * @return The value wrapped in an Optional&lt;java.util.List<org.example.InvariantFailureRecord>&gt;.
       */
-    public Optional<java.util.List<uk.gov.ho.pppt.nsap.aggregate.InvariantFailureRecord>> getOptionalInvariantFailures() {
-      return Optional.<java.util.List<uk.gov.ho.pppt.nsap.aggregate.InvariantFailureRecord>>ofNullable(invariantFailures);
+    public Optional<java.util.List<org.example.InvariantFailureRecord>> getOptionalInvariantFailures() {
+      return Optional.<java.util.List<org.example.InvariantFailureRecord>>ofNullable(invariantFailures);
     }
 
     /**
@@ -1082,7 +1082,7 @@ public class ErrorRecord extends org.apache.avro.specific.SpecificRecordBase imp
       * @param value The value of 'invariantFailures'.
       * @return This builder.
       */
-    public org.example.ErrorRecord.Builder setInvariantFailures(java.util.List<uk.gov.ho.pppt.nsap.aggregate.InvariantFailureRecord> value) {
+    public org.example.ErrorRecord.Builder setInvariantFailures(java.util.List<org.example.InvariantFailureRecord> value) {
       validate(fields()[10], value);
       this.invariantFailures = value;
       fieldSetFlags()[10] = true;
@@ -1123,7 +1123,7 @@ public class ErrorRecord extends org.apache.avro.specific.SpecificRecordBase imp
         record.exceptionStackTrace = fieldSetFlags()[7] ? this.exceptionStackTrace : (java.lang.String) defaultValue(fields()[7]);
         record.payload = fieldSetFlags()[8] ? this.payload : (java.lang.String) defaultValue(fields()[8]);
         record.externalRefId = fieldSetFlags()[9] ? this.externalRefId : (java.lang.String) defaultValue(fields()[9]);
-        record.invariantFailures = fieldSetFlags()[10] ? this.invariantFailures : (java.util.List<uk.gov.ho.pppt.nsap.aggregate.InvariantFailureRecord>) defaultValue(fields()[10]);
+        record.invariantFailures = fieldSetFlags()[10] ? this.invariantFailures : (java.util.List<org.example.InvariantFailureRecord>) defaultValue(fields()[10]);
         return record;
       } catch (org.apache.avro.AvroMissingFieldException e) {
         throw e;
@@ -1245,7 +1245,7 @@ public class ErrorRecord extends org.apache.avro.specific.SpecificRecordBase imp
       out.writeArrayStart();
       out.setItemCount(size0);
       long actualSize0 = 0;
-      for (uk.gov.ho.pppt.nsap.aggregate.InvariantFailureRecord e0: this.invariantFailures) {
+      for (org.example.InvariantFailureRecord e0: this.invariantFailures) {
         actualSize0++;
         out.startItem();
         e0.customEncode(out);
@@ -1337,17 +1337,17 @@ public class ErrorRecord extends org.apache.avro.specific.SpecificRecordBase imp
         this.invariantFailures = null;
       } else {
         long size0 = in.readArrayStart();
-        java.util.List<uk.gov.ho.pppt.nsap.aggregate.InvariantFailureRecord> a0 = this.invariantFailures;
+        java.util.List<org.example.InvariantFailureRecord> a0 = this.invariantFailures;
         if (a0 == null) {
-          a0 = new SpecificData.Array<uk.gov.ho.pppt.nsap.aggregate.InvariantFailureRecord>((int)size0, SCHEMA$.getField("invariantFailures").schema().getTypes().get(1));
+          a0 = new SpecificData.Array<org.example.InvariantFailureRecord>((int)size0, SCHEMA$.getField("invariantFailures").schema().getTypes().get(1));
           this.invariantFailures = a0;
         } else a0.clear();
-        SpecificData.Array<uk.gov.ho.pppt.nsap.aggregate.InvariantFailureRecord> ga0 = (a0 instanceof SpecificData.Array ? (SpecificData.Array<uk.gov.ho.pppt.nsap.aggregate.InvariantFailureRecord>)a0 : null);
+        SpecificData.Array<org.example.InvariantFailureRecord> ga0 = (a0 instanceof SpecificData.Array ? (SpecificData.Array<org.example.InvariantFailureRecord>)a0 : null);
         for ( ; 0 < size0; size0 = in.arrayNext()) {
           for ( ; size0 != 0; size0--) {
-            uk.gov.ho.pppt.nsap.aggregate.InvariantFailureRecord e0 = (ga0 != null ? ga0.peek() : null);
+            org.example.InvariantFailureRecord e0 = (ga0 != null ? ga0.peek() : null);
             if (e0 == null) {
-              e0 = new uk.gov.ho.pppt.nsap.aggregate.InvariantFailureRecord();
+              e0 = new org.example.InvariantFailureRecord();
             }
             e0.customDecode(in);
             a0.add(e0);
@@ -1454,17 +1454,17 @@ public class ErrorRecord extends org.apache.avro.specific.SpecificRecordBase imp
             this.invariantFailures = null;
           } else {
             long size0 = in.readArrayStart();
-            java.util.List<uk.gov.ho.pppt.nsap.aggregate.InvariantFailureRecord> a0 = this.invariantFailures;
+            java.util.List<org.example.InvariantFailureRecord> a0 = this.invariantFailures;
             if (a0 == null) {
-              a0 = new SpecificData.Array<uk.gov.ho.pppt.nsap.aggregate.InvariantFailureRecord>((int)size0, SCHEMA$.getField("invariantFailures").schema().getTypes().get(1));
+              a0 = new SpecificData.Array<org.example.InvariantFailureRecord>((int)size0, SCHEMA$.getField("invariantFailures").schema().getTypes().get(1));
               this.invariantFailures = a0;
             } else a0.clear();
-            SpecificData.Array<uk.gov.ho.pppt.nsap.aggregate.InvariantFailureRecord> ga0 = (a0 instanceof SpecificData.Array ? (SpecificData.Array<uk.gov.ho.pppt.nsap.aggregate.InvariantFailureRecord>)a0 : null);
+            SpecificData.Array<org.example.InvariantFailureRecord> ga0 = (a0 instanceof SpecificData.Array ? (SpecificData.Array<org.example.InvariantFailureRecord>)a0 : null);
             for ( ; 0 < size0; size0 = in.arrayNext()) {
               for ( ; size0 != 0; size0--) {
-                uk.gov.ho.pppt.nsap.aggregate.InvariantFailureRecord e0 = (ga0 != null ? ga0.peek() : null);
+                org.example.InvariantFailureRecord e0 = (ga0 != null ? ga0.peek() : null);
                 if (e0 == null) {
-                  e0 = new uk.gov.ho.pppt.nsap.aggregate.InvariantFailureRecord();
+                  e0 = new org.example.InvariantFailureRecord();
                 }
                 e0.customDecode(in);
                 a0.add(e0);

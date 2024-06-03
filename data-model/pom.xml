@@ -132,6 +132,7 @@
                             <customConversions>org.apache.avro.Conversions$UUIDConversion</customConversions>
                             <createOptionalGetters>true</createOptionalGetters>
                             <imports>
+                                <import>${project.basedir}/src/main/resources/schema/avro/avsc/InvariantFailureRecord.avsc</import>
                                 <import>${project.basedir}/src/main/resources/schema/avro/avsc/ErrorRecord.avsc</import>
                             </imports>
                         </configuration>

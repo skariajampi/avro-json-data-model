@@ -1,4 +1,4 @@
-@namespace("uk.gov.ho.pppt.nsap.aggregate")
+@namespace("org.example")
 /**
  * Business Invariant
  */

@@ -47,22 +47,9 @@
     "type" : [ "null", {
       "type" : "array",
       "items" : {
-        "type" : "record",
         "name" : "InvariantFailureRecord",
-        "namespace" : "uk.gov.ho.pppt.nsap.aggregate",
-        "fields" : [ {
-          "name" : "invariantId",
-          "type" : "string"
-        }, {
-          "name" : "invariantName",
-          "type" : "string"
-        }, {
-          "name" : "externalDescription",
-          "type" : "string"
-        }, {
-          "name" : "internalDescription",
-          "type" : "string"
-        } ]
+        "type" : "org.example.InvariantFailureRecord"
+
       }
     } ],
     "default" : null
