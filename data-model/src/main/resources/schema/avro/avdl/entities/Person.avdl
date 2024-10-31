@@ -1,0 +1,11 @@
+@namespace("com.skaria.avro.model")
+
+protocol SomeListProtocol {
+
+    import idl "../value-objects/Person.avdl";
+
+    record Person {
+        com.skaria.avro.model.Person             person;
+
+    }
+}

@@ -1,0 +1,15 @@
+@namespace("com.skaria.avro.model")
+
+protocol SomeListValueObjectsProtocol {
+
+
+  record SomeListId {
+    string                  id;
+  }
+
+  enum Action {
+        STOP,
+        GO
+    }
+
+}

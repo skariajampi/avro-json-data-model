@@ -1,0 +1,53 @@
+@namespace("com.skaria.avro.model.aggregate.domain")
+
+protocol DomainCommandProtocol {
+
+    import idl "../../entities/SomeRecord.avdl";
+    import idl "../../entities/SomeList.avdl";
+    import idl "../../entities/Person.avdl";
+
+    /** The list of Commands supported, a Cmd is a request to mutate the state of the system */
+    enum CommandType {
+          PROCESS_COMMAND,
+          ADD_IDENTIFIER_TO_SOME_LIST_COMMAND,
+          REMOVE_IDENTIFIER_FROM_SOME_LIST_COMMAND,
+          UPDATE_COMMAND
+    }
+
+    record ProcessCommandRecord {
+        com.skaria.avro.model.SomeRecord someRecord;
+    }
+
+    record AddIdentifierToSomeListCommandRecord {
+        com.skaria.avro.model.SomeList  someList;
+    }
+
+    record RemoveIdentifierFromListCommandRecord {
+        com.skaria.avro.model.Id    listId;
+    }
+
+    record UpdatePersonCommandRecord {
+        com.skaria.avro.model.Person  Person;
+    }
+
+    /** Command Record */
+    record CommandRecord {
+        /** The type of domain model command */
+        CommandType                      commandType;
+
+
+        com.skaria.avro.model.Identifier       identifier;
+
+        /** Timestamp of the Cmd */
+        timestamp_ms                        creationTimestamp;
+
+        /** Union across the supported  Aggregate Commands */
+        union {
+           ProcessCommandRecord,
+           AddIdentifierToSomeListCommandRecord,
+            RemoveIdentifierFromListCommandRecord,
+            UpdatePersonCommandRecord
+        } command;
+    }
+}
+

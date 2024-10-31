@@ -1,0 +1,11 @@
+@namespace("com.skaria.avro.model.model.sourcealigned")
+
+protocol PersonProtocol {
+
+    record SourcePerson {
+        string                  name;
+        union {null, string}    middlename;
+        int                     age;
+        string                  taxStatus;
+    }
+}

@@ -1,4 +1,4 @@
-@namespace("org.example")
+@namespace("com.skaria.avro.model.aggregate")
 /**
  * Business Invariant
  */

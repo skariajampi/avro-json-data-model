@@ -1,0 +1,16 @@
+@namespace("com.skaria.avro.model.aggregate.domain")
+
+protocol DomainAggregateProtocol {
+
+    import idl "../../entities/SomeList.avdl";
+    import idl "../../entities/Person.avdl";
+
+   record DomainAggregateStateRecord {
+      timestamp_ms                                                  creationTimestamp;
+      timestamp_ms                                                  lastUpdatedTimestamp;
+
+      union {null,  com.skaria.avro.model.Person}                  person = null;
+
+      union {null,  map<com.skaria.avro.model.SomeList>}         someList = null;
+   }
+}

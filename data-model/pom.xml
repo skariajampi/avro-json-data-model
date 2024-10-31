@@ -6,7 +6,7 @@
     <parent>
         <groupId>org.example</groupId>
         <artifactId>data-models</artifactId>
-        <version>1.0.2</version>
+        <version>1.0.3</version>
     </parent>
 
     <artifactId>data-model</artifactId>
@@ -111,7 +111,7 @@
                     </execution>
                 </executions>
             </plugin>
-            <plugin>
+            <!--<plugin>
                 <groupId>org.apache.avro</groupId>
                 <artifactId>avro-maven-plugin</artifactId>
                 <version>${avro.version}</version>
@@ -126,15 +126,42 @@
                             <outputDirectory>${project.basedir}/src/main/java</outputDirectory>
                             <fieldVisibility>PRIVATE</fieldVisibility>
 
+                            &lt;!&ndash; convert Aro string to java.lang.String instead of CharSequence&ndash;&gt;
+                            <stringType>String</stringType>
+                            &lt;!&ndash; convert Aro string to java UUID instead of default string&ndash;&gt;
+                            <customConversions>org.apache.avro.Conversions$UUIDConversion</customConversions>
+                            <createOptionalGetters>true</createOptionalGetters>
+                            <imports>
+                                <import>${project.basedir}/src/main/resources/schema/avro/avsc/InvariantFailureRecord.avsc</import>
+                                <import>${project.basedir}/src/main/resources/schema/avro/avsc/AuditRecord.avsc</import>
+                            </imports>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>-->
+            <plugin>
+                <groupId>org.apache.avro</groupId>
+                <artifactId>avro-maven-plugin</artifactId>
+                <version>${avro.version}</version>
+                <executions>
+                    <execution>
+                        <phase>generate-sources</phase>
+                        <goals>
+                            <goal>schema</goal>
+                            <goal>protocol</goal>
+                            <goal>idl-protocol</goal>
+                        </goals>
+                        <configuration>
+                            <sourceDirectory>${project.basedir}/src/main/resources/schema/avro/avdl</sourceDirectory>
+                            <outputDirectory>${project.basedir}/src/main/java</outputDirectory>
+                            <fieldVisibility>PRIVATE</fieldVisibility>
+
                             <!-- convert Aro string to java.lang.String instead of CharSequence-->
                             <stringType>String</stringType>
                             <!-- convert Aro string to java UUID instead of default string-->
                             <customConversions>org.apache.avro.Conversions$UUIDConversion</customConversions>
                             <createOptionalGetters>true</createOptionalGetters>
-                            <imports>
-                                <import>${project.basedir}/src/main/resources/schema/avro/avsc/InvariantFailureRecord.avsc</import>
-                                <import>${project.basedir}/src/main/resources/schema/avro/avsc/ErrorRecord.avsc</import>
-                            </imports>
+
                         </configuration>
                     </execution>
                 </executions>

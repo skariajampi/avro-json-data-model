@@ -1,0 +1,11 @@
+@namespace("com.skaria.avro.model")
+
+protocol PersonProtocol {
+
+    record Person {
+        string                  name;
+        union {null, string}    middlename;
+        int                     age;
+        string                  taxStatus;
+    }
+}

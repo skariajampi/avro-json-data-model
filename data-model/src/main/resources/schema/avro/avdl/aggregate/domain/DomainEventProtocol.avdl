@@ -1,0 +1,60 @@
+@namespace("com.skaria.avro.model.aggregate.domain")
+/**
+ * Domain Event - Immutable domain event which records changes to aggregate state
+ */
+protocol AggregateDomainEventProtocol {
+
+  import idl "../../entities/SomeRecord.avdl";
+  import idl "../../entities/SomeList.avdl";
+  import idl "../../entities/Person.avdl";
+
+  /** The list of Domain Events the VRN Aggregate can produce */
+  enum EventType {
+    // Processed a Camera read
+    DOMAIN_ENRICHED_EVENT,
+
+    // Added a Vrn to a watch list
+    IDENTIFIER_ADDED_TO_LIST_EVENT,
+
+    IDENTIFIER_REMOVED_FROM_LIST_EVENT
+  }
+
+  record EnrichedEventRecord {
+        uuid                                                        readUuid;
+        com.skaria.avro.model.SomeRecord                            someRecord;
+        union {null,  map<com.skaria.avro.model.SomeList>}       matches = null;
+  }
+
+  record IdentifierAddedToListEventRecord {
+    com.skaria.avro.model.SomeList                               someList;
+  }
+
+  record IdentifierRemovedFromListEventRecord {
+    com.skaria.avro.model.Id                         Id;
+  }
+
+  record PersonUpdatedEventRecord {
+    union {null, com.skaria.avro.model.Person }                         personBefore = null;
+    com.skaria.avro.model.Person                                        personAfter;
+  }
+
+
+  /**  Aggregate Domain Event **/
+  record DomainEventRecord {
+
+          com.skaria.avro.model.Identifier                                   identifier;
+
+    /** The Domain Event type in the  Record envelope **/
+    EventType                                                    eventType;
+
+    /** Timestamp of this Domain Event */
+    timestamp_ms                                                    creationTimestamp;
+
+    /** Union of the supported Domain events */
+    union {
+          EnrichedEventRecord,
+                  IdentifierAddedToListEventRecord,
+                  IdentifierRemovedFromListEventRecord
+    } event;
+  }
+}
