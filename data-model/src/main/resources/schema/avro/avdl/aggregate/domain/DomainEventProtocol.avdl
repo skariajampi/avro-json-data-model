@@ -10,13 +10,14 @@ protocol AggregateDomainEventProtocol {
 
   /** The list of Domain Events the VRN Aggregate can produce */
   enum EventType {
-    // Processed a Camera read
+    // Processed a Domain object
     DOMAIN_ENRICHED_EVENT,
 
     // Added a Vrn to a watch list
     IDENTIFIER_ADDED_TO_LIST_EVENT,
 
-    IDENTIFIER_REMOVED_FROM_LIST_EVENT
+    IDENTIFIER_REMOVED_FROM_LIST_EVENT,
+    PERSON_UPDATED_EVENT
   }
 
   record EnrichedEventRecord {
@@ -54,7 +55,8 @@ protocol AggregateDomainEventProtocol {
     union {
           EnrichedEventRecord,
                   IdentifierAddedToListEventRecord,
-                  IdentifierRemovedFromListEventRecord
+                  IdentifierRemovedFromListEventRecord,
+                  PersonUpdatedEventRecord
     } event;
   }
 }
