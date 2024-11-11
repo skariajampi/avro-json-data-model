@@ -13,11 +13,11 @@ import org.apache.avro.message.BinaryMessageDecoder;
 import org.apache.avro.message.SchemaStore;
 import java.util.Optional;
 @org.apache.avro.specific.AvroGenerated
-public class EnrichedEventRecord extends org.apache.avro.specific.SpecificRecordBase implements org.apache.avro.specific.SpecificRecord {
-  private static final long serialVersionUID = -8792345019728399921L;
+public class SomeRecordEnrichedEventRecord extends org.apache.avro.specific.SpecificRecordBase implements org.apache.avro.specific.SpecificRecord {
+  private static final long serialVersionUID = -2483397942676579035L;
 
 
-  public static final org.apache.avro.Schema SCHEMA$ = new org.apache.avro.Schema.Parser().parse("{\"type\":\"record\",\"name\":\"EnrichedEventRecord\",\"namespace\":\"com.skaria.avro.model.aggregate.domain\",\"fields\":[{\"name\":\"readUuid\",\"type\":{\"type\":\"string\",\"logicalType\":\"uuid\"}},{\"name\":\"someRecord\",\"type\":{\"type\":\"record\",\"name\":\"SomeRecord\",\"namespace\":\"com.skaria.avro.model\",\"fields\":[{\"name\":\"identifier\",\"type\":{\"type\":\"record\",\"name\":\"Identifier\",\"fields\":[{\"name\":\"identifier\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"}}]}},{\"name\":\"Id\",\"type\":{\"type\":\"record\",\"name\":\"Id\",\"fields\":[{\"name\":\"id\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"}}]}},{\"name\":\"TIMESTAMP\",\"type\":{\"type\":\"long\",\"logicalType\":\"timestamp-millis\"}},{\"name\":\"RECEIVEDDATE\",\"type\":{\"type\":\"long\",\"logicalType\":\"timestamp-millis\"}},{\"name\":\"PRODUCEDDATE\",\"type\":{\"type\":\"long\",\"logicalType\":\"timestamp-millis\"}},{\"name\":\"POSITION\",\"type\":[\"null\",{\"type\":\"record\",\"name\":\"Location\",\"fields\":[{\"name\":\"latitude\",\"type\":\"double\"},{\"name\":\"longitude\",\"type\":\"double\"}]}]},{\"name\":\"MEASURE\",\"type\":[\"null\",\"int\"]}]}},{\"name\":\"matches\",\"type\":[\"null\",{\"type\":\"map\",\"values\":{\"type\":\"record\",\"name\":\"SomeList\",\"namespace\":\"com.skaria.avro.model\",\"fields\":[{\"name\":\"id\",\"type\":{\"type\":\"record\",\"name\":\"SomeListId\",\"fields\":[{\"name\":\"id\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"}}]}},{\"name\":\"name\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}]},{\"name\":\"middlename\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}]},{\"name\":\"age\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}]},{\"name\":\"action\",\"type\":{\"type\":\"enum\",\"name\":\"Action\",\"symbols\":[\"STOP\",\"GO\"]}}]},\"avro.java.string\":\"String\"}],\"default\":null}]}");
+  public static final org.apache.avro.Schema SCHEMA$ = new org.apache.avro.Schema.Parser().parse("{\"type\":\"record\",\"name\":\"SomeRecordEnrichedEventRecord\",\"namespace\":\"com.skaria.avro.model.aggregate.domain\",\"fields\":[{\"name\":\"readUuid\",\"type\":{\"type\":\"string\",\"logicalType\":\"uuid\"}},{\"name\":\"someRecord\",\"type\":{\"type\":\"record\",\"name\":\"SomeRecord\",\"namespace\":\"com.skaria.avro.model\",\"fields\":[{\"name\":\"identifier\",\"type\":{\"type\":\"record\",\"name\":\"Identifier\",\"fields\":[{\"name\":\"identifier\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"}}]}},{\"name\":\"Id\",\"type\":{\"type\":\"record\",\"name\":\"Id\",\"fields\":[{\"name\":\"id\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"}}]}},{\"name\":\"TIMESTAMP\",\"type\":{\"type\":\"long\",\"logicalType\":\"timestamp-millis\"}},{\"name\":\"RECEIVEDDATE\",\"type\":{\"type\":\"long\",\"logicalType\":\"timestamp-millis\"}},{\"name\":\"PRODUCEDDATE\",\"type\":{\"type\":\"long\",\"logicalType\":\"timestamp-millis\"}},{\"name\":\"POSITION\",\"type\":[\"null\",{\"type\":\"record\",\"name\":\"Location\",\"fields\":[{\"name\":\"latitude\",\"type\":\"double\"},{\"name\":\"longitude\",\"type\":\"double\"}]}]},{\"name\":\"MEASURE\",\"type\":[\"null\",\"int\"]}]}},{\"name\":\"matches\",\"type\":[\"null\",{\"type\":\"map\",\"values\":{\"type\":\"record\",\"name\":\"SomeList\",\"namespace\":\"com.skaria.avro.model\",\"fields\":[{\"name\":\"id\",\"type\":{\"type\":\"record\",\"name\":\"SomeListId\",\"fields\":[{\"name\":\"id\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"}}]}},{\"name\":\"name\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}]},{\"name\":\"middlename\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}]},{\"name\":\"age\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}]},{\"name\":\"action\",\"type\":{\"type\":\"enum\",\"name\":\"Action\",\"symbols\":[\"STOP\",\"GO\"]}}]},\"avro.java.string\":\"String\"}],\"default\":null}]}");
   public static org.apache.avro.Schema getClassSchema() { return SCHEMA$; }
 
   private static final SpecificData MODEL$ = new SpecificData();
@@ -26,17 +26,17 @@ public class EnrichedEventRecord extends org.apache.avro.specific.SpecificRecord
     MODEL$.addLogicalTypeConversion(new org.apache.avro.data.TimeConversions.TimestampMillisConversion());
   }
 
-  private static final BinaryMessageEncoder<EnrichedEventRecord> ENCODER =
+  private static final BinaryMessageEncoder<SomeRecordEnrichedEventRecord> ENCODER =
       new BinaryMessageEncoder<>(MODEL$, SCHEMA$);
 
-  private static final BinaryMessageDecoder<EnrichedEventRecord> DECODER =
+  private static final BinaryMessageDecoder<SomeRecordEnrichedEventRecord> DECODER =
       new BinaryMessageDecoder<>(MODEL$, SCHEMA$);
 
   /**
    * Return the BinaryMessageEncoder instance used by this class.
    * @return the message encoder used by this class
    */
-  public static BinaryMessageEncoder<EnrichedEventRecord> getEncoder() {
+  public static BinaryMessageEncoder<SomeRecordEnrichedEventRecord> getEncoder() {
     return ENCODER;
   }
 
@@ -44,7 +44,7 @@ public class EnrichedEventRecord extends org.apache.avro.specific.SpecificRecord
    * Return the BinaryMessageDecoder instance used by this class.
    * @return the message decoder used by this class
    */
-  public static BinaryMessageDecoder<EnrichedEventRecord> getDecoder() {
+  public static BinaryMessageDecoder<SomeRecordEnrichedEventRecord> getDecoder() {
     return DECODER;
   }
 
@@ -53,12 +53,12 @@ public class EnrichedEventRecord extends org.apache.avro.specific.SpecificRecord
    * @param resolver a {@link SchemaStore} used to find schemas by fingerprint
    * @return a BinaryMessageDecoder instance for this class backed by the given SchemaStore
    */
-  public static BinaryMessageDecoder<EnrichedEventRecord> createDecoder(SchemaStore resolver) {
+  public static BinaryMessageDecoder<SomeRecordEnrichedEventRecord> createDecoder(SchemaStore resolver) {
     return new BinaryMessageDecoder<>(MODEL$, SCHEMA$, resolver);
   }
 
   /**
-   * Serializes this EnrichedEventRecord to a ByteBuffer.
+   * Serializes this SomeRecordEnrichedEventRecord to a ByteBuffer.
    * @return a buffer holding the serialized data for this instance
    * @throws java.io.IOException if this instance could not be serialized
    */
@@ -67,12 +67,12 @@ public class EnrichedEventRecord extends org.apache.avro.specific.SpecificRecord
   }
 
   /**
-   * Deserializes a EnrichedEventRecord from a ByteBuffer.
+   * Deserializes a SomeRecordEnrichedEventRecord from a ByteBuffer.
    * @param b a byte buffer holding serialized data for an instance of this class
-   * @return a EnrichedEventRecord instance decoded from the given buffer
+   * @return a SomeRecordEnrichedEventRecord instance decoded from the given buffer
    * @throws java.io.IOException if the given bytes could not be deserialized into an instance of this class
    */
-  public static EnrichedEventRecord fromByteBuffer(
+  public static SomeRecordEnrichedEventRecord fromByteBuffer(
       java.nio.ByteBuffer b) throws java.io.IOException {
     return DECODER.decode(b);
   }
@@ -86,7 +86,7 @@ public class EnrichedEventRecord extends org.apache.avro.specific.SpecificRecord
    * to their default values from the schema.  If that is desired then
    * one should use <code>newBuilder()</code>.
    */
-  public EnrichedEventRecord() {}
+  public SomeRecordEnrichedEventRecord() {}
 
   /**
    * All-args constructor.
@@ -94,7 +94,7 @@ public class EnrichedEventRecord extends org.apache.avro.specific.SpecificRecord
    * @param someRecord The new value for someRecord
    * @param matches The new value for matches
    */
-  public EnrichedEventRecord(java.util.UUID readUuid, com.skaria.avro.model.SomeRecord someRecord, java.util.Map<java.lang.String,com.skaria.avro.model.SomeList> matches) {
+  public SomeRecordEnrichedEventRecord(java.util.UUID readUuid, com.skaria.avro.model.SomeRecord someRecord, java.util.Map<java.lang.String,com.skaria.avro.model.SomeList> matches) {
     this.readUuid = readUuid;
     this.someRecord = someRecord;
     this.matches = matches;
@@ -215,45 +215,45 @@ public class EnrichedEventRecord extends org.apache.avro.specific.SpecificRecord
   }
 
   /**
-   * Creates a new EnrichedEventRecord RecordBuilder.
-   * @return A new EnrichedEventRecord RecordBuilder
+   * Creates a new SomeRecordEnrichedEventRecord RecordBuilder.
+   * @return A new SomeRecordEnrichedEventRecord RecordBuilder
    */
-  public static com.skaria.avro.model.aggregate.domain.EnrichedEventRecord.Builder newBuilder() {
-    return new com.skaria.avro.model.aggregate.domain.EnrichedEventRecord.Builder();
+  public static com.skaria.avro.model.aggregate.domain.SomeRecordEnrichedEventRecord.Builder newBuilder() {
+    return new com.skaria.avro.model.aggregate.domain.SomeRecordEnrichedEventRecord.Builder();
   }
 
   /**
-   * Creates a new EnrichedEventRecord RecordBuilder by copying an existing Builder.
+   * Creates a new SomeRecordEnrichedEventRecord RecordBuilder by copying an existing Builder.
    * @param other The existing builder to copy.
-   * @return A new EnrichedEventRecord RecordBuilder
+   * @return A new SomeRecordEnrichedEventRecord RecordBuilder
    */
-  public static com.skaria.avro.model.aggregate.domain.EnrichedEventRecord.Builder newBuilder(com.skaria.avro.model.aggregate.domain.EnrichedEventRecord.Builder other) {
+  public static com.skaria.avro.model.aggregate.domain.SomeRecordEnrichedEventRecord.Builder newBuilder(com.skaria.avro.model.aggregate.domain.SomeRecordEnrichedEventRecord.Builder other) {
     if (other == null) {
-      return new com.skaria.avro.model.aggregate.domain.EnrichedEventRecord.Builder();
+      return new com.skaria.avro.model.aggregate.domain.SomeRecordEnrichedEventRecord.Builder();
     } else {
-      return new com.skaria.avro.model.aggregate.domain.EnrichedEventRecord.Builder(other);
+      return new com.skaria.avro.model.aggregate.domain.SomeRecordEnrichedEventRecord.Builder(other);
     }
   }
 
   /**
-   * Creates a new EnrichedEventRecord RecordBuilder by copying an existing EnrichedEventRecord instance.
+   * Creates a new SomeRecordEnrichedEventRecord RecordBuilder by copying an existing SomeRecordEnrichedEventRecord instance.
    * @param other The existing instance to copy.
-   * @return A new EnrichedEventRecord RecordBuilder
+   * @return A new SomeRecordEnrichedEventRecord RecordBuilder
    */
-  public static com.skaria.avro.model.aggregate.domain.EnrichedEventRecord.Builder newBuilder(com.skaria.avro.model.aggregate.domain.EnrichedEventRecord other) {
+  public static com.skaria.avro.model.aggregate.domain.SomeRecordEnrichedEventRecord.Builder newBuilder(com.skaria.avro.model.aggregate.domain.SomeRecordEnrichedEventRecord other) {
     if (other == null) {
-      return new com.skaria.avro.model.aggregate.domain.EnrichedEventRecord.Builder();
+      return new com.skaria.avro.model.aggregate.domain.SomeRecordEnrichedEventRecord.Builder();
     } else {
-      return new com.skaria.avro.model.aggregate.domain.EnrichedEventRecord.Builder(other);
+      return new com.skaria.avro.model.aggregate.domain.SomeRecordEnrichedEventRecord.Builder(other);
     }
   }
 
   /**
-   * RecordBuilder for EnrichedEventRecord instances.
+   * RecordBuilder for SomeRecordEnrichedEventRecord instances.
    */
   @org.apache.avro.specific.AvroGenerated
-  public static class Builder extends org.apache.avro.specific.SpecificRecordBuilderBase<EnrichedEventRecord>
-    implements org.apache.avro.data.RecordBuilder<EnrichedEventRecord> {
+  public static class Builder extends org.apache.avro.specific.SpecificRecordBuilderBase<SomeRecordEnrichedEventRecord>
+    implements org.apache.avro.data.RecordBuilder<SomeRecordEnrichedEventRecord> {
 
     private java.util.UUID readUuid;
     private com.skaria.avro.model.SomeRecord someRecord;
@@ -269,7 +269,7 @@ public class EnrichedEventRecord extends org.apache.avro.specific.SpecificRecord
      * Creates a Builder by copying an existing Builder.
      * @param other The existing Builder to copy.
      */
-    private Builder(com.skaria.avro.model.aggregate.domain.EnrichedEventRecord.Builder other) {
+    private Builder(com.skaria.avro.model.aggregate.domain.SomeRecordEnrichedEventRecord.Builder other) {
       super(other);
       if (isValidValue(fields()[0], other.readUuid)) {
         this.readUuid = data().deepCopy(fields()[0].schema(), other.readUuid);
@@ -289,10 +289,10 @@ public class EnrichedEventRecord extends org.apache.avro.specific.SpecificRecord
     }
 
     /**
-     * Creates a Builder by copying an existing EnrichedEventRecord instance
+     * Creates a Builder by copying an existing SomeRecordEnrichedEventRecord instance
      * @param other The existing instance to copy.
      */
-    private Builder(com.skaria.avro.model.aggregate.domain.EnrichedEventRecord other) {
+    private Builder(com.skaria.avro.model.aggregate.domain.SomeRecordEnrichedEventRecord other) {
       super(SCHEMA$, MODEL$);
       if (isValidValue(fields()[0], other.readUuid)) {
         this.readUuid = data().deepCopy(fields()[0].schema(), other.readUuid);
@@ -330,7 +330,7 @@ public class EnrichedEventRecord extends org.apache.avro.specific.SpecificRecord
       * @param value The value of 'readUuid'.
       * @return This builder.
       */
-    public com.skaria.avro.model.aggregate.domain.EnrichedEventRecord.Builder setReadUuid(java.util.UUID value) {
+    public com.skaria.avro.model.aggregate.domain.SomeRecordEnrichedEventRecord.Builder setReadUuid(java.util.UUID value) {
       validate(fields()[0], value);
       this.readUuid = value;
       fieldSetFlags()[0] = true;
@@ -350,7 +350,7 @@ public class EnrichedEventRecord extends org.apache.avro.specific.SpecificRecord
       * Clears the value of the 'readUuid' field.
       * @return This builder.
       */
-    public com.skaria.avro.model.aggregate.domain.EnrichedEventRecord.Builder clearReadUuid() {
+    public com.skaria.avro.model.aggregate.domain.SomeRecordEnrichedEventRecord.Builder clearReadUuid() {
       readUuid = null;
       fieldSetFlags()[0] = false;
       return this;
@@ -377,7 +377,7 @@ public class EnrichedEventRecord extends org.apache.avro.specific.SpecificRecord
       * @param value The value of 'someRecord'.
       * @return This builder.
       */
-    public com.skaria.avro.model.aggregate.domain.EnrichedEventRecord.Builder setSomeRecord(com.skaria.avro.model.SomeRecord value) {
+    public com.skaria.avro.model.aggregate.domain.SomeRecordEnrichedEventRecord.Builder setSomeRecord(com.skaria.avro.model.SomeRecord value) {
       validate(fields()[1], value);
       this.someRecordBuilder = null;
       this.someRecord = value;
@@ -414,7 +414,7 @@ public class EnrichedEventRecord extends org.apache.avro.specific.SpecificRecord
      * @return This builder.
      */
 
-    public com.skaria.avro.model.aggregate.domain.EnrichedEventRecord.Builder setSomeRecordBuilder(com.skaria.avro.model.SomeRecord.Builder value) {
+    public com.skaria.avro.model.aggregate.domain.SomeRecordEnrichedEventRecord.Builder setSomeRecordBuilder(com.skaria.avro.model.SomeRecord.Builder value) {
       clearSomeRecord();
       someRecordBuilder = value;
       return this;
@@ -432,7 +432,7 @@ public class EnrichedEventRecord extends org.apache.avro.specific.SpecificRecord
       * Clears the value of the 'someRecord' field.
       * @return This builder.
       */
-    public com.skaria.avro.model.aggregate.domain.EnrichedEventRecord.Builder clearSomeRecord() {
+    public com.skaria.avro.model.aggregate.domain.SomeRecordEnrichedEventRecord.Builder clearSomeRecord() {
       someRecord = null;
       someRecordBuilder = null;
       fieldSetFlags()[1] = false;
@@ -460,7 +460,7 @@ public class EnrichedEventRecord extends org.apache.avro.specific.SpecificRecord
       * @param value The value of 'matches'.
       * @return This builder.
       */
-    public com.skaria.avro.model.aggregate.domain.EnrichedEventRecord.Builder setMatches(java.util.Map<java.lang.String,com.skaria.avro.model.SomeList> value) {
+    public com.skaria.avro.model.aggregate.domain.SomeRecordEnrichedEventRecord.Builder setMatches(java.util.Map<java.lang.String,com.skaria.avro.model.SomeList> value) {
       validate(fields()[2], value);
       this.matches = value;
       fieldSetFlags()[2] = true;
@@ -480,7 +480,7 @@ public class EnrichedEventRecord extends org.apache.avro.specific.SpecificRecord
       * Clears the value of the 'matches' field.
       * @return This builder.
       */
-    public com.skaria.avro.model.aggregate.domain.EnrichedEventRecord.Builder clearMatches() {
+    public com.skaria.avro.model.aggregate.domain.SomeRecordEnrichedEventRecord.Builder clearMatches() {
       matches = null;
       fieldSetFlags()[2] = false;
       return this;
@@ -488,9 +488,9 @@ public class EnrichedEventRecord extends org.apache.avro.specific.SpecificRecord
 
     @Override
     @SuppressWarnings("unchecked")
-    public EnrichedEventRecord build() {
+    public SomeRecordEnrichedEventRecord build() {
       try {
-        EnrichedEventRecord record = new EnrichedEventRecord();
+        SomeRecordEnrichedEventRecord record = new SomeRecordEnrichedEventRecord();
         record.readUuid = fieldSetFlags()[0] ? this.readUuid : (java.util.UUID) defaultValue(fields()[0]);
         if (someRecordBuilder != null) {
           try {
@@ -513,8 +513,8 @@ public class EnrichedEventRecord extends org.apache.avro.specific.SpecificRecord
   }
 
   @SuppressWarnings("unchecked")
-  private static final org.apache.avro.io.DatumWriter<EnrichedEventRecord>
-    WRITER$ = (org.apache.avro.io.DatumWriter<EnrichedEventRecord>)MODEL$.createDatumWriter(SCHEMA$);
+  private static final org.apache.avro.io.DatumWriter<SomeRecordEnrichedEventRecord>
+    WRITER$ = (org.apache.avro.io.DatumWriter<SomeRecordEnrichedEventRecord>)MODEL$.createDatumWriter(SCHEMA$);
 
   @Override public void writeExternal(java.io.ObjectOutput out)
     throws java.io.IOException {
@@ -522,8 +522,8 @@ public class EnrichedEventRecord extends org.apache.avro.specific.SpecificRecord
   }
 
   @SuppressWarnings("unchecked")
-  private static final org.apache.avro.io.DatumReader<EnrichedEventRecord>
-    READER$ = (org.apache.avro.io.DatumReader<EnrichedEventRecord>)MODEL$.createDatumReader(SCHEMA$);
+  private static final org.apache.avro.io.DatumReader<SomeRecordEnrichedEventRecord>
+    READER$ = (org.apache.avro.io.DatumReader<SomeRecordEnrichedEventRecord>)MODEL$.createDatumReader(SCHEMA$);
 
   @Override public void readExternal(java.io.ObjectInput in)
     throws java.io.IOException {

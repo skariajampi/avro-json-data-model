@@ -13,11 +13,11 @@ import org.apache.avro.message.BinaryMessageDecoder;
 import org.apache.avro.message.SchemaStore;
 import java.util.Optional;
 @org.apache.avro.specific.AvroGenerated
-public class ProcessCommandRecord extends org.apache.avro.specific.SpecificRecordBase implements org.apache.avro.specific.SpecificRecord {
-  private static final long serialVersionUID = 4148819829086404080L;
+public class ProcessSomeRecordCommandRecord extends org.apache.avro.specific.SpecificRecordBase implements org.apache.avro.specific.SpecificRecord {
+  private static final long serialVersionUID = -4376413401033493938L;
 
 
-  public static final org.apache.avro.Schema SCHEMA$ = new org.apache.avro.Schema.Parser().parse("{\"type\":\"record\",\"name\":\"ProcessCommandRecord\",\"namespace\":\"com.skaria.avro.model.aggregate.domain\",\"fields\":[{\"name\":\"someRecord\",\"type\":{\"type\":\"record\",\"name\":\"SomeRecord\",\"namespace\":\"com.skaria.avro.model\",\"fields\":[{\"name\":\"identifier\",\"type\":{\"type\":\"record\",\"name\":\"Identifier\",\"fields\":[{\"name\":\"identifier\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"}}]}},{\"name\":\"Id\",\"type\":{\"type\":\"record\",\"name\":\"Id\",\"fields\":[{\"name\":\"id\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"}}]}},{\"name\":\"TIMESTAMP\",\"type\":{\"type\":\"long\",\"logicalType\":\"timestamp-millis\"}},{\"name\":\"RECEIVEDDATE\",\"type\":{\"type\":\"long\",\"logicalType\":\"timestamp-millis\"}},{\"name\":\"PRODUCEDDATE\",\"type\":{\"type\":\"long\",\"logicalType\":\"timestamp-millis\"}},{\"name\":\"POSITION\",\"type\":[\"null\",{\"type\":\"record\",\"name\":\"Location\",\"fields\":[{\"name\":\"latitude\",\"type\":\"double\"},{\"name\":\"longitude\",\"type\":\"double\"}]}]},{\"name\":\"MEASURE\",\"type\":[\"null\",\"int\"]}]}}]}");
+  public static final org.apache.avro.Schema SCHEMA$ = new org.apache.avro.Schema.Parser().parse("{\"type\":\"record\",\"name\":\"ProcessSomeRecordCommandRecord\",\"namespace\":\"com.skaria.avro.model.aggregate.domain\",\"fields\":[{\"name\":\"someRecord\",\"type\":{\"type\":\"record\",\"name\":\"SomeRecord\",\"namespace\":\"com.skaria.avro.model\",\"fields\":[{\"name\":\"identifier\",\"type\":{\"type\":\"record\",\"name\":\"Identifier\",\"fields\":[{\"name\":\"identifier\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"}}]}},{\"name\":\"Id\",\"type\":{\"type\":\"record\",\"name\":\"Id\",\"fields\":[{\"name\":\"id\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"}}]}},{\"name\":\"TIMESTAMP\",\"type\":{\"type\":\"long\",\"logicalType\":\"timestamp-millis\"}},{\"name\":\"RECEIVEDDATE\",\"type\":{\"type\":\"long\",\"logicalType\":\"timestamp-millis\"}},{\"name\":\"PRODUCEDDATE\",\"type\":{\"type\":\"long\",\"logicalType\":\"timestamp-millis\"}},{\"name\":\"POSITION\",\"type\":[\"null\",{\"type\":\"record\",\"name\":\"Location\",\"fields\":[{\"name\":\"latitude\",\"type\":\"double\"},{\"name\":\"longitude\",\"type\":\"double\"}]}]},{\"name\":\"MEASURE\",\"type\":[\"null\",\"int\"]}]}}]}");
   public static org.apache.avro.Schema getClassSchema() { return SCHEMA$; }
 
   private static final SpecificData MODEL$ = new SpecificData();
@@ -25,17 +25,17 @@ public class ProcessCommandRecord extends org.apache.avro.specific.SpecificRecor
     MODEL$.addLogicalTypeConversion(new org.apache.avro.data.TimeConversions.TimestampMillisConversion());
   }
 
-  private static final BinaryMessageEncoder<ProcessCommandRecord> ENCODER =
+  private static final BinaryMessageEncoder<ProcessSomeRecordCommandRecord> ENCODER =
       new BinaryMessageEncoder<>(MODEL$, SCHEMA$);
 
-  private static final BinaryMessageDecoder<ProcessCommandRecord> DECODER =
+  private static final BinaryMessageDecoder<ProcessSomeRecordCommandRecord> DECODER =
       new BinaryMessageDecoder<>(MODEL$, SCHEMA$);
 
   /**
    * Return the BinaryMessageEncoder instance used by this class.
    * @return the message encoder used by this class
    */
-  public static BinaryMessageEncoder<ProcessCommandRecord> getEncoder() {
+  public static BinaryMessageEncoder<ProcessSomeRecordCommandRecord> getEncoder() {
     return ENCODER;
   }
 
@@ -43,7 +43,7 @@ public class ProcessCommandRecord extends org.apache.avro.specific.SpecificRecor
    * Return the BinaryMessageDecoder instance used by this class.
    * @return the message decoder used by this class
    */
-  public static BinaryMessageDecoder<ProcessCommandRecord> getDecoder() {
+  public static BinaryMessageDecoder<ProcessSomeRecordCommandRecord> getDecoder() {
     return DECODER;
   }
 
@@ -52,12 +52,12 @@ public class ProcessCommandRecord extends org.apache.avro.specific.SpecificRecor
    * @param resolver a {@link SchemaStore} used to find schemas by fingerprint
    * @return a BinaryMessageDecoder instance for this class backed by the given SchemaStore
    */
-  public static BinaryMessageDecoder<ProcessCommandRecord> createDecoder(SchemaStore resolver) {
+  public static BinaryMessageDecoder<ProcessSomeRecordCommandRecord> createDecoder(SchemaStore resolver) {
     return new BinaryMessageDecoder<>(MODEL$, SCHEMA$, resolver);
   }
 
   /**
-   * Serializes this ProcessCommandRecord to a ByteBuffer.
+   * Serializes this ProcessSomeRecordCommandRecord to a ByteBuffer.
    * @return a buffer holding the serialized data for this instance
    * @throws java.io.IOException if this instance could not be serialized
    */
@@ -66,12 +66,12 @@ public class ProcessCommandRecord extends org.apache.avro.specific.SpecificRecor
   }
 
   /**
-   * Deserializes a ProcessCommandRecord from a ByteBuffer.
+   * Deserializes a ProcessSomeRecordCommandRecord from a ByteBuffer.
    * @param b a byte buffer holding serialized data for an instance of this class
-   * @return a ProcessCommandRecord instance decoded from the given buffer
+   * @return a ProcessSomeRecordCommandRecord instance decoded from the given buffer
    * @throws java.io.IOException if the given bytes could not be deserialized into an instance of this class
    */
-  public static ProcessCommandRecord fromByteBuffer(
+  public static ProcessSomeRecordCommandRecord fromByteBuffer(
       java.nio.ByteBuffer b) throws java.io.IOException {
     return DECODER.decode(b);
   }
@@ -83,13 +83,13 @@ public class ProcessCommandRecord extends org.apache.avro.specific.SpecificRecor
    * to their default values from the schema.  If that is desired then
    * one should use <code>newBuilder()</code>.
    */
-  public ProcessCommandRecord() {}
+  public ProcessSomeRecordCommandRecord() {}
 
   /**
    * All-args constructor.
    * @param someRecord The new value for someRecord
    */
-  public ProcessCommandRecord(com.skaria.avro.model.SomeRecord someRecord) {
+  public ProcessSomeRecordCommandRecord(com.skaria.avro.model.SomeRecord someRecord) {
     this.someRecord = someRecord;
   }
 
@@ -143,45 +143,45 @@ public class ProcessCommandRecord extends org.apache.avro.specific.SpecificRecor
   }
 
   /**
-   * Creates a new ProcessCommandRecord RecordBuilder.
-   * @return A new ProcessCommandRecord RecordBuilder
+   * Creates a new ProcessSomeRecordCommandRecord RecordBuilder.
+   * @return A new ProcessSomeRecordCommandRecord RecordBuilder
    */
-  public static com.skaria.avro.model.aggregate.domain.ProcessCommandRecord.Builder newBuilder() {
-    return new com.skaria.avro.model.aggregate.domain.ProcessCommandRecord.Builder();
+  public static com.skaria.avro.model.aggregate.domain.ProcessSomeRecordCommandRecord.Builder newBuilder() {
+    return new com.skaria.avro.model.aggregate.domain.ProcessSomeRecordCommandRecord.Builder();
   }
 
   /**
-   * Creates a new ProcessCommandRecord RecordBuilder by copying an existing Builder.
+   * Creates a new ProcessSomeRecordCommandRecord RecordBuilder by copying an existing Builder.
    * @param other The existing builder to copy.
-   * @return A new ProcessCommandRecord RecordBuilder
+   * @return A new ProcessSomeRecordCommandRecord RecordBuilder
    */
-  public static com.skaria.avro.model.aggregate.domain.ProcessCommandRecord.Builder newBuilder(com.skaria.avro.model.aggregate.domain.ProcessCommandRecord.Builder other) {
+  public static com.skaria.avro.model.aggregate.domain.ProcessSomeRecordCommandRecord.Builder newBuilder(com.skaria.avro.model.aggregate.domain.ProcessSomeRecordCommandRecord.Builder other) {
     if (other == null) {
-      return new com.skaria.avro.model.aggregate.domain.ProcessCommandRecord.Builder();
+      return new com.skaria.avro.model.aggregate.domain.ProcessSomeRecordCommandRecord.Builder();
     } else {
-      return new com.skaria.avro.model.aggregate.domain.ProcessCommandRecord.Builder(other);
+      return new com.skaria.avro.model.aggregate.domain.ProcessSomeRecordCommandRecord.Builder(other);
     }
   }
 
   /**
-   * Creates a new ProcessCommandRecord RecordBuilder by copying an existing ProcessCommandRecord instance.
+   * Creates a new ProcessSomeRecordCommandRecord RecordBuilder by copying an existing ProcessSomeRecordCommandRecord instance.
    * @param other The existing instance to copy.
-   * @return A new ProcessCommandRecord RecordBuilder
+   * @return A new ProcessSomeRecordCommandRecord RecordBuilder
    */
-  public static com.skaria.avro.model.aggregate.domain.ProcessCommandRecord.Builder newBuilder(com.skaria.avro.model.aggregate.domain.ProcessCommandRecord other) {
+  public static com.skaria.avro.model.aggregate.domain.ProcessSomeRecordCommandRecord.Builder newBuilder(com.skaria.avro.model.aggregate.domain.ProcessSomeRecordCommandRecord other) {
     if (other == null) {
-      return new com.skaria.avro.model.aggregate.domain.ProcessCommandRecord.Builder();
+      return new com.skaria.avro.model.aggregate.domain.ProcessSomeRecordCommandRecord.Builder();
     } else {
-      return new com.skaria.avro.model.aggregate.domain.ProcessCommandRecord.Builder(other);
+      return new com.skaria.avro.model.aggregate.domain.ProcessSomeRecordCommandRecord.Builder(other);
     }
   }
 
   /**
-   * RecordBuilder for ProcessCommandRecord instances.
+   * RecordBuilder for ProcessSomeRecordCommandRecord instances.
    */
   @org.apache.avro.specific.AvroGenerated
-  public static class Builder extends org.apache.avro.specific.SpecificRecordBuilderBase<ProcessCommandRecord>
-    implements org.apache.avro.data.RecordBuilder<ProcessCommandRecord> {
+  public static class Builder extends org.apache.avro.specific.SpecificRecordBuilderBase<ProcessSomeRecordCommandRecord>
+    implements org.apache.avro.data.RecordBuilder<ProcessSomeRecordCommandRecord> {
 
     private com.skaria.avro.model.SomeRecord someRecord;
     private com.skaria.avro.model.SomeRecord.Builder someRecordBuilder;
@@ -195,7 +195,7 @@ public class ProcessCommandRecord extends org.apache.avro.specific.SpecificRecor
      * Creates a Builder by copying an existing Builder.
      * @param other The existing Builder to copy.
      */
-    private Builder(com.skaria.avro.model.aggregate.domain.ProcessCommandRecord.Builder other) {
+    private Builder(com.skaria.avro.model.aggregate.domain.ProcessSomeRecordCommandRecord.Builder other) {
       super(other);
       if (isValidValue(fields()[0], other.someRecord)) {
         this.someRecord = data().deepCopy(fields()[0].schema(), other.someRecord);
@@ -207,10 +207,10 @@ public class ProcessCommandRecord extends org.apache.avro.specific.SpecificRecor
     }
 
     /**
-     * Creates a Builder by copying an existing ProcessCommandRecord instance
+     * Creates a Builder by copying an existing ProcessSomeRecordCommandRecord instance
      * @param other The existing instance to copy.
      */
-    private Builder(com.skaria.avro.model.aggregate.domain.ProcessCommandRecord other) {
+    private Builder(com.skaria.avro.model.aggregate.domain.ProcessSomeRecordCommandRecord other) {
       super(SCHEMA$, MODEL$);
       if (isValidValue(fields()[0], other.someRecord)) {
         this.someRecord = data().deepCopy(fields()[0].schema(), other.someRecord);
@@ -240,7 +240,7 @@ public class ProcessCommandRecord extends org.apache.avro.specific.SpecificRecor
       * @param value The value of 'someRecord'.
       * @return This builder.
       */
-    public com.skaria.avro.model.aggregate.domain.ProcessCommandRecord.Builder setSomeRecord(com.skaria.avro.model.SomeRecord value) {
+    public com.skaria.avro.model.aggregate.domain.ProcessSomeRecordCommandRecord.Builder setSomeRecord(com.skaria.avro.model.SomeRecord value) {
       validate(fields()[0], value);
       this.someRecordBuilder = null;
       this.someRecord = value;
@@ -277,7 +277,7 @@ public class ProcessCommandRecord extends org.apache.avro.specific.SpecificRecor
      * @return This builder.
      */
 
-    public com.skaria.avro.model.aggregate.domain.ProcessCommandRecord.Builder setSomeRecordBuilder(com.skaria.avro.model.SomeRecord.Builder value) {
+    public com.skaria.avro.model.aggregate.domain.ProcessSomeRecordCommandRecord.Builder setSomeRecordBuilder(com.skaria.avro.model.SomeRecord.Builder value) {
       clearSomeRecord();
       someRecordBuilder = value;
       return this;
@@ -295,7 +295,7 @@ public class ProcessCommandRecord extends org.apache.avro.specific.SpecificRecor
       * Clears the value of the 'someRecord' field.
       * @return This builder.
       */
-    public com.skaria.avro.model.aggregate.domain.ProcessCommandRecord.Builder clearSomeRecord() {
+    public com.skaria.avro.model.aggregate.domain.ProcessSomeRecordCommandRecord.Builder clearSomeRecord() {
       someRecord = null;
       someRecordBuilder = null;
       fieldSetFlags()[0] = false;
@@ -304,9 +304,9 @@ public class ProcessCommandRecord extends org.apache.avro.specific.SpecificRecor
 
     @Override
     @SuppressWarnings("unchecked")
-    public ProcessCommandRecord build() {
+    public ProcessSomeRecordCommandRecord build() {
       try {
-        ProcessCommandRecord record = new ProcessCommandRecord();
+        ProcessSomeRecordCommandRecord record = new ProcessSomeRecordCommandRecord();
         if (someRecordBuilder != null) {
           try {
             record.someRecord = this.someRecordBuilder.build();
@@ -327,8 +327,8 @@ public class ProcessCommandRecord extends org.apache.avro.specific.SpecificRecor
   }
 
   @SuppressWarnings("unchecked")
-  private static final org.apache.avro.io.DatumWriter<ProcessCommandRecord>
-    WRITER$ = (org.apache.avro.io.DatumWriter<ProcessCommandRecord>)MODEL$.createDatumWriter(SCHEMA$);
+  private static final org.apache.avro.io.DatumWriter<ProcessSomeRecordCommandRecord>
+    WRITER$ = (org.apache.avro.io.DatumWriter<ProcessSomeRecordCommandRecord>)MODEL$.createDatumWriter(SCHEMA$);
 
   @Override public void writeExternal(java.io.ObjectOutput out)
     throws java.io.IOException {
@@ -336,8 +336,8 @@ public class ProcessCommandRecord extends org.apache.avro.specific.SpecificRecor
   }
 
   @SuppressWarnings("unchecked")
-  private static final org.apache.avro.io.DatumReader<ProcessCommandRecord>
-    READER$ = (org.apache.avro.io.DatumReader<ProcessCommandRecord>)MODEL$.createDatumReader(SCHEMA$);
+  private static final org.apache.avro.io.DatumReader<ProcessSomeRecordCommandRecord>
+    READER$ = (org.apache.avro.io.DatumReader<ProcessSomeRecordCommandRecord>)MODEL$.createDatumReader(SCHEMA$);
 
   @Override public void readExternal(java.io.ObjectInput in)
     throws java.io.IOException {
