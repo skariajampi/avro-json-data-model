@@ -14,10 +14,10 @@ import org.apache.avro.message.SchemaStore;
 import java.util.Optional;
 @org.apache.avro.specific.AvroGenerated
 public class SomeRecordEnrichedEventRecord extends org.apache.avro.specific.SpecificRecordBase implements org.apache.avro.specific.SpecificRecord {
-  private static final long serialVersionUID = -2483397942676579035L;
+  private static final long serialVersionUID = -1276087881493863772L;
 
 
-  public static final org.apache.avro.Schema SCHEMA$ = new org.apache.avro.Schema.Parser().parse("{\"type\":\"record\",\"name\":\"SomeRecordEnrichedEventRecord\",\"namespace\":\"com.skaria.avro.model.aggregate.domain\",\"fields\":[{\"name\":\"readUuid\",\"type\":{\"type\":\"string\",\"logicalType\":\"uuid\"}},{\"name\":\"someRecord\",\"type\":{\"type\":\"record\",\"name\":\"SomeRecord\",\"namespace\":\"com.skaria.avro.model\",\"fields\":[{\"name\":\"identifier\",\"type\":{\"type\":\"record\",\"name\":\"Identifier\",\"fields\":[{\"name\":\"identifier\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"}}]}},{\"name\":\"Id\",\"type\":{\"type\":\"record\",\"name\":\"Id\",\"fields\":[{\"name\":\"id\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"}}]}},{\"name\":\"TIMESTAMP\",\"type\":{\"type\":\"long\",\"logicalType\":\"timestamp-millis\"}},{\"name\":\"RECEIVEDDATE\",\"type\":{\"type\":\"long\",\"logicalType\":\"timestamp-millis\"}},{\"name\":\"PRODUCEDDATE\",\"type\":{\"type\":\"long\",\"logicalType\":\"timestamp-millis\"}},{\"name\":\"POSITION\",\"type\":[\"null\",{\"type\":\"record\",\"name\":\"Location\",\"fields\":[{\"name\":\"latitude\",\"type\":\"double\"},{\"name\":\"longitude\",\"type\":\"double\"}]}]},{\"name\":\"MEASURE\",\"type\":[\"null\",\"int\"]}]}},{\"name\":\"matches\",\"type\":[\"null\",{\"type\":\"map\",\"values\":{\"type\":\"record\",\"name\":\"SomeList\",\"namespace\":\"com.skaria.avro.model\",\"fields\":[{\"name\":\"id\",\"type\":{\"type\":\"record\",\"name\":\"SomeListId\",\"fields\":[{\"name\":\"id\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"}}]}},{\"name\":\"name\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}]},{\"name\":\"middlename\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}]},{\"name\":\"age\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}]},{\"name\":\"action\",\"type\":{\"type\":\"enum\",\"name\":\"Action\",\"symbols\":[\"STOP\",\"GO\"]}}]},\"avro.java.string\":\"String\"}],\"default\":null}]}");
+  public static final org.apache.avro.Schema SCHEMA$ = new org.apache.avro.Schema.Parser().parse("{\"type\":\"record\",\"name\":\"SomeRecordEnrichedEventRecord\",\"namespace\":\"com.skaria.avro.model.aggregate.domain\",\"fields\":[{\"name\":\"eventId\",\"type\":{\"type\":\"string\",\"logicalType\":\"uuid\"}},{\"name\":\"someRecord\",\"type\":{\"type\":\"record\",\"name\":\"SomeRecord\",\"namespace\":\"com.skaria.avro.model\",\"fields\":[{\"name\":\"identifier\",\"type\":{\"type\":\"record\",\"name\":\"Identifier\",\"fields\":[{\"name\":\"identifier\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"}}]}},{\"name\":\"Id\",\"type\":{\"type\":\"record\",\"name\":\"Id\",\"fields\":[{\"name\":\"id\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"}}]}},{\"name\":\"TIMESTAMP\",\"type\":{\"type\":\"long\",\"logicalType\":\"timestamp-millis\"}},{\"name\":\"RECEIVEDDATE\",\"type\":{\"type\":\"long\",\"logicalType\":\"timestamp-millis\"}},{\"name\":\"PRODUCEDDATE\",\"type\":{\"type\":\"long\",\"logicalType\":\"timestamp-millis\"}},{\"name\":\"POSITION\",\"type\":[\"null\",{\"type\":\"record\",\"name\":\"Location\",\"fields\":[{\"name\":\"latitude\",\"type\":\"double\"},{\"name\":\"longitude\",\"type\":\"double\"}]}]},{\"name\":\"MEASURE\",\"type\":[\"null\",\"int\"]}]}},{\"name\":\"creationTimestamp\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"}},{\"name\":\"matches\",\"type\":[\"null\",{\"type\":\"map\",\"values\":{\"type\":\"record\",\"name\":\"SomeList\",\"namespace\":\"com.skaria.avro.model\",\"fields\":[{\"name\":\"id\",\"type\":{\"type\":\"record\",\"name\":\"SomeListId\",\"fields\":[{\"name\":\"id\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"}}]}},{\"name\":\"name\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}]},{\"name\":\"middlename\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}]},{\"name\":\"age\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}]},{\"name\":\"action\",\"type\":{\"type\":\"enum\",\"name\":\"Action\",\"symbols\":[\"STOP\",\"GO\"]}}]},\"avro.java.string\":\"String\"}],\"default\":null},{\"name\":\"person\",\"type\":[\"null\",{\"type\":\"record\",\"name\":\"Person\",\"namespace\":\"com.skaria.avro.model\",\"fields\":[{\"name\":\"person\",\"type\":\"Person\"}]}],\"default\":null}]}");
   public static org.apache.avro.Schema getClassSchema() { return SCHEMA$; }
 
   private static final SpecificData MODEL$ = new SpecificData();
@@ -77,9 +77,11 @@ public class SomeRecordEnrichedEventRecord extends org.apache.avro.specific.Spec
     return DECODER.decode(b);
   }
 
-  private java.util.UUID readUuid;
+  private java.util.UUID eventId;
   private com.skaria.avro.model.SomeRecord someRecord;
+  private java.lang.String creationTimestamp;
   private java.util.Map<java.lang.String,com.skaria.avro.model.SomeList> matches;
+  private com.skaria.avro.model.Person person;
 
   /**
    * Default constructor.  Note that this does not initialize fields
@@ -90,14 +92,18 @@ public class SomeRecordEnrichedEventRecord extends org.apache.avro.specific.Spec
 
   /**
    * All-args constructor.
-   * @param readUuid The new value for readUuid
+   * @param eventId The new value for eventId
    * @param someRecord The new value for someRecord
+   * @param creationTimestamp The new value for creationTimestamp
    * @param matches The new value for matches
+   * @param person The new value for person
    */
-  public SomeRecordEnrichedEventRecord(java.util.UUID readUuid, com.skaria.avro.model.SomeRecord someRecord, java.util.Map<java.lang.String,com.skaria.avro.model.SomeList> matches) {
-    this.readUuid = readUuid;
+  public SomeRecordEnrichedEventRecord(java.util.UUID eventId, com.skaria.avro.model.SomeRecord someRecord, java.lang.String creationTimestamp, java.util.Map<java.lang.String,com.skaria.avro.model.SomeList> matches, com.skaria.avro.model.Person person) {
+    this.eventId = eventId;
     this.someRecord = someRecord;
+    this.creationTimestamp = creationTimestamp;
     this.matches = matches;
+    this.person = person;
   }
 
   @Override
@@ -110,9 +116,11 @@ public class SomeRecordEnrichedEventRecord extends org.apache.avro.specific.Spec
   @Override
   public java.lang.Object get(int field$) {
     switch (field$) {
-    case 0: return readUuid;
+    case 0: return eventId;
     case 1: return someRecord;
-    case 2: return matches;
+    case 2: return creationTimestamp;
+    case 3: return matches;
+    case 4: return person;
     default: throw new IndexOutOfBoundsException("Invalid index: " + field$);
     }
   }
@@ -120,6 +128,8 @@ public class SomeRecordEnrichedEventRecord extends org.apache.avro.specific.Spec
   private static final org.apache.avro.Conversion<?>[] conversions =
       new org.apache.avro.Conversion<?>[] {
       new org.apache.avro.Conversions.UUIDConversion(),
+      null,
+      null,
       null,
       null,
       null
@@ -135,35 +145,37 @@ public class SomeRecordEnrichedEventRecord extends org.apache.avro.specific.Spec
   @SuppressWarnings(value="unchecked")
   public void put(int field$, java.lang.Object value$) {
     switch (field$) {
-    case 0: readUuid = (java.util.UUID)value$; break;
+    case 0: eventId = (java.util.UUID)value$; break;
     case 1: someRecord = (com.skaria.avro.model.SomeRecord)value$; break;
-    case 2: matches = (java.util.Map<java.lang.String,com.skaria.avro.model.SomeList>)value$; break;
+    case 2: creationTimestamp = value$ != null ? value$.toString() : null; break;
+    case 3: matches = (java.util.Map<java.lang.String,com.skaria.avro.model.SomeList>)value$; break;
+    case 4: person = (com.skaria.avro.model.Person)value$; break;
     default: throw new IndexOutOfBoundsException("Invalid index: " + field$);
     }
   }
 
   /**
-   * Gets the value of the 'readUuid' field.
-   * @return The value of the 'readUuid' field.
+   * Gets the value of the 'eventId' field.
+   * @return The value of the 'eventId' field.
    */
-  public java.util.UUID getReadUuid() {
-    return readUuid;
+  public java.util.UUID getEventId() {
+    return eventId;
   }
 
   /**
-   * Gets the value of the 'readUuid' field as an Optional&lt;java.util.UUID&gt;.
+   * Gets the value of the 'eventId' field as an Optional&lt;java.util.UUID&gt;.
    * @return The value wrapped in an Optional&lt;java.util.UUID&gt;.
    */
-  public Optional<java.util.UUID> getOptionalReadUuid() {
-    return Optional.<java.util.UUID>ofNullable(readUuid);
+  public Optional<java.util.UUID> getOptionalEventId() {
+    return Optional.<java.util.UUID>ofNullable(eventId);
   }
 
   /**
-   * Sets the value of the 'readUuid' field.
+   * Sets the value of the 'eventId' field.
    * @param value the value to set.
    */
-  public void setReadUuid(java.util.UUID value) {
-    this.readUuid = value;
+  public void setEventId(java.util.UUID value) {
+    this.eventId = value;
   }
 
   /**
@@ -191,6 +203,30 @@ public class SomeRecordEnrichedEventRecord extends org.apache.avro.specific.Spec
   }
 
   /**
+   * Gets the value of the 'creationTimestamp' field.
+   * @return The value of the 'creationTimestamp' field.
+   */
+  public java.lang.String getCreationTimestamp() {
+    return creationTimestamp;
+  }
+
+  /**
+   * Gets the value of the 'creationTimestamp' field as an Optional&lt;java.lang.String&gt;.
+   * @return The value wrapped in an Optional&lt;java.lang.String&gt;.
+   */
+  public Optional<java.lang.String> getOptionalCreationTimestamp() {
+    return Optional.<java.lang.String>ofNullable(creationTimestamp);
+  }
+
+  /**
+   * Sets the value of the 'creationTimestamp' field.
+   * @param value the value to set.
+   */
+  public void setCreationTimestamp(java.lang.String value) {
+    this.creationTimestamp = value;
+  }
+
+  /**
    * Gets the value of the 'matches' field.
    * @return The value of the 'matches' field.
    */
@@ -212,6 +248,30 @@ public class SomeRecordEnrichedEventRecord extends org.apache.avro.specific.Spec
    */
   public void setMatches(java.util.Map<java.lang.String,com.skaria.avro.model.SomeList> value) {
     this.matches = value;
+  }
+
+  /**
+   * Gets the value of the 'person' field.
+   * @return The value of the 'person' field.
+   */
+  public com.skaria.avro.model.Person getPerson() {
+    return person;
+  }
+
+  /**
+   * Gets the value of the 'person' field as an Optional&lt;com.skaria.avro.model.Person&gt;.
+   * @return The value wrapped in an Optional&lt;com.skaria.avro.model.Person&gt;.
+   */
+  public Optional<com.skaria.avro.model.Person> getOptionalPerson() {
+    return Optional.<com.skaria.avro.model.Person>ofNullable(person);
+  }
+
+  /**
+   * Sets the value of the 'person' field.
+   * @param value the value to set.
+   */
+  public void setPerson(com.skaria.avro.model.Person value) {
+    this.person = value;
   }
 
   /**
@@ -255,10 +315,13 @@ public class SomeRecordEnrichedEventRecord extends org.apache.avro.specific.Spec
   public static class Builder extends org.apache.avro.specific.SpecificRecordBuilderBase<SomeRecordEnrichedEventRecord>
     implements org.apache.avro.data.RecordBuilder<SomeRecordEnrichedEventRecord> {
 
-    private java.util.UUID readUuid;
+    private java.util.UUID eventId;
     private com.skaria.avro.model.SomeRecord someRecord;
     private com.skaria.avro.model.SomeRecord.Builder someRecordBuilder;
+    private java.lang.String creationTimestamp;
     private java.util.Map<java.lang.String,com.skaria.avro.model.SomeList> matches;
+    private com.skaria.avro.model.Person person;
+    private com.skaria.avro.model.Person.Builder personBuilder;
 
     /** Creates a new Builder */
     private Builder() {
@@ -271,8 +334,8 @@ public class SomeRecordEnrichedEventRecord extends org.apache.avro.specific.Spec
      */
     private Builder(com.skaria.avro.model.aggregate.domain.SomeRecordEnrichedEventRecord.Builder other) {
       super(other);
-      if (isValidValue(fields()[0], other.readUuid)) {
-        this.readUuid = data().deepCopy(fields()[0].schema(), other.readUuid);
+      if (isValidValue(fields()[0], other.eventId)) {
+        this.eventId = data().deepCopy(fields()[0].schema(), other.eventId);
         fieldSetFlags()[0] = other.fieldSetFlags()[0];
       }
       if (isValidValue(fields()[1], other.someRecord)) {
@@ -282,9 +345,20 @@ public class SomeRecordEnrichedEventRecord extends org.apache.avro.specific.Spec
       if (other.hasSomeRecordBuilder()) {
         this.someRecordBuilder = com.skaria.avro.model.SomeRecord.newBuilder(other.getSomeRecordBuilder());
       }
-      if (isValidValue(fields()[2], other.matches)) {
-        this.matches = data().deepCopy(fields()[2].schema(), other.matches);
+      if (isValidValue(fields()[2], other.creationTimestamp)) {
+        this.creationTimestamp = data().deepCopy(fields()[2].schema(), other.creationTimestamp);
         fieldSetFlags()[2] = other.fieldSetFlags()[2];
+      }
+      if (isValidValue(fields()[3], other.matches)) {
+        this.matches = data().deepCopy(fields()[3].schema(), other.matches);
+        fieldSetFlags()[3] = other.fieldSetFlags()[3];
+      }
+      if (isValidValue(fields()[4], other.person)) {
+        this.person = data().deepCopy(fields()[4].schema(), other.person);
+        fieldSetFlags()[4] = other.fieldSetFlags()[4];
+      }
+      if (other.hasPersonBuilder()) {
+        this.personBuilder = com.skaria.avro.model.Person.newBuilder(other.getPersonBuilder());
       }
     }
 
@@ -294,8 +368,8 @@ public class SomeRecordEnrichedEventRecord extends org.apache.avro.specific.Spec
      */
     private Builder(com.skaria.avro.model.aggregate.domain.SomeRecordEnrichedEventRecord other) {
       super(SCHEMA$, MODEL$);
-      if (isValidValue(fields()[0], other.readUuid)) {
-        this.readUuid = data().deepCopy(fields()[0].schema(), other.readUuid);
+      if (isValidValue(fields()[0], other.eventId)) {
+        this.eventId = data().deepCopy(fields()[0].schema(), other.eventId);
         fieldSetFlags()[0] = true;
       }
       if (isValidValue(fields()[1], other.someRecord)) {
@@ -303,55 +377,64 @@ public class SomeRecordEnrichedEventRecord extends org.apache.avro.specific.Spec
         fieldSetFlags()[1] = true;
       }
       this.someRecordBuilder = null;
-      if (isValidValue(fields()[2], other.matches)) {
-        this.matches = data().deepCopy(fields()[2].schema(), other.matches);
+      if (isValidValue(fields()[2], other.creationTimestamp)) {
+        this.creationTimestamp = data().deepCopy(fields()[2].schema(), other.creationTimestamp);
         fieldSetFlags()[2] = true;
       }
+      if (isValidValue(fields()[3], other.matches)) {
+        this.matches = data().deepCopy(fields()[3].schema(), other.matches);
+        fieldSetFlags()[3] = true;
+      }
+      if (isValidValue(fields()[4], other.person)) {
+        this.person = data().deepCopy(fields()[4].schema(), other.person);
+        fieldSetFlags()[4] = true;
+      }
+      this.personBuilder = null;
     }
 
     /**
-      * Gets the value of the 'readUuid' field.
+      * Gets the value of the 'eventId' field.
       * @return The value.
       */
-    public java.util.UUID getReadUuid() {
-      return readUuid;
+    public java.util.UUID getEventId() {
+      return eventId;
     }
 
     /**
-      * Gets the value of the 'readUuid' field as an Optional&lt;java.util.UUID&gt;.
+      * Gets the value of the 'eventId' field as an Optional&lt;java.util.UUID&gt;.
       * @return The value wrapped in an Optional&lt;java.util.UUID&gt;.
       */
-    public Optional<java.util.UUID> getOptionalReadUuid() {
-      return Optional.<java.util.UUID>ofNullable(readUuid);
+    public Optional<java.util.UUID> getOptionalEventId() {
+      return Optional.<java.util.UUID>ofNullable(eventId);
     }
 
     /**
-      * Sets the value of the 'readUuid' field.
-      * @param value The value of 'readUuid'.
+      * Sets the value of the 'eventId' field.
+      * @param value The value of 'eventId'.
       * @return This builder.
       */
-    public com.skaria.avro.model.aggregate.domain.SomeRecordEnrichedEventRecord.Builder setReadUuid(java.util.UUID value) {
+    public com.skaria.avro.model.aggregate.domain.SomeRecordEnrichedEventRecord.Builder setEventId(java.util.UUID value) {
       validate(fields()[0], value);
-      this.readUuid = value;
+      this.eventId = value;
       fieldSetFlags()[0] = true;
       return this;
     }
 
     /**
-      * Checks whether the 'readUuid' field has been set.
-      * @return True if the 'readUuid' field has been set, false otherwise.
+      * Checks whether the 'eventId' field has been set.
+      * @return True if the 'eventId' field has been set, false otherwise.
       */
-    public boolean hasReadUuid() {
+    public boolean hasEventId() {
       return fieldSetFlags()[0];
     }
 
 
     /**
-      * Clears the value of the 'readUuid' field.
+      * Clears the value of the 'eventId' field.
       * @return This builder.
       */
-    public com.skaria.avro.model.aggregate.domain.SomeRecordEnrichedEventRecord.Builder clearReadUuid() {
-      readUuid = null;
+    public com.skaria.avro.model.aggregate.domain.SomeRecordEnrichedEventRecord.Builder clearEventId() {
+      eventId = null;
       fieldSetFlags()[0] = false;
       return this;
     }
@@ -440,6 +523,53 @@ public class SomeRecordEnrichedEventRecord extends org.apache.avro.specific.Spec
     }
 
     /**
+      * Gets the value of the 'creationTimestamp' field.
+      * @return The value.
+      */
+    public java.lang.String getCreationTimestamp() {
+      return creationTimestamp;
+    }
+
+    /**
+      * Gets the value of the 'creationTimestamp' field as an Optional&lt;java.lang.String&gt;.
+      * @return The value wrapped in an Optional&lt;java.lang.String&gt;.
+      */
+    public Optional<java.lang.String> getOptionalCreationTimestamp() {
+      return Optional.<java.lang.String>ofNullable(creationTimestamp);
+    }
+
+    /**
+      * Sets the value of the 'creationTimestamp' field.
+      * @param value The value of 'creationTimestamp'.
+      * @return This builder.
+      */
+    public com.skaria.avro.model.aggregate.domain.SomeRecordEnrichedEventRecord.Builder setCreationTimestamp(java.lang.String value) {
+      validate(fields()[2], value);
+      this.creationTimestamp = value;
+      fieldSetFlags()[2] = true;
+      return this;
+    }
+
+    /**
+      * Checks whether the 'creationTimestamp' field has been set.
+      * @return True if the 'creationTimestamp' field has been set, false otherwise.
+      */
+    public boolean hasCreationTimestamp() {
+      return fieldSetFlags()[2];
+    }
+
+
+    /**
+      * Clears the value of the 'creationTimestamp' field.
+      * @return This builder.
+      */
+    public com.skaria.avro.model.aggregate.domain.SomeRecordEnrichedEventRecord.Builder clearCreationTimestamp() {
+      creationTimestamp = null;
+      fieldSetFlags()[2] = false;
+      return this;
+    }
+
+    /**
       * Gets the value of the 'matches' field.
       * @return The value.
       */
@@ -461,9 +591,9 @@ public class SomeRecordEnrichedEventRecord extends org.apache.avro.specific.Spec
       * @return This builder.
       */
     public com.skaria.avro.model.aggregate.domain.SomeRecordEnrichedEventRecord.Builder setMatches(java.util.Map<java.lang.String,com.skaria.avro.model.SomeList> value) {
-      validate(fields()[2], value);
+      validate(fields()[3], value);
       this.matches = value;
-      fieldSetFlags()[2] = true;
+      fieldSetFlags()[3] = true;
       return this;
     }
 
@@ -472,7 +602,7 @@ public class SomeRecordEnrichedEventRecord extends org.apache.avro.specific.Spec
       * @return True if the 'matches' field has been set, false otherwise.
       */
     public boolean hasMatches() {
-      return fieldSetFlags()[2];
+      return fieldSetFlags()[3];
     }
 
 
@@ -482,7 +612,90 @@ public class SomeRecordEnrichedEventRecord extends org.apache.avro.specific.Spec
       */
     public com.skaria.avro.model.aggregate.domain.SomeRecordEnrichedEventRecord.Builder clearMatches() {
       matches = null;
-      fieldSetFlags()[2] = false;
+      fieldSetFlags()[3] = false;
+      return this;
+    }
+
+    /**
+      * Gets the value of the 'person' field.
+      * @return The value.
+      */
+    public com.skaria.avro.model.Person getPerson() {
+      return person;
+    }
+
+    /**
+      * Gets the value of the 'person' field as an Optional&lt;com.skaria.avro.model.Person&gt;.
+      * @return The value wrapped in an Optional&lt;com.skaria.avro.model.Person&gt;.
+      */
+    public Optional<com.skaria.avro.model.Person> getOptionalPerson() {
+      return Optional.<com.skaria.avro.model.Person>ofNullable(person);
+    }
+
+    /**
+      * Sets the value of the 'person' field.
+      * @param value The value of 'person'.
+      * @return This builder.
+      */
+    public com.skaria.avro.model.aggregate.domain.SomeRecordEnrichedEventRecord.Builder setPerson(com.skaria.avro.model.Person value) {
+      validate(fields()[4], value);
+      this.personBuilder = null;
+      this.person = value;
+      fieldSetFlags()[4] = true;
+      return this;
+    }
+
+    /**
+      * Checks whether the 'person' field has been set.
+      * @return True if the 'person' field has been set, false otherwise.
+      */
+    public boolean hasPerson() {
+      return fieldSetFlags()[4];
+    }
+
+    /**
+     * Gets the Builder instance for the 'person' field and creates one if it doesn't exist yet.
+     * @return This builder.
+     */
+    public com.skaria.avro.model.Person.Builder getPersonBuilder() {
+      if (personBuilder == null) {
+        if (hasPerson()) {
+          setPersonBuilder(com.skaria.avro.model.Person.newBuilder(person));
+        } else {
+          setPersonBuilder(com.skaria.avro.model.Person.newBuilder());
+        }
+      }
+      return personBuilder;
+    }
+
+    /**
+     * Sets the Builder instance for the 'person' field
+     * @param value The builder instance that must be set.
+     * @return This builder.
+     */
+
+    public com.skaria.avro.model.aggregate.domain.SomeRecordEnrichedEventRecord.Builder setPersonBuilder(com.skaria.avro.model.Person.Builder value) {
+      clearPerson();
+      personBuilder = value;
+      return this;
+    }
+
+    /**
+     * Checks whether the 'person' field has an active Builder instance
+     * @return True if the 'person' field has an active Builder instance
+     */
+    public boolean hasPersonBuilder() {
+      return personBuilder != null;
+    }
+
+    /**
+      * Clears the value of the 'person' field.
+      * @return This builder.
+      */
+    public com.skaria.avro.model.aggregate.domain.SomeRecordEnrichedEventRecord.Builder clearPerson() {
+      person = null;
+      personBuilder = null;
+      fieldSetFlags()[4] = false;
       return this;
     }
 
@@ -491,7 +704,7 @@ public class SomeRecordEnrichedEventRecord extends org.apache.avro.specific.Spec
     public SomeRecordEnrichedEventRecord build() {
       try {
         SomeRecordEnrichedEventRecord record = new SomeRecordEnrichedEventRecord();
-        record.readUuid = fieldSetFlags()[0] ? this.readUuid : (java.util.UUID) defaultValue(fields()[0]);
+        record.eventId = fieldSetFlags()[0] ? this.eventId : (java.util.UUID) defaultValue(fields()[0]);
         if (someRecordBuilder != null) {
           try {
             record.someRecord = this.someRecordBuilder.build();
@@ -502,7 +715,18 @@ public class SomeRecordEnrichedEventRecord extends org.apache.avro.specific.Spec
         } else {
           record.someRecord = fieldSetFlags()[1] ? this.someRecord : (com.skaria.avro.model.SomeRecord) defaultValue(fields()[1]);
         }
-        record.matches = fieldSetFlags()[2] ? this.matches : (java.util.Map<java.lang.String,com.skaria.avro.model.SomeList>) defaultValue(fields()[2]);
+        record.creationTimestamp = fieldSetFlags()[2] ? this.creationTimestamp : (java.lang.String) defaultValue(fields()[2]);
+        record.matches = fieldSetFlags()[3] ? this.matches : (java.util.Map<java.lang.String,com.skaria.avro.model.SomeList>) defaultValue(fields()[3]);
+        if (personBuilder != null) {
+          try {
+            record.person = this.personBuilder.build();
+          } catch (org.apache.avro.AvroMissingFieldException e) {
+            e.addParentField(record.getSchema().getField("person"));
+            throw e;
+          }
+        } else {
+          record.person = fieldSetFlags()[4] ? this.person : (com.skaria.avro.model.Person) defaultValue(fields()[4]);
+        }
         return record;
       } catch (org.apache.avro.AvroMissingFieldException e) {
         throw e;

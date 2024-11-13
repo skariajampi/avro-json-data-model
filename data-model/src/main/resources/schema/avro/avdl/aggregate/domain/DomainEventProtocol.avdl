@@ -21,9 +21,11 @@ protocol AggregateDomainEventProtocol {
   }
 
   record SomeRecordEnrichedEventRecord {
-        uuid                                                        readUuid;
+        uuid                                                        eventId;
         com.skaria.avro.model.SomeRecord                            someRecord;
+        string                                                      creationTimestamp;
         union {null,  map<com.skaria.avro.model.SomeList>}       matches = null;
+        union {null, com.skaria.avro.model.Person}                person = null;
   }
 
   record IdentifierAddedToListEventRecord {
@@ -49,7 +51,7 @@ protocol AggregateDomainEventProtocol {
     EventType                                                    eventType;
 
     /** Timestamp of this Domain Event */
-    timestamp_ms                                                    creationTimestamp;
+    string                                                    creationTimestamp;
 
     /** Union of the supported Domain events */
     union {

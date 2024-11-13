@@ -15,10 +15,10 @@ import java.util.Optional;
 /** Aggregate Domain Event * */
 @org.apache.avro.specific.AvroGenerated
 public class DomainEventRecord extends org.apache.avro.specific.SpecificRecordBase implements org.apache.avro.specific.SpecificRecord {
-  private static final long serialVersionUID = 1685680424474330266L;
+  private static final long serialVersionUID = -3834529329628307841L;
 
 
-  public static final org.apache.avro.Schema SCHEMA$ = new org.apache.avro.Schema.Parser().parse("{\"type\":\"record\",\"name\":\"DomainEventRecord\",\"namespace\":\"com.skaria.avro.model.aggregate.domain\",\"doc\":\"Aggregate Domain Event *\",\"fields\":[{\"name\":\"identifier\",\"type\":{\"type\":\"record\",\"name\":\"Identifier\",\"namespace\":\"com.skaria.avro.model\",\"fields\":[{\"name\":\"identifier\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"}}]}},{\"name\":\"eventType\",\"type\":{\"type\":\"enum\",\"name\":\"EventType\",\"doc\":\"The list of Domain Events the VRN Aggregate can produce\",\"symbols\":[\"SOME_RECORD_ENRICHED_EVENT\",\"IDENTIFIER_ADDED_TO_LIST_EVENT\",\"IDENTIFIER_REMOVED_FROM_LIST_EVENT\",\"PERSON_UPDATED_EVENT\"]},\"doc\":\"The Domain Event type in the  Record envelope *\"},{\"name\":\"creationTimestamp\",\"type\":{\"type\":\"long\",\"logicalType\":\"timestamp-millis\"},\"doc\":\"Timestamp of this Domain Event\"},{\"name\":\"event\",\"type\":[{\"type\":\"record\",\"name\":\"SomeRecordEnrichedEventRecord\",\"fields\":[{\"name\":\"readUuid\",\"type\":{\"type\":\"string\",\"logicalType\":\"uuid\"}},{\"name\":\"someRecord\",\"type\":{\"type\":\"record\",\"name\":\"SomeRecord\",\"namespace\":\"com.skaria.avro.model\",\"fields\":[{\"name\":\"identifier\",\"type\":\"Identifier\"},{\"name\":\"Id\",\"type\":{\"type\":\"record\",\"name\":\"Id\",\"fields\":[{\"name\":\"id\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"}}]}},{\"name\":\"TIMESTAMP\",\"type\":{\"type\":\"long\",\"logicalType\":\"timestamp-millis\"}},{\"name\":\"RECEIVEDDATE\",\"type\":{\"type\":\"long\",\"logicalType\":\"timestamp-millis\"}},{\"name\":\"PRODUCEDDATE\",\"type\":{\"type\":\"long\",\"logicalType\":\"timestamp-millis\"}},{\"name\":\"POSITION\",\"type\":[\"null\",{\"type\":\"record\",\"name\":\"Location\",\"fields\":[{\"name\":\"latitude\",\"type\":\"double\"},{\"name\":\"longitude\",\"type\":\"double\"}]}]},{\"name\":\"MEASURE\",\"type\":[\"null\",\"int\"]}]}},{\"name\":\"matches\",\"type\":[\"null\",{\"type\":\"map\",\"values\":{\"type\":\"record\",\"name\":\"SomeList\",\"namespace\":\"com.skaria.avro.model\",\"fields\":[{\"name\":\"id\",\"type\":{\"type\":\"record\",\"name\":\"SomeListId\",\"fields\":[{\"name\":\"id\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"}}]}},{\"name\":\"name\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}]},{\"name\":\"middlename\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}]},{\"name\":\"age\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}]},{\"name\":\"action\",\"type\":{\"type\":\"enum\",\"name\":\"Action\",\"symbols\":[\"STOP\",\"GO\"]}}]},\"avro.java.string\":\"String\"}],\"default\":null}]},{\"type\":\"record\",\"name\":\"IdentifierAddedToListEventRecord\",\"fields\":[{\"name\":\"someList\",\"type\":\"com.skaria.avro.model.SomeList\"}]},{\"type\":\"record\",\"name\":\"IdentifierRemovedFromListEventRecord\",\"fields\":[{\"name\":\"Id\",\"type\":\"com.skaria.avro.model.Id\"}]},{\"type\":\"record\",\"name\":\"PersonUpdatedEventRecord\",\"fields\":[{\"name\":\"personBefore\",\"type\":[\"null\",{\"type\":\"record\",\"name\":\"Person\",\"namespace\":\"com.skaria.avro.model\",\"fields\":[{\"name\":\"person\",\"type\":\"Person\"}]}],\"default\":null},{\"name\":\"personAfter\",\"type\":\"com.skaria.avro.model.Person\"}]}],\"doc\":\"Union of the supported Domain events\"}]}");
+  public static final org.apache.avro.Schema SCHEMA$ = new org.apache.avro.Schema.Parser().parse("{\"type\":\"record\",\"name\":\"DomainEventRecord\",\"namespace\":\"com.skaria.avro.model.aggregate.domain\",\"doc\":\"Aggregate Domain Event *\",\"fields\":[{\"name\":\"identifier\",\"type\":{\"type\":\"record\",\"name\":\"Identifier\",\"namespace\":\"com.skaria.avro.model\",\"fields\":[{\"name\":\"identifier\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"}}]}},{\"name\":\"eventType\",\"type\":{\"type\":\"enum\",\"name\":\"EventType\",\"doc\":\"The list of Domain Events the VRN Aggregate can produce\",\"symbols\":[\"SOME_RECORD_ENRICHED_EVENT\",\"IDENTIFIER_ADDED_TO_LIST_EVENT\",\"IDENTIFIER_REMOVED_FROM_LIST_EVENT\",\"PERSON_UPDATED_EVENT\"]},\"doc\":\"The Domain Event type in the  Record envelope *\"},{\"name\":\"creationTimestamp\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"},\"doc\":\"Timestamp of this Domain Event\"},{\"name\":\"event\",\"type\":[{\"type\":\"record\",\"name\":\"SomeRecordEnrichedEventRecord\",\"fields\":[{\"name\":\"eventId\",\"type\":{\"type\":\"string\",\"logicalType\":\"uuid\"}},{\"name\":\"someRecord\",\"type\":{\"type\":\"record\",\"name\":\"SomeRecord\",\"namespace\":\"com.skaria.avro.model\",\"fields\":[{\"name\":\"identifier\",\"type\":\"Identifier\"},{\"name\":\"Id\",\"type\":{\"type\":\"record\",\"name\":\"Id\",\"fields\":[{\"name\":\"id\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"}}]}},{\"name\":\"TIMESTAMP\",\"type\":{\"type\":\"long\",\"logicalType\":\"timestamp-millis\"}},{\"name\":\"RECEIVEDDATE\",\"type\":{\"type\":\"long\",\"logicalType\":\"timestamp-millis\"}},{\"name\":\"PRODUCEDDATE\",\"type\":{\"type\":\"long\",\"logicalType\":\"timestamp-millis\"}},{\"name\":\"POSITION\",\"type\":[\"null\",{\"type\":\"record\",\"name\":\"Location\",\"fields\":[{\"name\":\"latitude\",\"type\":\"double\"},{\"name\":\"longitude\",\"type\":\"double\"}]}]},{\"name\":\"MEASURE\",\"type\":[\"null\",\"int\"]}]}},{\"name\":\"creationTimestamp\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"}},{\"name\":\"matches\",\"type\":[\"null\",{\"type\":\"map\",\"values\":{\"type\":\"record\",\"name\":\"SomeList\",\"namespace\":\"com.skaria.avro.model\",\"fields\":[{\"name\":\"id\",\"type\":{\"type\":\"record\",\"name\":\"SomeListId\",\"fields\":[{\"name\":\"id\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"}}]}},{\"name\":\"name\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}]},{\"name\":\"middlename\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}]},{\"name\":\"age\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}]},{\"name\":\"action\",\"type\":{\"type\":\"enum\",\"name\":\"Action\",\"symbols\":[\"STOP\",\"GO\"]}}]},\"avro.java.string\":\"String\"}],\"default\":null},{\"name\":\"person\",\"type\":[\"null\",{\"type\":\"record\",\"name\":\"Person\",\"namespace\":\"com.skaria.avro.model\",\"fields\":[{\"name\":\"person\",\"type\":\"Person\"}]}],\"default\":null}]},{\"type\":\"record\",\"name\":\"IdentifierAddedToListEventRecord\",\"fields\":[{\"name\":\"someList\",\"type\":\"com.skaria.avro.model.SomeList\"}]},{\"type\":\"record\",\"name\":\"IdentifierRemovedFromListEventRecord\",\"fields\":[{\"name\":\"Id\",\"type\":\"com.skaria.avro.model.Id\"}]},{\"type\":\"record\",\"name\":\"PersonUpdatedEventRecord\",\"fields\":[{\"name\":\"personBefore\",\"type\":[\"null\",\"com.skaria.avro.model.Person\"],\"default\":null},{\"name\":\"personAfter\",\"type\":\"com.skaria.avro.model.Person\"}]}],\"doc\":\"Union of the supported Domain events\"}]}");
   public static org.apache.avro.Schema getClassSchema() { return SCHEMA$; }
 
   private static final SpecificData MODEL$ = new SpecificData();
@@ -82,7 +82,7 @@ public class DomainEventRecord extends org.apache.avro.specific.SpecificRecordBa
   /** The Domain Event type in the  Record envelope * */
   private com.skaria.avro.model.aggregate.domain.EventType eventType;
   /** Timestamp of this Domain Event */
-  private java.time.Instant creationTimestamp;
+  private java.lang.String creationTimestamp;
   /** Union of the supported Domain events */
   private java.lang.Object event;
 
@@ -100,10 +100,10 @@ public class DomainEventRecord extends org.apache.avro.specific.SpecificRecordBa
    * @param creationTimestamp Timestamp of this Domain Event
    * @param event Union of the supported Domain events
    */
-  public DomainEventRecord(com.skaria.avro.model.Identifier identifier, com.skaria.avro.model.aggregate.domain.EventType eventType, java.time.Instant creationTimestamp, java.lang.Object event) {
+  public DomainEventRecord(com.skaria.avro.model.Identifier identifier, com.skaria.avro.model.aggregate.domain.EventType eventType, java.lang.String creationTimestamp, java.lang.Object event) {
     this.identifier = identifier;
     this.eventType = eventType;
-    this.creationTimestamp = creationTimestamp.truncatedTo(java.time.temporal.ChronoUnit.MILLIS);
+    this.creationTimestamp = creationTimestamp;
     this.event = event;
   }
 
@@ -125,20 +125,6 @@ public class DomainEventRecord extends org.apache.avro.specific.SpecificRecordBa
     }
   }
 
-  private static final org.apache.avro.Conversion<?>[] conversions =
-      new org.apache.avro.Conversion<?>[] {
-      null,
-      null,
-      new org.apache.avro.data.TimeConversions.TimestampMillisConversion(),
-      null,
-      null
-  };
-
-  @Override
-  public org.apache.avro.Conversion<?> getConversion(int field) {
-    return conversions[field];
-  }
-
   // Used by DatumReader.  Applications should not call.
   @Override
   @SuppressWarnings(value="unchecked")
@@ -146,7 +132,7 @@ public class DomainEventRecord extends org.apache.avro.specific.SpecificRecordBa
     switch (field$) {
     case 0: identifier = (com.skaria.avro.model.Identifier)value$; break;
     case 1: eventType = (com.skaria.avro.model.aggregate.domain.EventType)value$; break;
-    case 2: creationTimestamp = (java.time.Instant)value$; break;
+    case 2: creationTimestamp = value$ != null ? value$.toString() : null; break;
     case 3: event = value$; break;
     default: throw new IndexOutOfBoundsException("Invalid index: " + field$);
     }
@@ -206,17 +192,17 @@ public class DomainEventRecord extends org.apache.avro.specific.SpecificRecordBa
    * Gets the value of the 'creationTimestamp' field.
    * @return Timestamp of this Domain Event
    */
-  public java.time.Instant getCreationTimestamp() {
+  public java.lang.String getCreationTimestamp() {
     return creationTimestamp;
   }
 
   /**
-   * Gets the value of the 'creationTimestamp' field as an Optional&lt;java.time.Instant&gt;.
+   * Gets the value of the 'creationTimestamp' field as an Optional&lt;java.lang.String&gt;.
    * Timestamp of this Domain Event
-   * @return The value wrapped in an Optional&lt;java.time.Instant&gt;.
+   * @return The value wrapped in an Optional&lt;java.lang.String&gt;.
    */
-  public Optional<java.time.Instant> getOptionalCreationTimestamp() {
-    return Optional.<java.time.Instant>ofNullable(creationTimestamp);
+  public Optional<java.lang.String> getOptionalCreationTimestamp() {
+    return Optional.<java.lang.String>ofNullable(creationTimestamp);
   }
 
   /**
@@ -224,8 +210,8 @@ public class DomainEventRecord extends org.apache.avro.specific.SpecificRecordBa
    * Timestamp of this Domain Event
    * @param value the value to set.
    */
-  public void setCreationTimestamp(java.time.Instant value) {
-    this.creationTimestamp = value.truncatedTo(java.time.temporal.ChronoUnit.MILLIS);
+  public void setCreationTimestamp(java.lang.String value) {
+    this.creationTimestamp = value;
   }
 
   /**
@@ -300,7 +286,7 @@ public class DomainEventRecord extends org.apache.avro.specific.SpecificRecordBa
     /** The Domain Event type in the  Record envelope * */
     private com.skaria.avro.model.aggregate.domain.EventType eventType;
     /** Timestamp of this Domain Event */
-    private java.time.Instant creationTimestamp;
+    private java.lang.String creationTimestamp;
     /** Union of the supported Domain events */
     private java.lang.Object event;
 
@@ -501,17 +487,17 @@ public class DomainEventRecord extends org.apache.avro.specific.SpecificRecordBa
       * Timestamp of this Domain Event
       * @return The value.
       */
-    public java.time.Instant getCreationTimestamp() {
+    public java.lang.String getCreationTimestamp() {
       return creationTimestamp;
     }
 
     /**
-      * Gets the value of the 'creationTimestamp' field as an Optional&lt;java.time.Instant&gt;.
+      * Gets the value of the 'creationTimestamp' field as an Optional&lt;java.lang.String&gt;.
       * Timestamp of this Domain Event
-      * @return The value wrapped in an Optional&lt;java.time.Instant&gt;.
+      * @return The value wrapped in an Optional&lt;java.lang.String&gt;.
       */
-    public Optional<java.time.Instant> getOptionalCreationTimestamp() {
-      return Optional.<java.time.Instant>ofNullable(creationTimestamp);
+    public Optional<java.lang.String> getOptionalCreationTimestamp() {
+      return Optional.<java.lang.String>ofNullable(creationTimestamp);
     }
 
     /**
@@ -520,9 +506,9 @@ public class DomainEventRecord extends org.apache.avro.specific.SpecificRecordBa
       * @param value The value of 'creationTimestamp'.
       * @return This builder.
       */
-    public com.skaria.avro.model.aggregate.domain.DomainEventRecord.Builder setCreationTimestamp(java.time.Instant value) {
+    public com.skaria.avro.model.aggregate.domain.DomainEventRecord.Builder setCreationTimestamp(java.lang.String value) {
       validate(fields()[2], value);
-      this.creationTimestamp = value.truncatedTo(java.time.temporal.ChronoUnit.MILLIS);
+      this.creationTimestamp = value;
       fieldSetFlags()[2] = true;
       return this;
     }
@@ -543,6 +529,7 @@ public class DomainEventRecord extends org.apache.avro.specific.SpecificRecordBa
       * @return This builder.
       */
     public com.skaria.avro.model.aggregate.domain.DomainEventRecord.Builder clearCreationTimestamp() {
+      creationTimestamp = null;
       fieldSetFlags()[2] = false;
       return this;
     }
@@ -615,7 +602,7 @@ public class DomainEventRecord extends org.apache.avro.specific.SpecificRecordBa
           record.identifier = fieldSetFlags()[0] ? this.identifier : (com.skaria.avro.model.Identifier) defaultValue(fields()[0]);
         }
         record.eventType = fieldSetFlags()[1] ? this.eventType : (com.skaria.avro.model.aggregate.domain.EventType) defaultValue(fields()[1]);
-        record.creationTimestamp = fieldSetFlags()[2] ? this.creationTimestamp : (java.time.Instant) defaultValue(fields()[2]);
+        record.creationTimestamp = fieldSetFlags()[2] ? this.creationTimestamp : (java.lang.String) defaultValue(fields()[2]);
         record.event = fieldSetFlags()[3] ? this.event :  defaultValue(fields()[3]);
         return record;
       } catch (org.apache.avro.AvroMissingFieldException e) {
