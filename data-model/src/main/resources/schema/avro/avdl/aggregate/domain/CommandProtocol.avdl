@@ -23,15 +23,13 @@ protocol DomainCommandProtocol {
     record AddIdentifierToSomeListCommandRecord {
         uuid                                                        eventId;
         string                                                      creationTimestamp;
-        string                          listId;
         com.skaria.avro.model.SomeList  someList;
     }
 
     record RemoveIdentifierFromListCommandRecord {
         uuid                                                        eventId;
         string                                                      creationTimestamp;
-        string                          listId;
-        com.skaria.avro.model.SomeList  someList;
+        com.skaria.avro.model.SomeListId                          someListId;
     }
 
     record UpdatePersonCommandRecord {

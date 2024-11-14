@@ -4,7 +4,8 @@ protocol SomeListValueObjectsProtocol {
 
 
   record SomeListId {
-    string                  id;
+    string                  firstName;
+    string                  lastName;
   }
 
   enum Action {

@@ -14,10 +14,10 @@ import org.apache.avro.message.SchemaStore;
 import java.util.Optional;
 @org.apache.avro.specific.AvroGenerated
 public class SomeListId extends org.apache.avro.specific.SpecificRecordBase implements org.apache.avro.specific.SpecificRecord {
-  private static final long serialVersionUID = -4863351610424296968L;
+  private static final long serialVersionUID = -3811497533575740578L;
 
 
-  public static final org.apache.avro.Schema SCHEMA$ = new org.apache.avro.Schema.Parser().parse("{\"type\":\"record\",\"name\":\"SomeListId\",\"namespace\":\"com.skaria.avro.model\",\"fields\":[{\"name\":\"id\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"}}]}");
+  public static final org.apache.avro.Schema SCHEMA$ = new org.apache.avro.Schema.Parser().parse("{\"type\":\"record\",\"name\":\"SomeListId\",\"namespace\":\"com.skaria.avro.model\",\"fields\":[{\"name\":\"firstName\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"}},{\"name\":\"lastName\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"}}]}");
   public static org.apache.avro.Schema getClassSchema() { return SCHEMA$; }
 
   private static final SpecificData MODEL$ = new SpecificData();
@@ -73,7 +73,8 @@ public class SomeListId extends org.apache.avro.specific.SpecificRecordBase impl
     return DECODER.decode(b);
   }
 
-  private java.lang.String id;
+  private java.lang.String firstName;
+  private java.lang.String lastName;
 
   /**
    * Default constructor.  Note that this does not initialize fields
@@ -84,10 +85,12 @@ public class SomeListId extends org.apache.avro.specific.SpecificRecordBase impl
 
   /**
    * All-args constructor.
-   * @param id The new value for id
+   * @param firstName The new value for firstName
+   * @param lastName The new value for lastName
    */
-  public SomeListId(java.lang.String id) {
-    this.id = id;
+  public SomeListId(java.lang.String firstName, java.lang.String lastName) {
+    this.firstName = firstName;
+    this.lastName = lastName;
   }
 
   @Override
@@ -100,7 +103,8 @@ public class SomeListId extends org.apache.avro.specific.SpecificRecordBase impl
   @Override
   public java.lang.Object get(int field$) {
     switch (field$) {
-    case 0: return id;
+    case 0: return firstName;
+    case 1: return lastName;
     default: throw new IndexOutOfBoundsException("Invalid index: " + field$);
     }
   }
@@ -110,33 +114,58 @@ public class SomeListId extends org.apache.avro.specific.SpecificRecordBase impl
   @SuppressWarnings(value="unchecked")
   public void put(int field$, java.lang.Object value$) {
     switch (field$) {
-    case 0: id = value$ != null ? value$.toString() : null; break;
+    case 0: firstName = value$ != null ? value$.toString() : null; break;
+    case 1: lastName = value$ != null ? value$.toString() : null; break;
     default: throw new IndexOutOfBoundsException("Invalid index: " + field$);
     }
   }
 
   /**
-   * Gets the value of the 'id' field.
-   * @return The value of the 'id' field.
+   * Gets the value of the 'firstName' field.
+   * @return The value of the 'firstName' field.
    */
-  public java.lang.String getId() {
-    return id;
+  public java.lang.String getFirstName() {
+    return firstName;
   }
 
   /**
-   * Gets the value of the 'id' field as an Optional&lt;java.lang.String&gt;.
+   * Gets the value of the 'firstName' field as an Optional&lt;java.lang.String&gt;.
    * @return The value wrapped in an Optional&lt;java.lang.String&gt;.
    */
-  public Optional<java.lang.String> getOptionalId() {
-    return Optional.<java.lang.String>ofNullable(id);
+  public Optional<java.lang.String> getOptionalFirstName() {
+    return Optional.<java.lang.String>ofNullable(firstName);
   }
 
   /**
-   * Sets the value of the 'id' field.
+   * Sets the value of the 'firstName' field.
    * @param value the value to set.
    */
-  public void setId(java.lang.String value) {
-    this.id = value;
+  public void setFirstName(java.lang.String value) {
+    this.firstName = value;
+  }
+
+  /**
+   * Gets the value of the 'lastName' field.
+   * @return The value of the 'lastName' field.
+   */
+  public java.lang.String getLastName() {
+    return lastName;
+  }
+
+  /**
+   * Gets the value of the 'lastName' field as an Optional&lt;java.lang.String&gt;.
+   * @return The value wrapped in an Optional&lt;java.lang.String&gt;.
+   */
+  public Optional<java.lang.String> getOptionalLastName() {
+    return Optional.<java.lang.String>ofNullable(lastName);
+  }
+
+  /**
+   * Sets the value of the 'lastName' field.
+   * @param value the value to set.
+   */
+  public void setLastName(java.lang.String value) {
+    this.lastName = value;
   }
 
   /**
@@ -180,7 +209,8 @@ public class SomeListId extends org.apache.avro.specific.SpecificRecordBase impl
   public static class Builder extends org.apache.avro.specific.SpecificRecordBuilderBase<SomeListId>
     implements org.apache.avro.data.RecordBuilder<SomeListId> {
 
-    private java.lang.String id;
+    private java.lang.String firstName;
+    private java.lang.String lastName;
 
     /** Creates a new Builder */
     private Builder() {
@@ -193,9 +223,13 @@ public class SomeListId extends org.apache.avro.specific.SpecificRecordBase impl
      */
     private Builder(com.skaria.avro.model.SomeListId.Builder other) {
       super(other);
-      if (isValidValue(fields()[0], other.id)) {
-        this.id = data().deepCopy(fields()[0].schema(), other.id);
+      if (isValidValue(fields()[0], other.firstName)) {
+        this.firstName = data().deepCopy(fields()[0].schema(), other.firstName);
         fieldSetFlags()[0] = other.fieldSetFlags()[0];
+      }
+      if (isValidValue(fields()[1], other.lastName)) {
+        this.lastName = data().deepCopy(fields()[1].schema(), other.lastName);
+        fieldSetFlags()[1] = other.fieldSetFlags()[1];
       }
     }
 
@@ -205,56 +239,107 @@ public class SomeListId extends org.apache.avro.specific.SpecificRecordBase impl
      */
     private Builder(com.skaria.avro.model.SomeListId other) {
       super(SCHEMA$, MODEL$);
-      if (isValidValue(fields()[0], other.id)) {
-        this.id = data().deepCopy(fields()[0].schema(), other.id);
+      if (isValidValue(fields()[0], other.firstName)) {
+        this.firstName = data().deepCopy(fields()[0].schema(), other.firstName);
         fieldSetFlags()[0] = true;
+      }
+      if (isValidValue(fields()[1], other.lastName)) {
+        this.lastName = data().deepCopy(fields()[1].schema(), other.lastName);
+        fieldSetFlags()[1] = true;
       }
     }
 
     /**
-      * Gets the value of the 'id' field.
+      * Gets the value of the 'firstName' field.
       * @return The value.
       */
-    public java.lang.String getId() {
-      return id;
+    public java.lang.String getFirstName() {
+      return firstName;
     }
 
     /**
-      * Gets the value of the 'id' field as an Optional&lt;java.lang.String&gt;.
+      * Gets the value of the 'firstName' field as an Optional&lt;java.lang.String&gt;.
       * @return The value wrapped in an Optional&lt;java.lang.String&gt;.
       */
-    public Optional<java.lang.String> getOptionalId() {
-      return Optional.<java.lang.String>ofNullable(id);
+    public Optional<java.lang.String> getOptionalFirstName() {
+      return Optional.<java.lang.String>ofNullable(firstName);
     }
 
     /**
-      * Sets the value of the 'id' field.
-      * @param value The value of 'id'.
+      * Sets the value of the 'firstName' field.
+      * @param value The value of 'firstName'.
       * @return This builder.
       */
-    public com.skaria.avro.model.SomeListId.Builder setId(java.lang.String value) {
+    public com.skaria.avro.model.SomeListId.Builder setFirstName(java.lang.String value) {
       validate(fields()[0], value);
-      this.id = value;
+      this.firstName = value;
       fieldSetFlags()[0] = true;
       return this;
     }
 
     /**
-      * Checks whether the 'id' field has been set.
-      * @return True if the 'id' field has been set, false otherwise.
+      * Checks whether the 'firstName' field has been set.
+      * @return True if the 'firstName' field has been set, false otherwise.
       */
-    public boolean hasId() {
+    public boolean hasFirstName() {
       return fieldSetFlags()[0];
     }
 
 
     /**
-      * Clears the value of the 'id' field.
+      * Clears the value of the 'firstName' field.
       * @return This builder.
       */
-    public com.skaria.avro.model.SomeListId.Builder clearId() {
-      id = null;
+    public com.skaria.avro.model.SomeListId.Builder clearFirstName() {
+      firstName = null;
       fieldSetFlags()[0] = false;
+      return this;
+    }
+
+    /**
+      * Gets the value of the 'lastName' field.
+      * @return The value.
+      */
+    public java.lang.String getLastName() {
+      return lastName;
+    }
+
+    /**
+      * Gets the value of the 'lastName' field as an Optional&lt;java.lang.String&gt;.
+      * @return The value wrapped in an Optional&lt;java.lang.String&gt;.
+      */
+    public Optional<java.lang.String> getOptionalLastName() {
+      return Optional.<java.lang.String>ofNullable(lastName);
+    }
+
+    /**
+      * Sets the value of the 'lastName' field.
+      * @param value The value of 'lastName'.
+      * @return This builder.
+      */
+    public com.skaria.avro.model.SomeListId.Builder setLastName(java.lang.String value) {
+      validate(fields()[1], value);
+      this.lastName = value;
+      fieldSetFlags()[1] = true;
+      return this;
+    }
+
+    /**
+      * Checks whether the 'lastName' field has been set.
+      * @return True if the 'lastName' field has been set, false otherwise.
+      */
+    public boolean hasLastName() {
+      return fieldSetFlags()[1];
+    }
+
+
+    /**
+      * Clears the value of the 'lastName' field.
+      * @return This builder.
+      */
+    public com.skaria.avro.model.SomeListId.Builder clearLastName() {
+      lastName = null;
+      fieldSetFlags()[1] = false;
       return this;
     }
 
@@ -263,7 +348,8 @@ public class SomeListId extends org.apache.avro.specific.SpecificRecordBase impl
     public SomeListId build() {
       try {
         SomeListId record = new SomeListId();
-        record.id = fieldSetFlags()[0] ? this.id : (java.lang.String) defaultValue(fields()[0]);
+        record.firstName = fieldSetFlags()[0] ? this.firstName : (java.lang.String) defaultValue(fields()[0]);
+        record.lastName = fieldSetFlags()[1] ? this.lastName : (java.lang.String) defaultValue(fields()[1]);
         return record;
       } catch (org.apache.avro.AvroMissingFieldException e) {
         throw e;
@@ -296,7 +382,9 @@ public class SomeListId extends org.apache.avro.specific.SpecificRecordBase impl
   @Override public void customEncode(org.apache.avro.io.Encoder out)
     throws java.io.IOException
   {
-    out.writeString(this.id);
+    out.writeString(this.firstName);
+
+    out.writeString(this.lastName);
 
   }
 
@@ -305,13 +393,19 @@ public class SomeListId extends org.apache.avro.specific.SpecificRecordBase impl
   {
     org.apache.avro.Schema.Field[] fieldOrder = in.readFieldOrderIfDiff();
     if (fieldOrder == null) {
-      this.id = in.readString();
+      this.firstName = in.readString();
+
+      this.lastName = in.readString();
 
     } else {
-      for (int i = 0; i < 1; i++) {
+      for (int i = 0; i < 2; i++) {
         switch (fieldOrder[i].pos()) {
         case 0:
-          this.id = in.readString();
+          this.firstName = in.readString();
+          break;
+
+        case 1:
+          this.lastName = in.readString();
           break;
 
         default:

@@ -14,10 +14,10 @@ import org.apache.avro.message.SchemaStore;
 import java.util.Optional;
 @org.apache.avro.specific.AvroGenerated
 public class IdentifierRemovedFromListEventRecord extends org.apache.avro.specific.SpecificRecordBase implements org.apache.avro.specific.SpecificRecord {
-  private static final long serialVersionUID = 6560148887002175305L;
+  private static final long serialVersionUID = 7564218159410590207L;
 
 
-  public static final org.apache.avro.Schema SCHEMA$ = new org.apache.avro.Schema.Parser().parse("{\"type\":\"record\",\"name\":\"IdentifierRemovedFromListEventRecord\",\"namespace\":\"com.skaria.avro.model.aggregate.domain\",\"fields\":[{\"name\":\"eventId\",\"type\":{\"type\":\"string\",\"logicalType\":\"uuid\"}},{\"name\":\"creationTimestamp\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"}},{\"name\":\"listId\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"}},{\"name\":\"someList\",\"type\":{\"type\":\"record\",\"name\":\"SomeList\",\"namespace\":\"com.skaria.avro.model\",\"fields\":[{\"name\":\"id\",\"type\":{\"type\":\"record\",\"name\":\"SomeListId\",\"fields\":[{\"name\":\"id\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"}}]}},{\"name\":\"name\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}]},{\"name\":\"middlename\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}]},{\"name\":\"age\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}]},{\"name\":\"action\",\"type\":{\"type\":\"enum\",\"name\":\"Action\",\"symbols\":[\"STOP\",\"GO\"]}}]}}]}");
+  public static final org.apache.avro.Schema SCHEMA$ = new org.apache.avro.Schema.Parser().parse("{\"type\":\"record\",\"name\":\"IdentifierRemovedFromListEventRecord\",\"namespace\":\"com.skaria.avro.model.aggregate.domain\",\"fields\":[{\"name\":\"eventId\",\"type\":{\"type\":\"string\",\"logicalType\":\"uuid\"}},{\"name\":\"creationTimestamp\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"}},{\"name\":\"someListId\",\"type\":{\"type\":\"record\",\"name\":\"SomeListId\",\"namespace\":\"com.skaria.avro.model\",\"fields\":[{\"name\":\"firstName\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"}},{\"name\":\"lastName\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"}}]}}]}");
   public static org.apache.avro.Schema getClassSchema() { return SCHEMA$; }
 
   private static final SpecificData MODEL$ = new SpecificData();
@@ -78,8 +78,7 @@ public class IdentifierRemovedFromListEventRecord extends org.apache.avro.specif
 
   private java.util.UUID eventId;
   private java.lang.String creationTimestamp;
-  private java.lang.String listId;
-  private com.skaria.avro.model.SomeList someList;
+  private com.skaria.avro.model.SomeListId someListId;
 
   /**
    * Default constructor.  Note that this does not initialize fields
@@ -92,14 +91,12 @@ public class IdentifierRemovedFromListEventRecord extends org.apache.avro.specif
    * All-args constructor.
    * @param eventId The new value for eventId
    * @param creationTimestamp The new value for creationTimestamp
-   * @param listId The new value for listId
-   * @param someList The new value for someList
+   * @param someListId The new value for someListId
    */
-  public IdentifierRemovedFromListEventRecord(java.util.UUID eventId, java.lang.String creationTimestamp, java.lang.String listId, com.skaria.avro.model.SomeList someList) {
+  public IdentifierRemovedFromListEventRecord(java.util.UUID eventId, java.lang.String creationTimestamp, com.skaria.avro.model.SomeListId someListId) {
     this.eventId = eventId;
     this.creationTimestamp = creationTimestamp;
-    this.listId = listId;
-    this.someList = someList;
+    this.someListId = someListId;
   }
 
   @Override
@@ -114,8 +111,7 @@ public class IdentifierRemovedFromListEventRecord extends org.apache.avro.specif
     switch (field$) {
     case 0: return eventId;
     case 1: return creationTimestamp;
-    case 2: return listId;
-    case 3: return someList;
+    case 2: return someListId;
     default: throw new IndexOutOfBoundsException("Invalid index: " + field$);
     }
   }
@@ -123,7 +119,6 @@ public class IdentifierRemovedFromListEventRecord extends org.apache.avro.specif
   private static final org.apache.avro.Conversion<?>[] conversions =
       new org.apache.avro.Conversion<?>[] {
       new org.apache.avro.Conversions.UUIDConversion(),
-      null,
       null,
       null,
       null
@@ -141,8 +136,7 @@ public class IdentifierRemovedFromListEventRecord extends org.apache.avro.specif
     switch (field$) {
     case 0: eventId = (java.util.UUID)value$; break;
     case 1: creationTimestamp = value$ != null ? value$.toString() : null; break;
-    case 2: listId = value$ != null ? value$.toString() : null; break;
-    case 3: someList = (com.skaria.avro.model.SomeList)value$; break;
+    case 2: someListId = (com.skaria.avro.model.SomeListId)value$; break;
     default: throw new IndexOutOfBoundsException("Invalid index: " + field$);
     }
   }
@@ -196,51 +190,27 @@ public class IdentifierRemovedFromListEventRecord extends org.apache.avro.specif
   }
 
   /**
-   * Gets the value of the 'listId' field.
-   * @return The value of the 'listId' field.
+   * Gets the value of the 'someListId' field.
+   * @return The value of the 'someListId' field.
    */
-  public java.lang.String getListId() {
-    return listId;
+  public com.skaria.avro.model.SomeListId getSomeListId() {
+    return someListId;
   }
 
   /**
-   * Gets the value of the 'listId' field as an Optional&lt;java.lang.String&gt;.
-   * @return The value wrapped in an Optional&lt;java.lang.String&gt;.
+   * Gets the value of the 'someListId' field as an Optional&lt;com.skaria.avro.model.SomeListId&gt;.
+   * @return The value wrapped in an Optional&lt;com.skaria.avro.model.SomeListId&gt;.
    */
-  public Optional<java.lang.String> getOptionalListId() {
-    return Optional.<java.lang.String>ofNullable(listId);
+  public Optional<com.skaria.avro.model.SomeListId> getOptionalSomeListId() {
+    return Optional.<com.skaria.avro.model.SomeListId>ofNullable(someListId);
   }
 
   /**
-   * Sets the value of the 'listId' field.
+   * Sets the value of the 'someListId' field.
    * @param value the value to set.
    */
-  public void setListId(java.lang.String value) {
-    this.listId = value;
-  }
-
-  /**
-   * Gets the value of the 'someList' field.
-   * @return The value of the 'someList' field.
-   */
-  public com.skaria.avro.model.SomeList getSomeList() {
-    return someList;
-  }
-
-  /**
-   * Gets the value of the 'someList' field as an Optional&lt;com.skaria.avro.model.SomeList&gt;.
-   * @return The value wrapped in an Optional&lt;com.skaria.avro.model.SomeList&gt;.
-   */
-  public Optional<com.skaria.avro.model.SomeList> getOptionalSomeList() {
-    return Optional.<com.skaria.avro.model.SomeList>ofNullable(someList);
-  }
-
-  /**
-   * Sets the value of the 'someList' field.
-   * @param value the value to set.
-   */
-  public void setSomeList(com.skaria.avro.model.SomeList value) {
-    this.someList = value;
+  public void setSomeListId(com.skaria.avro.model.SomeListId value) {
+    this.someListId = value;
   }
 
   /**
@@ -286,9 +256,8 @@ public class IdentifierRemovedFromListEventRecord extends org.apache.avro.specif
 
     private java.util.UUID eventId;
     private java.lang.String creationTimestamp;
-    private java.lang.String listId;
-    private com.skaria.avro.model.SomeList someList;
-    private com.skaria.avro.model.SomeList.Builder someListBuilder;
+    private com.skaria.avro.model.SomeListId someListId;
+    private com.skaria.avro.model.SomeListId.Builder someListIdBuilder;
 
     /** Creates a new Builder */
     private Builder() {
@@ -309,16 +278,12 @@ public class IdentifierRemovedFromListEventRecord extends org.apache.avro.specif
         this.creationTimestamp = data().deepCopy(fields()[1].schema(), other.creationTimestamp);
         fieldSetFlags()[1] = other.fieldSetFlags()[1];
       }
-      if (isValidValue(fields()[2], other.listId)) {
-        this.listId = data().deepCopy(fields()[2].schema(), other.listId);
+      if (isValidValue(fields()[2], other.someListId)) {
+        this.someListId = data().deepCopy(fields()[2].schema(), other.someListId);
         fieldSetFlags()[2] = other.fieldSetFlags()[2];
       }
-      if (isValidValue(fields()[3], other.someList)) {
-        this.someList = data().deepCopy(fields()[3].schema(), other.someList);
-        fieldSetFlags()[3] = other.fieldSetFlags()[3];
-      }
-      if (other.hasSomeListBuilder()) {
-        this.someListBuilder = com.skaria.avro.model.SomeList.newBuilder(other.getSomeListBuilder());
+      if (other.hasSomeListIdBuilder()) {
+        this.someListIdBuilder = com.skaria.avro.model.SomeListId.newBuilder(other.getSomeListIdBuilder());
       }
     }
 
@@ -336,15 +301,11 @@ public class IdentifierRemovedFromListEventRecord extends org.apache.avro.specif
         this.creationTimestamp = data().deepCopy(fields()[1].schema(), other.creationTimestamp);
         fieldSetFlags()[1] = true;
       }
-      if (isValidValue(fields()[2], other.listId)) {
-        this.listId = data().deepCopy(fields()[2].schema(), other.listId);
+      if (isValidValue(fields()[2], other.someListId)) {
+        this.someListId = data().deepCopy(fields()[2].schema(), other.someListId);
         fieldSetFlags()[2] = true;
       }
-      if (isValidValue(fields()[3], other.someList)) {
-        this.someList = data().deepCopy(fields()[3].schema(), other.someList);
-        fieldSetFlags()[3] = true;
-      }
-      this.someListBuilder = null;
+      this.someListIdBuilder = null;
     }
 
     /**
@@ -442,132 +403,85 @@ public class IdentifierRemovedFromListEventRecord extends org.apache.avro.specif
     }
 
     /**
-      * Gets the value of the 'listId' field.
+      * Gets the value of the 'someListId' field.
       * @return The value.
       */
-    public java.lang.String getListId() {
-      return listId;
+    public com.skaria.avro.model.SomeListId getSomeListId() {
+      return someListId;
     }
 
     /**
-      * Gets the value of the 'listId' field as an Optional&lt;java.lang.String&gt;.
-      * @return The value wrapped in an Optional&lt;java.lang.String&gt;.
+      * Gets the value of the 'someListId' field as an Optional&lt;com.skaria.avro.model.SomeListId&gt;.
+      * @return The value wrapped in an Optional&lt;com.skaria.avro.model.SomeListId&gt;.
       */
-    public Optional<java.lang.String> getOptionalListId() {
-      return Optional.<java.lang.String>ofNullable(listId);
+    public Optional<com.skaria.avro.model.SomeListId> getOptionalSomeListId() {
+      return Optional.<com.skaria.avro.model.SomeListId>ofNullable(someListId);
     }
 
     /**
-      * Sets the value of the 'listId' field.
-      * @param value The value of 'listId'.
+      * Sets the value of the 'someListId' field.
+      * @param value The value of 'someListId'.
       * @return This builder.
       */
-    public com.skaria.avro.model.aggregate.domain.IdentifierRemovedFromListEventRecord.Builder setListId(java.lang.String value) {
+    public com.skaria.avro.model.aggregate.domain.IdentifierRemovedFromListEventRecord.Builder setSomeListId(com.skaria.avro.model.SomeListId value) {
       validate(fields()[2], value);
-      this.listId = value;
+      this.someListIdBuilder = null;
+      this.someListId = value;
       fieldSetFlags()[2] = true;
       return this;
     }
 
     /**
-      * Checks whether the 'listId' field has been set.
-      * @return True if the 'listId' field has been set, false otherwise.
+      * Checks whether the 'someListId' field has been set.
+      * @return True if the 'someListId' field has been set, false otherwise.
       */
-    public boolean hasListId() {
+    public boolean hasSomeListId() {
       return fieldSetFlags()[2];
     }
 
-
     /**
-      * Clears the value of the 'listId' field.
-      * @return This builder.
-      */
-    public com.skaria.avro.model.aggregate.domain.IdentifierRemovedFromListEventRecord.Builder clearListId() {
-      listId = null;
-      fieldSetFlags()[2] = false;
-      return this;
-    }
-
-    /**
-      * Gets the value of the 'someList' field.
-      * @return The value.
-      */
-    public com.skaria.avro.model.SomeList getSomeList() {
-      return someList;
-    }
-
-    /**
-      * Gets the value of the 'someList' field as an Optional&lt;com.skaria.avro.model.SomeList&gt;.
-      * @return The value wrapped in an Optional&lt;com.skaria.avro.model.SomeList&gt;.
-      */
-    public Optional<com.skaria.avro.model.SomeList> getOptionalSomeList() {
-      return Optional.<com.skaria.avro.model.SomeList>ofNullable(someList);
-    }
-
-    /**
-      * Sets the value of the 'someList' field.
-      * @param value The value of 'someList'.
-      * @return This builder.
-      */
-    public com.skaria.avro.model.aggregate.domain.IdentifierRemovedFromListEventRecord.Builder setSomeList(com.skaria.avro.model.SomeList value) {
-      validate(fields()[3], value);
-      this.someListBuilder = null;
-      this.someList = value;
-      fieldSetFlags()[3] = true;
-      return this;
-    }
-
-    /**
-      * Checks whether the 'someList' field has been set.
-      * @return True if the 'someList' field has been set, false otherwise.
-      */
-    public boolean hasSomeList() {
-      return fieldSetFlags()[3];
-    }
-
-    /**
-     * Gets the Builder instance for the 'someList' field and creates one if it doesn't exist yet.
+     * Gets the Builder instance for the 'someListId' field and creates one if it doesn't exist yet.
      * @return This builder.
      */
-    public com.skaria.avro.model.SomeList.Builder getSomeListBuilder() {
-      if (someListBuilder == null) {
-        if (hasSomeList()) {
-          setSomeListBuilder(com.skaria.avro.model.SomeList.newBuilder(someList));
+    public com.skaria.avro.model.SomeListId.Builder getSomeListIdBuilder() {
+      if (someListIdBuilder == null) {
+        if (hasSomeListId()) {
+          setSomeListIdBuilder(com.skaria.avro.model.SomeListId.newBuilder(someListId));
         } else {
-          setSomeListBuilder(com.skaria.avro.model.SomeList.newBuilder());
+          setSomeListIdBuilder(com.skaria.avro.model.SomeListId.newBuilder());
         }
       }
-      return someListBuilder;
+      return someListIdBuilder;
     }
 
     /**
-     * Sets the Builder instance for the 'someList' field
+     * Sets the Builder instance for the 'someListId' field
      * @param value The builder instance that must be set.
      * @return This builder.
      */
 
-    public com.skaria.avro.model.aggregate.domain.IdentifierRemovedFromListEventRecord.Builder setSomeListBuilder(com.skaria.avro.model.SomeList.Builder value) {
-      clearSomeList();
-      someListBuilder = value;
+    public com.skaria.avro.model.aggregate.domain.IdentifierRemovedFromListEventRecord.Builder setSomeListIdBuilder(com.skaria.avro.model.SomeListId.Builder value) {
+      clearSomeListId();
+      someListIdBuilder = value;
       return this;
     }
 
     /**
-     * Checks whether the 'someList' field has an active Builder instance
-     * @return True if the 'someList' field has an active Builder instance
+     * Checks whether the 'someListId' field has an active Builder instance
+     * @return True if the 'someListId' field has an active Builder instance
      */
-    public boolean hasSomeListBuilder() {
-      return someListBuilder != null;
+    public boolean hasSomeListIdBuilder() {
+      return someListIdBuilder != null;
     }
 
     /**
-      * Clears the value of the 'someList' field.
+      * Clears the value of the 'someListId' field.
       * @return This builder.
       */
-    public com.skaria.avro.model.aggregate.domain.IdentifierRemovedFromListEventRecord.Builder clearSomeList() {
-      someList = null;
-      someListBuilder = null;
-      fieldSetFlags()[3] = false;
+    public com.skaria.avro.model.aggregate.domain.IdentifierRemovedFromListEventRecord.Builder clearSomeListId() {
+      someListId = null;
+      someListIdBuilder = null;
+      fieldSetFlags()[2] = false;
       return this;
     }
 
@@ -578,16 +492,15 @@ public class IdentifierRemovedFromListEventRecord extends org.apache.avro.specif
         IdentifierRemovedFromListEventRecord record = new IdentifierRemovedFromListEventRecord();
         record.eventId = fieldSetFlags()[0] ? this.eventId : (java.util.UUID) defaultValue(fields()[0]);
         record.creationTimestamp = fieldSetFlags()[1] ? this.creationTimestamp : (java.lang.String) defaultValue(fields()[1]);
-        record.listId = fieldSetFlags()[2] ? this.listId : (java.lang.String) defaultValue(fields()[2]);
-        if (someListBuilder != null) {
+        if (someListIdBuilder != null) {
           try {
-            record.someList = this.someListBuilder.build();
+            record.someListId = this.someListIdBuilder.build();
           } catch (org.apache.avro.AvroMissingFieldException e) {
-            e.addParentField(record.getSchema().getField("someList"));
+            e.addParentField(record.getSchema().getField("someListId"));
             throw e;
           }
         } else {
-          record.someList = fieldSetFlags()[3] ? this.someList : (com.skaria.avro.model.SomeList) defaultValue(fields()[3]);
+          record.someListId = fieldSetFlags()[2] ? this.someListId : (com.skaria.avro.model.SomeListId) defaultValue(fields()[2]);
         }
         return record;
       } catch (org.apache.avro.AvroMissingFieldException e) {

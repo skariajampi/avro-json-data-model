@@ -7,9 +7,9 @@ protocol SomeListProtocol {
     record SomeList {
         com.skaria.avro.model.SomeListId             id;
 
-        union {null, string}                                name;
+        string                                firstName;
 
-
+        string                                lastName;
         union {null, string}                                middlename;
 
         union {null, string}                                age;

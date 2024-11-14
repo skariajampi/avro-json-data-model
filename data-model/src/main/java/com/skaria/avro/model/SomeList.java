@@ -14,10 +14,10 @@ import org.apache.avro.message.SchemaStore;
 import java.util.Optional;
 @org.apache.avro.specific.AvroGenerated
 public class SomeList extends org.apache.avro.specific.SpecificRecordBase implements org.apache.avro.specific.SpecificRecord {
-  private static final long serialVersionUID = 3043195335919909763L;
+  private static final long serialVersionUID = -9006484386967127449L;
 
 
-  public static final org.apache.avro.Schema SCHEMA$ = new org.apache.avro.Schema.Parser().parse("{\"type\":\"record\",\"name\":\"SomeList\",\"namespace\":\"com.skaria.avro.model\",\"fields\":[{\"name\":\"id\",\"type\":{\"type\":\"record\",\"name\":\"SomeListId\",\"fields\":[{\"name\":\"id\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"}}]}},{\"name\":\"name\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}]},{\"name\":\"middlename\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}]},{\"name\":\"age\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}]},{\"name\":\"action\",\"type\":{\"type\":\"enum\",\"name\":\"Action\",\"symbols\":[\"STOP\",\"GO\"]}}]}");
+  public static final org.apache.avro.Schema SCHEMA$ = new org.apache.avro.Schema.Parser().parse("{\"type\":\"record\",\"name\":\"SomeList\",\"namespace\":\"com.skaria.avro.model\",\"fields\":[{\"name\":\"id\",\"type\":{\"type\":\"record\",\"name\":\"SomeListId\",\"fields\":[{\"name\":\"firstName\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"}},{\"name\":\"lastName\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"}}]}},{\"name\":\"firstName\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"}},{\"name\":\"lastName\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"}},{\"name\":\"middlename\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}]},{\"name\":\"age\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}]},{\"name\":\"action\",\"type\":{\"type\":\"enum\",\"name\":\"Action\",\"symbols\":[\"STOP\",\"GO\"]}}]}");
   public static org.apache.avro.Schema getClassSchema() { return SCHEMA$; }
 
   private static final SpecificData MODEL$ = new SpecificData();
@@ -74,7 +74,8 @@ public class SomeList extends org.apache.avro.specific.SpecificRecordBase implem
   }
 
   private com.skaria.avro.model.SomeListId id;
-  private java.lang.String name;
+  private java.lang.String firstName;
+  private java.lang.String lastName;
   private java.lang.String middlename;
   private java.lang.String age;
   private com.skaria.avro.model.Action action;
@@ -89,14 +90,16 @@ public class SomeList extends org.apache.avro.specific.SpecificRecordBase implem
   /**
    * All-args constructor.
    * @param id The new value for id
-   * @param name The new value for name
+   * @param firstName The new value for firstName
+   * @param lastName The new value for lastName
    * @param middlename The new value for middlename
    * @param age The new value for age
    * @param action The new value for action
    */
-  public SomeList(com.skaria.avro.model.SomeListId id, java.lang.String name, java.lang.String middlename, java.lang.String age, com.skaria.avro.model.Action action) {
+  public SomeList(com.skaria.avro.model.SomeListId id, java.lang.String firstName, java.lang.String lastName, java.lang.String middlename, java.lang.String age, com.skaria.avro.model.Action action) {
     this.id = id;
-    this.name = name;
+    this.firstName = firstName;
+    this.lastName = lastName;
     this.middlename = middlename;
     this.age = age;
     this.action = action;
@@ -113,10 +116,11 @@ public class SomeList extends org.apache.avro.specific.SpecificRecordBase implem
   public java.lang.Object get(int field$) {
     switch (field$) {
     case 0: return id;
-    case 1: return name;
-    case 2: return middlename;
-    case 3: return age;
-    case 4: return action;
+    case 1: return firstName;
+    case 2: return lastName;
+    case 3: return middlename;
+    case 4: return age;
+    case 5: return action;
     default: throw new IndexOutOfBoundsException("Invalid index: " + field$);
     }
   }
@@ -127,10 +131,11 @@ public class SomeList extends org.apache.avro.specific.SpecificRecordBase implem
   public void put(int field$, java.lang.Object value$) {
     switch (field$) {
     case 0: id = (com.skaria.avro.model.SomeListId)value$; break;
-    case 1: name = value$ != null ? value$.toString() : null; break;
-    case 2: middlename = value$ != null ? value$.toString() : null; break;
-    case 3: age = value$ != null ? value$.toString() : null; break;
-    case 4: action = (com.skaria.avro.model.Action)value$; break;
+    case 1: firstName = value$ != null ? value$.toString() : null; break;
+    case 2: lastName = value$ != null ? value$.toString() : null; break;
+    case 3: middlename = value$ != null ? value$.toString() : null; break;
+    case 4: age = value$ != null ? value$.toString() : null; break;
+    case 5: action = (com.skaria.avro.model.Action)value$; break;
     default: throw new IndexOutOfBoundsException("Invalid index: " + field$);
     }
   }
@@ -160,27 +165,51 @@ public class SomeList extends org.apache.avro.specific.SpecificRecordBase implem
   }
 
   /**
-   * Gets the value of the 'name' field.
-   * @return The value of the 'name' field.
+   * Gets the value of the 'firstName' field.
+   * @return The value of the 'firstName' field.
    */
-  public java.lang.String getName() {
-    return name;
+  public java.lang.String getFirstName() {
+    return firstName;
   }
 
   /**
-   * Gets the value of the 'name' field as an Optional&lt;java.lang.String&gt;.
+   * Gets the value of the 'firstName' field as an Optional&lt;java.lang.String&gt;.
    * @return The value wrapped in an Optional&lt;java.lang.String&gt;.
    */
-  public Optional<java.lang.String> getOptionalName() {
-    return Optional.<java.lang.String>ofNullable(name);
+  public Optional<java.lang.String> getOptionalFirstName() {
+    return Optional.<java.lang.String>ofNullable(firstName);
   }
 
   /**
-   * Sets the value of the 'name' field.
+   * Sets the value of the 'firstName' field.
    * @param value the value to set.
    */
-  public void setName(java.lang.String value) {
-    this.name = value;
+  public void setFirstName(java.lang.String value) {
+    this.firstName = value;
+  }
+
+  /**
+   * Gets the value of the 'lastName' field.
+   * @return The value of the 'lastName' field.
+   */
+  public java.lang.String getLastName() {
+    return lastName;
+  }
+
+  /**
+   * Gets the value of the 'lastName' field as an Optional&lt;java.lang.String&gt;.
+   * @return The value wrapped in an Optional&lt;java.lang.String&gt;.
+   */
+  public Optional<java.lang.String> getOptionalLastName() {
+    return Optional.<java.lang.String>ofNullable(lastName);
+  }
+
+  /**
+   * Sets the value of the 'lastName' field.
+   * @param value the value to set.
+   */
+  public void setLastName(java.lang.String value) {
+    this.lastName = value;
   }
 
   /**
@@ -298,7 +327,8 @@ public class SomeList extends org.apache.avro.specific.SpecificRecordBase implem
 
     private com.skaria.avro.model.SomeListId id;
     private com.skaria.avro.model.SomeListId.Builder idBuilder;
-    private java.lang.String name;
+    private java.lang.String firstName;
+    private java.lang.String lastName;
     private java.lang.String middlename;
     private java.lang.String age;
     private com.skaria.avro.model.Action action;
@@ -321,21 +351,25 @@ public class SomeList extends org.apache.avro.specific.SpecificRecordBase implem
       if (other.hasIdBuilder()) {
         this.idBuilder = com.skaria.avro.model.SomeListId.newBuilder(other.getIdBuilder());
       }
-      if (isValidValue(fields()[1], other.name)) {
-        this.name = data().deepCopy(fields()[1].schema(), other.name);
+      if (isValidValue(fields()[1], other.firstName)) {
+        this.firstName = data().deepCopy(fields()[1].schema(), other.firstName);
         fieldSetFlags()[1] = other.fieldSetFlags()[1];
       }
-      if (isValidValue(fields()[2], other.middlename)) {
-        this.middlename = data().deepCopy(fields()[2].schema(), other.middlename);
+      if (isValidValue(fields()[2], other.lastName)) {
+        this.lastName = data().deepCopy(fields()[2].schema(), other.lastName);
         fieldSetFlags()[2] = other.fieldSetFlags()[2];
       }
-      if (isValidValue(fields()[3], other.age)) {
-        this.age = data().deepCopy(fields()[3].schema(), other.age);
+      if (isValidValue(fields()[3], other.middlename)) {
+        this.middlename = data().deepCopy(fields()[3].schema(), other.middlename);
         fieldSetFlags()[3] = other.fieldSetFlags()[3];
       }
-      if (isValidValue(fields()[4], other.action)) {
-        this.action = data().deepCopy(fields()[4].schema(), other.action);
+      if (isValidValue(fields()[4], other.age)) {
+        this.age = data().deepCopy(fields()[4].schema(), other.age);
         fieldSetFlags()[4] = other.fieldSetFlags()[4];
+      }
+      if (isValidValue(fields()[5], other.action)) {
+        this.action = data().deepCopy(fields()[5].schema(), other.action);
+        fieldSetFlags()[5] = other.fieldSetFlags()[5];
       }
     }
 
@@ -350,21 +384,25 @@ public class SomeList extends org.apache.avro.specific.SpecificRecordBase implem
         fieldSetFlags()[0] = true;
       }
       this.idBuilder = null;
-      if (isValidValue(fields()[1], other.name)) {
-        this.name = data().deepCopy(fields()[1].schema(), other.name);
+      if (isValidValue(fields()[1], other.firstName)) {
+        this.firstName = data().deepCopy(fields()[1].schema(), other.firstName);
         fieldSetFlags()[1] = true;
       }
-      if (isValidValue(fields()[2], other.middlename)) {
-        this.middlename = data().deepCopy(fields()[2].schema(), other.middlename);
+      if (isValidValue(fields()[2], other.lastName)) {
+        this.lastName = data().deepCopy(fields()[2].schema(), other.lastName);
         fieldSetFlags()[2] = true;
       }
-      if (isValidValue(fields()[3], other.age)) {
-        this.age = data().deepCopy(fields()[3].schema(), other.age);
+      if (isValidValue(fields()[3], other.middlename)) {
+        this.middlename = data().deepCopy(fields()[3].schema(), other.middlename);
         fieldSetFlags()[3] = true;
       }
-      if (isValidValue(fields()[4], other.action)) {
-        this.action = data().deepCopy(fields()[4].schema(), other.action);
+      if (isValidValue(fields()[4], other.age)) {
+        this.age = data().deepCopy(fields()[4].schema(), other.age);
         fieldSetFlags()[4] = true;
+      }
+      if (isValidValue(fields()[5], other.action)) {
+        this.action = data().deepCopy(fields()[5].schema(), other.action);
+        fieldSetFlags()[5] = true;
       }
     }
 
@@ -452,49 +490,96 @@ public class SomeList extends org.apache.avro.specific.SpecificRecordBase implem
     }
 
     /**
-      * Gets the value of the 'name' field.
+      * Gets the value of the 'firstName' field.
       * @return The value.
       */
-    public java.lang.String getName() {
-      return name;
+    public java.lang.String getFirstName() {
+      return firstName;
     }
 
     /**
-      * Gets the value of the 'name' field as an Optional&lt;java.lang.String&gt;.
+      * Gets the value of the 'firstName' field as an Optional&lt;java.lang.String&gt;.
       * @return The value wrapped in an Optional&lt;java.lang.String&gt;.
       */
-    public Optional<java.lang.String> getOptionalName() {
-      return Optional.<java.lang.String>ofNullable(name);
+    public Optional<java.lang.String> getOptionalFirstName() {
+      return Optional.<java.lang.String>ofNullable(firstName);
     }
 
     /**
-      * Sets the value of the 'name' field.
-      * @param value The value of 'name'.
+      * Sets the value of the 'firstName' field.
+      * @param value The value of 'firstName'.
       * @return This builder.
       */
-    public com.skaria.avro.model.SomeList.Builder setName(java.lang.String value) {
+    public com.skaria.avro.model.SomeList.Builder setFirstName(java.lang.String value) {
       validate(fields()[1], value);
-      this.name = value;
+      this.firstName = value;
       fieldSetFlags()[1] = true;
       return this;
     }
 
     /**
-      * Checks whether the 'name' field has been set.
-      * @return True if the 'name' field has been set, false otherwise.
+      * Checks whether the 'firstName' field has been set.
+      * @return True if the 'firstName' field has been set, false otherwise.
       */
-    public boolean hasName() {
+    public boolean hasFirstName() {
       return fieldSetFlags()[1];
     }
 
 
     /**
-      * Clears the value of the 'name' field.
+      * Clears the value of the 'firstName' field.
       * @return This builder.
       */
-    public com.skaria.avro.model.SomeList.Builder clearName() {
-      name = null;
+    public com.skaria.avro.model.SomeList.Builder clearFirstName() {
+      firstName = null;
       fieldSetFlags()[1] = false;
+      return this;
+    }
+
+    /**
+      * Gets the value of the 'lastName' field.
+      * @return The value.
+      */
+    public java.lang.String getLastName() {
+      return lastName;
+    }
+
+    /**
+      * Gets the value of the 'lastName' field as an Optional&lt;java.lang.String&gt;.
+      * @return The value wrapped in an Optional&lt;java.lang.String&gt;.
+      */
+    public Optional<java.lang.String> getOptionalLastName() {
+      return Optional.<java.lang.String>ofNullable(lastName);
+    }
+
+    /**
+      * Sets the value of the 'lastName' field.
+      * @param value The value of 'lastName'.
+      * @return This builder.
+      */
+    public com.skaria.avro.model.SomeList.Builder setLastName(java.lang.String value) {
+      validate(fields()[2], value);
+      this.lastName = value;
+      fieldSetFlags()[2] = true;
+      return this;
+    }
+
+    /**
+      * Checks whether the 'lastName' field has been set.
+      * @return True if the 'lastName' field has been set, false otherwise.
+      */
+    public boolean hasLastName() {
+      return fieldSetFlags()[2];
+    }
+
+
+    /**
+      * Clears the value of the 'lastName' field.
+      * @return This builder.
+      */
+    public com.skaria.avro.model.SomeList.Builder clearLastName() {
+      lastName = null;
+      fieldSetFlags()[2] = false;
       return this;
     }
 
@@ -520,9 +605,9 @@ public class SomeList extends org.apache.avro.specific.SpecificRecordBase implem
       * @return This builder.
       */
     public com.skaria.avro.model.SomeList.Builder setMiddlename(java.lang.String value) {
-      validate(fields()[2], value);
+      validate(fields()[3], value);
       this.middlename = value;
-      fieldSetFlags()[2] = true;
+      fieldSetFlags()[3] = true;
       return this;
     }
 
@@ -531,7 +616,7 @@ public class SomeList extends org.apache.avro.specific.SpecificRecordBase implem
       * @return True if the 'middlename' field has been set, false otherwise.
       */
     public boolean hasMiddlename() {
-      return fieldSetFlags()[2];
+      return fieldSetFlags()[3];
     }
 
 
@@ -541,7 +626,7 @@ public class SomeList extends org.apache.avro.specific.SpecificRecordBase implem
       */
     public com.skaria.avro.model.SomeList.Builder clearMiddlename() {
       middlename = null;
-      fieldSetFlags()[2] = false;
+      fieldSetFlags()[3] = false;
       return this;
     }
 
@@ -567,9 +652,9 @@ public class SomeList extends org.apache.avro.specific.SpecificRecordBase implem
       * @return This builder.
       */
     public com.skaria.avro.model.SomeList.Builder setAge(java.lang.String value) {
-      validate(fields()[3], value);
+      validate(fields()[4], value);
       this.age = value;
-      fieldSetFlags()[3] = true;
+      fieldSetFlags()[4] = true;
       return this;
     }
 
@@ -578,7 +663,7 @@ public class SomeList extends org.apache.avro.specific.SpecificRecordBase implem
       * @return True if the 'age' field has been set, false otherwise.
       */
     public boolean hasAge() {
-      return fieldSetFlags()[3];
+      return fieldSetFlags()[4];
     }
 
 
@@ -588,7 +673,7 @@ public class SomeList extends org.apache.avro.specific.SpecificRecordBase implem
       */
     public com.skaria.avro.model.SomeList.Builder clearAge() {
       age = null;
-      fieldSetFlags()[3] = false;
+      fieldSetFlags()[4] = false;
       return this;
     }
 
@@ -614,9 +699,9 @@ public class SomeList extends org.apache.avro.specific.SpecificRecordBase implem
       * @return This builder.
       */
     public com.skaria.avro.model.SomeList.Builder setAction(com.skaria.avro.model.Action value) {
-      validate(fields()[4], value);
+      validate(fields()[5], value);
       this.action = value;
-      fieldSetFlags()[4] = true;
+      fieldSetFlags()[5] = true;
       return this;
     }
 
@@ -625,7 +710,7 @@ public class SomeList extends org.apache.avro.specific.SpecificRecordBase implem
       * @return True if the 'action' field has been set, false otherwise.
       */
     public boolean hasAction() {
-      return fieldSetFlags()[4];
+      return fieldSetFlags()[5];
     }
 
 
@@ -635,7 +720,7 @@ public class SomeList extends org.apache.avro.specific.SpecificRecordBase implem
       */
     public com.skaria.avro.model.SomeList.Builder clearAction() {
       action = null;
-      fieldSetFlags()[4] = false;
+      fieldSetFlags()[5] = false;
       return this;
     }
 
@@ -654,10 +739,11 @@ public class SomeList extends org.apache.avro.specific.SpecificRecordBase implem
         } else {
           record.id = fieldSetFlags()[0] ? this.id : (com.skaria.avro.model.SomeListId) defaultValue(fields()[0]);
         }
-        record.name = fieldSetFlags()[1] ? this.name : (java.lang.String) defaultValue(fields()[1]);
-        record.middlename = fieldSetFlags()[2] ? this.middlename : (java.lang.String) defaultValue(fields()[2]);
-        record.age = fieldSetFlags()[3] ? this.age : (java.lang.String) defaultValue(fields()[3]);
-        record.action = fieldSetFlags()[4] ? this.action : (com.skaria.avro.model.Action) defaultValue(fields()[4]);
+        record.firstName = fieldSetFlags()[1] ? this.firstName : (java.lang.String) defaultValue(fields()[1]);
+        record.lastName = fieldSetFlags()[2] ? this.lastName : (java.lang.String) defaultValue(fields()[2]);
+        record.middlename = fieldSetFlags()[3] ? this.middlename : (java.lang.String) defaultValue(fields()[3]);
+        record.age = fieldSetFlags()[4] ? this.age : (java.lang.String) defaultValue(fields()[4]);
+        record.action = fieldSetFlags()[5] ? this.action : (com.skaria.avro.model.Action) defaultValue(fields()[5]);
         return record;
       } catch (org.apache.avro.AvroMissingFieldException e) {
         throw e;
@@ -692,13 +778,9 @@ public class SomeList extends org.apache.avro.specific.SpecificRecordBase implem
   {
     this.id.customEncode(out);
 
-    if (this.name == null) {
-      out.writeIndex(0);
-      out.writeNull();
-    } else {
-      out.writeIndex(1);
-      out.writeString(this.name);
-    }
+    out.writeString(this.firstName);
+
+    out.writeString(this.lastName);
 
     if (this.middlename == null) {
       out.writeIndex(0);
@@ -730,12 +812,9 @@ public class SomeList extends org.apache.avro.specific.SpecificRecordBase implem
       }
       this.id.customDecode(in);
 
-      if (in.readIndex() != 1) {
-        in.readNull();
-        this.name = null;
-      } else {
-        this.name = in.readString();
-      }
+      this.firstName = in.readString();
+
+      this.lastName = in.readString();
 
       if (in.readIndex() != 1) {
         in.readNull();
@@ -754,7 +833,7 @@ public class SomeList extends org.apache.avro.specific.SpecificRecordBase implem
       this.action = com.skaria.avro.model.Action.values()[in.readEnum()];
 
     } else {
-      for (int i = 0; i < 5; i++) {
+      for (int i = 0; i < 6; i++) {
         switch (fieldOrder[i].pos()) {
         case 0:
           if (this.id == null) {
@@ -764,15 +843,14 @@ public class SomeList extends org.apache.avro.specific.SpecificRecordBase implem
           break;
 
         case 1:
-          if (in.readIndex() != 1) {
-            in.readNull();
-            this.name = null;
-          } else {
-            this.name = in.readString();
-          }
+          this.firstName = in.readString();
           break;
 
         case 2:
+          this.lastName = in.readString();
+          break;
+
+        case 3:
           if (in.readIndex() != 1) {
             in.readNull();
             this.middlename = null;
@@ -781,7 +859,7 @@ public class SomeList extends org.apache.avro.specific.SpecificRecordBase implem
           }
           break;
 
-        case 3:
+        case 4:
           if (in.readIndex() != 1) {
             in.readNull();
             this.age = null;
@@ -790,7 +868,7 @@ public class SomeList extends org.apache.avro.specific.SpecificRecordBase implem
           }
           break;
 
-        case 4:
+        case 5:
           this.action = com.skaria.avro.model.Action.values()[in.readEnum()];
           break;
 
