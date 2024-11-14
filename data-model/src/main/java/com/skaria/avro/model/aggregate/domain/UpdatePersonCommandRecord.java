@@ -14,13 +14,16 @@ import org.apache.avro.message.SchemaStore;
 import java.util.Optional;
 @org.apache.avro.specific.AvroGenerated
 public class UpdatePersonCommandRecord extends org.apache.avro.specific.SpecificRecordBase implements org.apache.avro.specific.SpecificRecord {
-  private static final long serialVersionUID = -2099942577241774850L;
+  private static final long serialVersionUID = 451380663544290918L;
 
 
-  public static final org.apache.avro.Schema SCHEMA$ = new org.apache.avro.Schema.Parser().parse("{\"type\":\"record\",\"name\":\"UpdatePersonCommandRecord\",\"namespace\":\"com.skaria.avro.model.aggregate.domain\",\"fields\":[{\"name\":\"Person\",\"type\":{\"type\":\"record\",\"name\":\"Person\",\"namespace\":\"com.skaria.avro.model\",\"fields\":[{\"name\":\"person\",\"type\":\"Person\"}]}}]}");
+  public static final org.apache.avro.Schema SCHEMA$ = new org.apache.avro.Schema.Parser().parse("{\"type\":\"record\",\"name\":\"UpdatePersonCommandRecord\",\"namespace\":\"com.skaria.avro.model.aggregate.domain\",\"fields\":[{\"name\":\"eventId\",\"type\":{\"type\":\"string\",\"logicalType\":\"uuid\"}},{\"name\":\"creationTimestamp\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"}},{\"name\":\"Person\",\"type\":{\"type\":\"record\",\"name\":\"Person\",\"namespace\":\"com.skaria.avro.model\",\"fields\":[{\"name\":\"person\",\"type\":\"Person\"}]}}]}");
   public static org.apache.avro.Schema getClassSchema() { return SCHEMA$; }
 
   private static final SpecificData MODEL$ = new SpecificData();
+  static {
+    MODEL$.addLogicalTypeConversion(new org.apache.avro.Conversions.UUIDConversion());
+  }
 
   private static final BinaryMessageEncoder<UpdatePersonCommandRecord> ENCODER =
       new BinaryMessageEncoder<>(MODEL$, SCHEMA$);
@@ -73,6 +76,8 @@ public class UpdatePersonCommandRecord extends org.apache.avro.specific.Specific
     return DECODER.decode(b);
   }
 
+  private java.util.UUID eventId;
+  private java.lang.String creationTimestamp;
   private com.skaria.avro.model.Person Person;
 
   /**
@@ -84,9 +89,13 @@ public class UpdatePersonCommandRecord extends org.apache.avro.specific.Specific
 
   /**
    * All-args constructor.
+   * @param eventId The new value for eventId
+   * @param creationTimestamp The new value for creationTimestamp
    * @param Person The new value for Person
    */
-  public UpdatePersonCommandRecord(com.skaria.avro.model.Person Person) {
+  public UpdatePersonCommandRecord(java.util.UUID eventId, java.lang.String creationTimestamp, com.skaria.avro.model.Person Person) {
+    this.eventId = eventId;
+    this.creationTimestamp = creationTimestamp;
     this.Person = Person;
   }
 
@@ -100,9 +109,24 @@ public class UpdatePersonCommandRecord extends org.apache.avro.specific.Specific
   @Override
   public java.lang.Object get(int field$) {
     switch (field$) {
-    case 0: return Person;
+    case 0: return eventId;
+    case 1: return creationTimestamp;
+    case 2: return Person;
     default: throw new IndexOutOfBoundsException("Invalid index: " + field$);
     }
+  }
+
+  private static final org.apache.avro.Conversion<?>[] conversions =
+      new org.apache.avro.Conversion<?>[] {
+      new org.apache.avro.Conversions.UUIDConversion(),
+      null,
+      null,
+      null
+  };
+
+  @Override
+  public org.apache.avro.Conversion<?> getConversion(int field) {
+    return conversions[field];
   }
 
   // Used by DatumReader.  Applications should not call.
@@ -110,9 +134,59 @@ public class UpdatePersonCommandRecord extends org.apache.avro.specific.Specific
   @SuppressWarnings(value="unchecked")
   public void put(int field$, java.lang.Object value$) {
     switch (field$) {
-    case 0: Person = (com.skaria.avro.model.Person)value$; break;
+    case 0: eventId = (java.util.UUID)value$; break;
+    case 1: creationTimestamp = value$ != null ? value$.toString() : null; break;
+    case 2: Person = (com.skaria.avro.model.Person)value$; break;
     default: throw new IndexOutOfBoundsException("Invalid index: " + field$);
     }
+  }
+
+  /**
+   * Gets the value of the 'eventId' field.
+   * @return The value of the 'eventId' field.
+   */
+  public java.util.UUID getEventId() {
+    return eventId;
+  }
+
+  /**
+   * Gets the value of the 'eventId' field as an Optional&lt;java.util.UUID&gt;.
+   * @return The value wrapped in an Optional&lt;java.util.UUID&gt;.
+   */
+  public Optional<java.util.UUID> getOptionalEventId() {
+    return Optional.<java.util.UUID>ofNullable(eventId);
+  }
+
+  /**
+   * Sets the value of the 'eventId' field.
+   * @param value the value to set.
+   */
+  public void setEventId(java.util.UUID value) {
+    this.eventId = value;
+  }
+
+  /**
+   * Gets the value of the 'creationTimestamp' field.
+   * @return The value of the 'creationTimestamp' field.
+   */
+  public java.lang.String getCreationTimestamp() {
+    return creationTimestamp;
+  }
+
+  /**
+   * Gets the value of the 'creationTimestamp' field as an Optional&lt;java.lang.String&gt;.
+   * @return The value wrapped in an Optional&lt;java.lang.String&gt;.
+   */
+  public Optional<java.lang.String> getOptionalCreationTimestamp() {
+    return Optional.<java.lang.String>ofNullable(creationTimestamp);
+  }
+
+  /**
+   * Sets the value of the 'creationTimestamp' field.
+   * @param value the value to set.
+   */
+  public void setCreationTimestamp(java.lang.String value) {
+    this.creationTimestamp = value;
   }
 
   /**
@@ -180,6 +254,8 @@ public class UpdatePersonCommandRecord extends org.apache.avro.specific.Specific
   public static class Builder extends org.apache.avro.specific.SpecificRecordBuilderBase<UpdatePersonCommandRecord>
     implements org.apache.avro.data.RecordBuilder<UpdatePersonCommandRecord> {
 
+    private java.util.UUID eventId;
+    private java.lang.String creationTimestamp;
     private com.skaria.avro.model.Person Person;
     private com.skaria.avro.model.Person.Builder PersonBuilder;
 
@@ -194,9 +270,17 @@ public class UpdatePersonCommandRecord extends org.apache.avro.specific.Specific
      */
     private Builder(com.skaria.avro.model.aggregate.domain.UpdatePersonCommandRecord.Builder other) {
       super(other);
-      if (isValidValue(fields()[0], other.Person)) {
-        this.Person = data().deepCopy(fields()[0].schema(), other.Person);
+      if (isValidValue(fields()[0], other.eventId)) {
+        this.eventId = data().deepCopy(fields()[0].schema(), other.eventId);
         fieldSetFlags()[0] = other.fieldSetFlags()[0];
+      }
+      if (isValidValue(fields()[1], other.creationTimestamp)) {
+        this.creationTimestamp = data().deepCopy(fields()[1].schema(), other.creationTimestamp);
+        fieldSetFlags()[1] = other.fieldSetFlags()[1];
+      }
+      if (isValidValue(fields()[2], other.Person)) {
+        this.Person = data().deepCopy(fields()[2].schema(), other.Person);
+        fieldSetFlags()[2] = other.fieldSetFlags()[2];
       }
       if (other.hasPersonBuilder()) {
         this.PersonBuilder = com.skaria.avro.model.Person.newBuilder(other.getPersonBuilder());
@@ -209,11 +293,113 @@ public class UpdatePersonCommandRecord extends org.apache.avro.specific.Specific
      */
     private Builder(com.skaria.avro.model.aggregate.domain.UpdatePersonCommandRecord other) {
       super(SCHEMA$, MODEL$);
-      if (isValidValue(fields()[0], other.Person)) {
-        this.Person = data().deepCopy(fields()[0].schema(), other.Person);
+      if (isValidValue(fields()[0], other.eventId)) {
+        this.eventId = data().deepCopy(fields()[0].schema(), other.eventId);
         fieldSetFlags()[0] = true;
       }
+      if (isValidValue(fields()[1], other.creationTimestamp)) {
+        this.creationTimestamp = data().deepCopy(fields()[1].schema(), other.creationTimestamp);
+        fieldSetFlags()[1] = true;
+      }
+      if (isValidValue(fields()[2], other.Person)) {
+        this.Person = data().deepCopy(fields()[2].schema(), other.Person);
+        fieldSetFlags()[2] = true;
+      }
       this.PersonBuilder = null;
+    }
+
+    /**
+      * Gets the value of the 'eventId' field.
+      * @return The value.
+      */
+    public java.util.UUID getEventId() {
+      return eventId;
+    }
+
+    /**
+      * Gets the value of the 'eventId' field as an Optional&lt;java.util.UUID&gt;.
+      * @return The value wrapped in an Optional&lt;java.util.UUID&gt;.
+      */
+    public Optional<java.util.UUID> getOptionalEventId() {
+      return Optional.<java.util.UUID>ofNullable(eventId);
+    }
+
+    /**
+      * Sets the value of the 'eventId' field.
+      * @param value The value of 'eventId'.
+      * @return This builder.
+      */
+    public com.skaria.avro.model.aggregate.domain.UpdatePersonCommandRecord.Builder setEventId(java.util.UUID value) {
+      validate(fields()[0], value);
+      this.eventId = value;
+      fieldSetFlags()[0] = true;
+      return this;
+    }
+
+    /**
+      * Checks whether the 'eventId' field has been set.
+      * @return True if the 'eventId' field has been set, false otherwise.
+      */
+    public boolean hasEventId() {
+      return fieldSetFlags()[0];
+    }
+
+
+    /**
+      * Clears the value of the 'eventId' field.
+      * @return This builder.
+      */
+    public com.skaria.avro.model.aggregate.domain.UpdatePersonCommandRecord.Builder clearEventId() {
+      eventId = null;
+      fieldSetFlags()[0] = false;
+      return this;
+    }
+
+    /**
+      * Gets the value of the 'creationTimestamp' field.
+      * @return The value.
+      */
+    public java.lang.String getCreationTimestamp() {
+      return creationTimestamp;
+    }
+
+    /**
+      * Gets the value of the 'creationTimestamp' field as an Optional&lt;java.lang.String&gt;.
+      * @return The value wrapped in an Optional&lt;java.lang.String&gt;.
+      */
+    public Optional<java.lang.String> getOptionalCreationTimestamp() {
+      return Optional.<java.lang.String>ofNullable(creationTimestamp);
+    }
+
+    /**
+      * Sets the value of the 'creationTimestamp' field.
+      * @param value The value of 'creationTimestamp'.
+      * @return This builder.
+      */
+    public com.skaria.avro.model.aggregate.domain.UpdatePersonCommandRecord.Builder setCreationTimestamp(java.lang.String value) {
+      validate(fields()[1], value);
+      this.creationTimestamp = value;
+      fieldSetFlags()[1] = true;
+      return this;
+    }
+
+    /**
+      * Checks whether the 'creationTimestamp' field has been set.
+      * @return True if the 'creationTimestamp' field has been set, false otherwise.
+      */
+    public boolean hasCreationTimestamp() {
+      return fieldSetFlags()[1];
+    }
+
+
+    /**
+      * Clears the value of the 'creationTimestamp' field.
+      * @return This builder.
+      */
+    public com.skaria.avro.model.aggregate.domain.UpdatePersonCommandRecord.Builder clearCreationTimestamp() {
+      creationTimestamp = null;
+      fieldSetFlags()[1] = false;
+      return this;
     }
 
     /**
@@ -238,10 +424,10 @@ public class UpdatePersonCommandRecord extends org.apache.avro.specific.Specific
       * @return This builder.
       */
     public com.skaria.avro.model.aggregate.domain.UpdatePersonCommandRecord.Builder setPerson(com.skaria.avro.model.Person value) {
-      validate(fields()[0], value);
+      validate(fields()[2], value);
       this.PersonBuilder = null;
       this.Person = value;
-      fieldSetFlags()[0] = true;
+      fieldSetFlags()[2] = true;
       return this;
     }
 
@@ -250,7 +436,7 @@ public class UpdatePersonCommandRecord extends org.apache.avro.specific.Specific
       * @return True if the 'Person' field has been set, false otherwise.
       */
     public boolean hasPerson() {
-      return fieldSetFlags()[0];
+      return fieldSetFlags()[2];
     }
 
     /**
@@ -295,7 +481,7 @@ public class UpdatePersonCommandRecord extends org.apache.avro.specific.Specific
     public com.skaria.avro.model.aggregate.domain.UpdatePersonCommandRecord.Builder clearPerson() {
       Person = null;
       PersonBuilder = null;
-      fieldSetFlags()[0] = false;
+      fieldSetFlags()[2] = false;
       return this;
     }
 
@@ -304,6 +490,8 @@ public class UpdatePersonCommandRecord extends org.apache.avro.specific.Specific
     public UpdatePersonCommandRecord build() {
       try {
         UpdatePersonCommandRecord record = new UpdatePersonCommandRecord();
+        record.eventId = fieldSetFlags()[0] ? this.eventId : (java.util.UUID) defaultValue(fields()[0]);
+        record.creationTimestamp = fieldSetFlags()[1] ? this.creationTimestamp : (java.lang.String) defaultValue(fields()[1]);
         if (PersonBuilder != null) {
           try {
             record.Person = this.PersonBuilder.build();
@@ -312,7 +500,7 @@ public class UpdatePersonCommandRecord extends org.apache.avro.specific.Specific
             throw e;
           }
         } else {
-          record.Person = fieldSetFlags()[0] ? this.Person : (com.skaria.avro.model.Person) defaultValue(fields()[0]);
+          record.Person = fieldSetFlags()[2] ? this.Person : (com.skaria.avro.model.Person) defaultValue(fields()[2]);
         }
         return record;
       } catch (org.apache.avro.AvroMissingFieldException e) {
@@ -341,41 +529,6 @@ public class UpdatePersonCommandRecord extends org.apache.avro.specific.Specific
     READER$.read(this, SpecificData.getDecoder(in));
   }
 
-  @Override protected boolean hasCustomCoders() { return true; }
-
-  @Override public void customEncode(org.apache.avro.io.Encoder out)
-    throws java.io.IOException
-  {
-    this.Person.customEncode(out);
-
-  }
-
-  @Override public void customDecode(org.apache.avro.io.ResolvingDecoder in)
-    throws java.io.IOException
-  {
-    org.apache.avro.Schema.Field[] fieldOrder = in.readFieldOrderIfDiff();
-    if (fieldOrder == null) {
-      if (this.Person == null) {
-        this.Person = new com.skaria.avro.model.Person();
-      }
-      this.Person.customDecode(in);
-
-    } else {
-      for (int i = 0; i < 1; i++) {
-        switch (fieldOrder[i].pos()) {
-        case 0:
-          if (this.Person == null) {
-            this.Person = new com.skaria.avro.model.Person();
-          }
-          this.Person.customDecode(in);
-          break;
-
-        default:
-          throw new java.io.IOException("Corrupt ResolvingDecoder.");
-        }
-      }
-    }
-  }
 }
 
 

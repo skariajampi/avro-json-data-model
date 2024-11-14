@@ -14,13 +14,16 @@ import org.apache.avro.message.SchemaStore;
 import java.util.Optional;
 @org.apache.avro.specific.AvroGenerated
 public class AddIdentifierToSomeListCommandRecord extends org.apache.avro.specific.SpecificRecordBase implements org.apache.avro.specific.SpecificRecord {
-  private static final long serialVersionUID = -3349281910722512349L;
+  private static final long serialVersionUID = 1081615693997573455L;
 
 
-  public static final org.apache.avro.Schema SCHEMA$ = new org.apache.avro.Schema.Parser().parse("{\"type\":\"record\",\"name\":\"AddIdentifierToSomeListCommandRecord\",\"namespace\":\"com.skaria.avro.model.aggregate.domain\",\"fields\":[{\"name\":\"someList\",\"type\":{\"type\":\"record\",\"name\":\"SomeList\",\"namespace\":\"com.skaria.avro.model\",\"fields\":[{\"name\":\"id\",\"type\":{\"type\":\"record\",\"name\":\"SomeListId\",\"fields\":[{\"name\":\"id\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"}}]}},{\"name\":\"name\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}]},{\"name\":\"middlename\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}]},{\"name\":\"age\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}]},{\"name\":\"action\",\"type\":{\"type\":\"enum\",\"name\":\"Action\",\"symbols\":[\"STOP\",\"GO\"]}}]}}]}");
+  public static final org.apache.avro.Schema SCHEMA$ = new org.apache.avro.Schema.Parser().parse("{\"type\":\"record\",\"name\":\"AddIdentifierToSomeListCommandRecord\",\"namespace\":\"com.skaria.avro.model.aggregate.domain\",\"fields\":[{\"name\":\"eventId\",\"type\":{\"type\":\"string\",\"logicalType\":\"uuid\"}},{\"name\":\"creationTimestamp\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"}},{\"name\":\"listId\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"}},{\"name\":\"someList\",\"type\":{\"type\":\"record\",\"name\":\"SomeList\",\"namespace\":\"com.skaria.avro.model\",\"fields\":[{\"name\":\"id\",\"type\":{\"type\":\"record\",\"name\":\"SomeListId\",\"fields\":[{\"name\":\"id\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"}}]}},{\"name\":\"name\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}]},{\"name\":\"middlename\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}]},{\"name\":\"age\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}]},{\"name\":\"action\",\"type\":{\"type\":\"enum\",\"name\":\"Action\",\"symbols\":[\"STOP\",\"GO\"]}}]}}]}");
   public static org.apache.avro.Schema getClassSchema() { return SCHEMA$; }
 
   private static final SpecificData MODEL$ = new SpecificData();
+  static {
+    MODEL$.addLogicalTypeConversion(new org.apache.avro.Conversions.UUIDConversion());
+  }
 
   private static final BinaryMessageEncoder<AddIdentifierToSomeListCommandRecord> ENCODER =
       new BinaryMessageEncoder<>(MODEL$, SCHEMA$);
@@ -73,6 +76,9 @@ public class AddIdentifierToSomeListCommandRecord extends org.apache.avro.specif
     return DECODER.decode(b);
   }
 
+  private java.util.UUID eventId;
+  private java.lang.String creationTimestamp;
+  private java.lang.String listId;
   private com.skaria.avro.model.SomeList someList;
 
   /**
@@ -84,9 +90,15 @@ public class AddIdentifierToSomeListCommandRecord extends org.apache.avro.specif
 
   /**
    * All-args constructor.
+   * @param eventId The new value for eventId
+   * @param creationTimestamp The new value for creationTimestamp
+   * @param listId The new value for listId
    * @param someList The new value for someList
    */
-  public AddIdentifierToSomeListCommandRecord(com.skaria.avro.model.SomeList someList) {
+  public AddIdentifierToSomeListCommandRecord(java.util.UUID eventId, java.lang.String creationTimestamp, java.lang.String listId, com.skaria.avro.model.SomeList someList) {
+    this.eventId = eventId;
+    this.creationTimestamp = creationTimestamp;
+    this.listId = listId;
     this.someList = someList;
   }
 
@@ -100,9 +112,26 @@ public class AddIdentifierToSomeListCommandRecord extends org.apache.avro.specif
   @Override
   public java.lang.Object get(int field$) {
     switch (field$) {
-    case 0: return someList;
+    case 0: return eventId;
+    case 1: return creationTimestamp;
+    case 2: return listId;
+    case 3: return someList;
     default: throw new IndexOutOfBoundsException("Invalid index: " + field$);
     }
+  }
+
+  private static final org.apache.avro.Conversion<?>[] conversions =
+      new org.apache.avro.Conversion<?>[] {
+      new org.apache.avro.Conversions.UUIDConversion(),
+      null,
+      null,
+      null,
+      null
+  };
+
+  @Override
+  public org.apache.avro.Conversion<?> getConversion(int field) {
+    return conversions[field];
   }
 
   // Used by DatumReader.  Applications should not call.
@@ -110,9 +139,84 @@ public class AddIdentifierToSomeListCommandRecord extends org.apache.avro.specif
   @SuppressWarnings(value="unchecked")
   public void put(int field$, java.lang.Object value$) {
     switch (field$) {
-    case 0: someList = (com.skaria.avro.model.SomeList)value$; break;
+    case 0: eventId = (java.util.UUID)value$; break;
+    case 1: creationTimestamp = value$ != null ? value$.toString() : null; break;
+    case 2: listId = value$ != null ? value$.toString() : null; break;
+    case 3: someList = (com.skaria.avro.model.SomeList)value$; break;
     default: throw new IndexOutOfBoundsException("Invalid index: " + field$);
     }
+  }
+
+  /**
+   * Gets the value of the 'eventId' field.
+   * @return The value of the 'eventId' field.
+   */
+  public java.util.UUID getEventId() {
+    return eventId;
+  }
+
+  /**
+   * Gets the value of the 'eventId' field as an Optional&lt;java.util.UUID&gt;.
+   * @return The value wrapped in an Optional&lt;java.util.UUID&gt;.
+   */
+  public Optional<java.util.UUID> getOptionalEventId() {
+    return Optional.<java.util.UUID>ofNullable(eventId);
+  }
+
+  /**
+   * Sets the value of the 'eventId' field.
+   * @param value the value to set.
+   */
+  public void setEventId(java.util.UUID value) {
+    this.eventId = value;
+  }
+
+  /**
+   * Gets the value of the 'creationTimestamp' field.
+   * @return The value of the 'creationTimestamp' field.
+   */
+  public java.lang.String getCreationTimestamp() {
+    return creationTimestamp;
+  }
+
+  /**
+   * Gets the value of the 'creationTimestamp' field as an Optional&lt;java.lang.String&gt;.
+   * @return The value wrapped in an Optional&lt;java.lang.String&gt;.
+   */
+  public Optional<java.lang.String> getOptionalCreationTimestamp() {
+    return Optional.<java.lang.String>ofNullable(creationTimestamp);
+  }
+
+  /**
+   * Sets the value of the 'creationTimestamp' field.
+   * @param value the value to set.
+   */
+  public void setCreationTimestamp(java.lang.String value) {
+    this.creationTimestamp = value;
+  }
+
+  /**
+   * Gets the value of the 'listId' field.
+   * @return The value of the 'listId' field.
+   */
+  public java.lang.String getListId() {
+    return listId;
+  }
+
+  /**
+   * Gets the value of the 'listId' field as an Optional&lt;java.lang.String&gt;.
+   * @return The value wrapped in an Optional&lt;java.lang.String&gt;.
+   */
+  public Optional<java.lang.String> getOptionalListId() {
+    return Optional.<java.lang.String>ofNullable(listId);
+  }
+
+  /**
+   * Sets the value of the 'listId' field.
+   * @param value the value to set.
+   */
+  public void setListId(java.lang.String value) {
+    this.listId = value;
   }
 
   /**
@@ -180,6 +284,9 @@ public class AddIdentifierToSomeListCommandRecord extends org.apache.avro.specif
   public static class Builder extends org.apache.avro.specific.SpecificRecordBuilderBase<AddIdentifierToSomeListCommandRecord>
     implements org.apache.avro.data.RecordBuilder<AddIdentifierToSomeListCommandRecord> {
 
+    private java.util.UUID eventId;
+    private java.lang.String creationTimestamp;
+    private java.lang.String listId;
     private com.skaria.avro.model.SomeList someList;
     private com.skaria.avro.model.SomeList.Builder someListBuilder;
 
@@ -194,9 +301,21 @@ public class AddIdentifierToSomeListCommandRecord extends org.apache.avro.specif
      */
     private Builder(com.skaria.avro.model.aggregate.domain.AddIdentifierToSomeListCommandRecord.Builder other) {
       super(other);
-      if (isValidValue(fields()[0], other.someList)) {
-        this.someList = data().deepCopy(fields()[0].schema(), other.someList);
+      if (isValidValue(fields()[0], other.eventId)) {
+        this.eventId = data().deepCopy(fields()[0].schema(), other.eventId);
         fieldSetFlags()[0] = other.fieldSetFlags()[0];
+      }
+      if (isValidValue(fields()[1], other.creationTimestamp)) {
+        this.creationTimestamp = data().deepCopy(fields()[1].schema(), other.creationTimestamp);
+        fieldSetFlags()[1] = other.fieldSetFlags()[1];
+      }
+      if (isValidValue(fields()[2], other.listId)) {
+        this.listId = data().deepCopy(fields()[2].schema(), other.listId);
+        fieldSetFlags()[2] = other.fieldSetFlags()[2];
+      }
+      if (isValidValue(fields()[3], other.someList)) {
+        this.someList = data().deepCopy(fields()[3].schema(), other.someList);
+        fieldSetFlags()[3] = other.fieldSetFlags()[3];
       }
       if (other.hasSomeListBuilder()) {
         this.someListBuilder = com.skaria.avro.model.SomeList.newBuilder(other.getSomeListBuilder());
@@ -209,11 +328,164 @@ public class AddIdentifierToSomeListCommandRecord extends org.apache.avro.specif
      */
     private Builder(com.skaria.avro.model.aggregate.domain.AddIdentifierToSomeListCommandRecord other) {
       super(SCHEMA$, MODEL$);
-      if (isValidValue(fields()[0], other.someList)) {
-        this.someList = data().deepCopy(fields()[0].schema(), other.someList);
+      if (isValidValue(fields()[0], other.eventId)) {
+        this.eventId = data().deepCopy(fields()[0].schema(), other.eventId);
         fieldSetFlags()[0] = true;
       }
+      if (isValidValue(fields()[1], other.creationTimestamp)) {
+        this.creationTimestamp = data().deepCopy(fields()[1].schema(), other.creationTimestamp);
+        fieldSetFlags()[1] = true;
+      }
+      if (isValidValue(fields()[2], other.listId)) {
+        this.listId = data().deepCopy(fields()[2].schema(), other.listId);
+        fieldSetFlags()[2] = true;
+      }
+      if (isValidValue(fields()[3], other.someList)) {
+        this.someList = data().deepCopy(fields()[3].schema(), other.someList);
+        fieldSetFlags()[3] = true;
+      }
       this.someListBuilder = null;
+    }
+
+    /**
+      * Gets the value of the 'eventId' field.
+      * @return The value.
+      */
+    public java.util.UUID getEventId() {
+      return eventId;
+    }
+
+    /**
+      * Gets the value of the 'eventId' field as an Optional&lt;java.util.UUID&gt;.
+      * @return The value wrapped in an Optional&lt;java.util.UUID&gt;.
+      */
+    public Optional<java.util.UUID> getOptionalEventId() {
+      return Optional.<java.util.UUID>ofNullable(eventId);
+    }
+
+    /**
+      * Sets the value of the 'eventId' field.
+      * @param value The value of 'eventId'.
+      * @return This builder.
+      */
+    public com.skaria.avro.model.aggregate.domain.AddIdentifierToSomeListCommandRecord.Builder setEventId(java.util.UUID value) {
+      validate(fields()[0], value);
+      this.eventId = value;
+      fieldSetFlags()[0] = true;
+      return this;
+    }
+
+    /**
+      * Checks whether the 'eventId' field has been set.
+      * @return True if the 'eventId' field has been set, false otherwise.
+      */
+    public boolean hasEventId() {
+      return fieldSetFlags()[0];
+    }
+
+
+    /**
+      * Clears the value of the 'eventId' field.
+      * @return This builder.
+      */
+    public com.skaria.avro.model.aggregate.domain.AddIdentifierToSomeListCommandRecord.Builder clearEventId() {
+      eventId = null;
+      fieldSetFlags()[0] = false;
+      return this;
+    }
+
+    /**
+      * Gets the value of the 'creationTimestamp' field.
+      * @return The value.
+      */
+    public java.lang.String getCreationTimestamp() {
+      return creationTimestamp;
+    }
+
+    /**
+      * Gets the value of the 'creationTimestamp' field as an Optional&lt;java.lang.String&gt;.
+      * @return The value wrapped in an Optional&lt;java.lang.String&gt;.
+      */
+    public Optional<java.lang.String> getOptionalCreationTimestamp() {
+      return Optional.<java.lang.String>ofNullable(creationTimestamp);
+    }
+
+    /**
+      * Sets the value of the 'creationTimestamp' field.
+      * @param value The value of 'creationTimestamp'.
+      * @return This builder.
+      */
+    public com.skaria.avro.model.aggregate.domain.AddIdentifierToSomeListCommandRecord.Builder setCreationTimestamp(java.lang.String value) {
+      validate(fields()[1], value);
+      this.creationTimestamp = value;
+      fieldSetFlags()[1] = true;
+      return this;
+    }
+
+    /**
+      * Checks whether the 'creationTimestamp' field has been set.
+      * @return True if the 'creationTimestamp' field has been set, false otherwise.
+      */
+    public boolean hasCreationTimestamp() {
+      return fieldSetFlags()[1];
+    }
+
+
+    /**
+      * Clears the value of the 'creationTimestamp' field.
+      * @return This builder.
+      */
+    public com.skaria.avro.model.aggregate.domain.AddIdentifierToSomeListCommandRecord.Builder clearCreationTimestamp() {
+      creationTimestamp = null;
+      fieldSetFlags()[1] = false;
+      return this;
+    }
+
+    /**
+      * Gets the value of the 'listId' field.
+      * @return The value.
+      */
+    public java.lang.String getListId() {
+      return listId;
+    }
+
+    /**
+      * Gets the value of the 'listId' field as an Optional&lt;java.lang.String&gt;.
+      * @return The value wrapped in an Optional&lt;java.lang.String&gt;.
+      */
+    public Optional<java.lang.String> getOptionalListId() {
+      return Optional.<java.lang.String>ofNullable(listId);
+    }
+
+    /**
+      * Sets the value of the 'listId' field.
+      * @param value The value of 'listId'.
+      * @return This builder.
+      */
+    public com.skaria.avro.model.aggregate.domain.AddIdentifierToSomeListCommandRecord.Builder setListId(java.lang.String value) {
+      validate(fields()[2], value);
+      this.listId = value;
+      fieldSetFlags()[2] = true;
+      return this;
+    }
+
+    /**
+      * Checks whether the 'listId' field has been set.
+      * @return True if the 'listId' field has been set, false otherwise.
+      */
+    public boolean hasListId() {
+      return fieldSetFlags()[2];
+    }
+
+
+    /**
+      * Clears the value of the 'listId' field.
+      * @return This builder.
+      */
+    public com.skaria.avro.model.aggregate.domain.AddIdentifierToSomeListCommandRecord.Builder clearListId() {
+      listId = null;
+      fieldSetFlags()[2] = false;
+      return this;
     }
 
     /**
@@ -238,10 +510,10 @@ public class AddIdentifierToSomeListCommandRecord extends org.apache.avro.specif
       * @return This builder.
       */
     public com.skaria.avro.model.aggregate.domain.AddIdentifierToSomeListCommandRecord.Builder setSomeList(com.skaria.avro.model.SomeList value) {
-      validate(fields()[0], value);
+      validate(fields()[3], value);
       this.someListBuilder = null;
       this.someList = value;
-      fieldSetFlags()[0] = true;
+      fieldSetFlags()[3] = true;
       return this;
     }
 
@@ -250,7 +522,7 @@ public class AddIdentifierToSomeListCommandRecord extends org.apache.avro.specif
       * @return True if the 'someList' field has been set, false otherwise.
       */
     public boolean hasSomeList() {
-      return fieldSetFlags()[0];
+      return fieldSetFlags()[3];
     }
 
     /**
@@ -295,7 +567,7 @@ public class AddIdentifierToSomeListCommandRecord extends org.apache.avro.specif
     public com.skaria.avro.model.aggregate.domain.AddIdentifierToSomeListCommandRecord.Builder clearSomeList() {
       someList = null;
       someListBuilder = null;
-      fieldSetFlags()[0] = false;
+      fieldSetFlags()[3] = false;
       return this;
     }
 
@@ -304,6 +576,9 @@ public class AddIdentifierToSomeListCommandRecord extends org.apache.avro.specif
     public AddIdentifierToSomeListCommandRecord build() {
       try {
         AddIdentifierToSomeListCommandRecord record = new AddIdentifierToSomeListCommandRecord();
+        record.eventId = fieldSetFlags()[0] ? this.eventId : (java.util.UUID) defaultValue(fields()[0]);
+        record.creationTimestamp = fieldSetFlags()[1] ? this.creationTimestamp : (java.lang.String) defaultValue(fields()[1]);
+        record.listId = fieldSetFlags()[2] ? this.listId : (java.lang.String) defaultValue(fields()[2]);
         if (someListBuilder != null) {
           try {
             record.someList = this.someListBuilder.build();
@@ -312,7 +587,7 @@ public class AddIdentifierToSomeListCommandRecord extends org.apache.avro.specif
             throw e;
           }
         } else {
-          record.someList = fieldSetFlags()[0] ? this.someList : (com.skaria.avro.model.SomeList) defaultValue(fields()[0]);
+          record.someList = fieldSetFlags()[3] ? this.someList : (com.skaria.avro.model.SomeList) defaultValue(fields()[3]);
         }
         return record;
       } catch (org.apache.avro.AvroMissingFieldException e) {
@@ -341,41 +616,6 @@ public class AddIdentifierToSomeListCommandRecord extends org.apache.avro.specif
     READER$.read(this, SpecificData.getDecoder(in));
   }
 
-  @Override protected boolean hasCustomCoders() { return true; }
-
-  @Override public void customEncode(org.apache.avro.io.Encoder out)
-    throws java.io.IOException
-  {
-    this.someList.customEncode(out);
-
-  }
-
-  @Override public void customDecode(org.apache.avro.io.ResolvingDecoder in)
-    throws java.io.IOException
-  {
-    org.apache.avro.Schema.Field[] fieldOrder = in.readFieldOrderIfDiff();
-    if (fieldOrder == null) {
-      if (this.someList == null) {
-        this.someList = new com.skaria.avro.model.SomeList();
-      }
-      this.someList.customDecode(in);
-
-    } else {
-      for (int i = 0; i < 1; i++) {
-        switch (fieldOrder[i].pos()) {
-        case 0:
-          if (this.someList == null) {
-            this.someList = new com.skaria.avro.model.SomeList();
-          }
-          this.someList.customDecode(in);
-          break;
-
-        default:
-          throw new java.io.IOException("Corrupt ResolvingDecoder.");
-        }
-      }
-    }
-  }
 }
 
 

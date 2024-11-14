@@ -5,22 +5,24 @@
  */
 package com.skaria.avro.model.aggregate.domain;
 
-import org.apache.avro.generic.GenericArray;
-import org.apache.avro.specific.SpecificData;
-import org.apache.avro.util.Utf8;
-import org.apache.avro.message.BinaryMessageEncoder;
 import org.apache.avro.message.BinaryMessageDecoder;
+import org.apache.avro.message.BinaryMessageEncoder;
 import org.apache.avro.message.SchemaStore;
+import org.apache.avro.specific.SpecificData;
+
 import java.util.Optional;
 @org.apache.avro.specific.AvroGenerated
 public class PersonUpdatedEventRecord extends org.apache.avro.specific.SpecificRecordBase implements org.apache.avro.specific.SpecificRecord {
-  private static final long serialVersionUID = -4998445672638371593L;
+  private static final long serialVersionUID = 2351313803713927834L;
 
 
-  public static final org.apache.avro.Schema SCHEMA$ = new org.apache.avro.Schema.Parser().parse("{\"type\":\"record\",\"name\":\"PersonUpdatedEventRecord\",\"namespace\":\"com.skaria.avro.model.aggregate.domain\",\"fields\":[{\"name\":\"personBefore\",\"type\":[\"null\",{\"type\":\"record\",\"name\":\"Person\",\"namespace\":\"com.skaria.avro.model\",\"fields\":[{\"name\":\"person\",\"type\":\"Person\"}]}],\"default\":null},{\"name\":\"personAfter\",\"type\":\"com.skaria.avro.model.Person\"}]}");
+  public static final org.apache.avro.Schema SCHEMA$ = new org.apache.avro.Schema.Parser().parse("{\"type\":\"record\",\"name\":\"PersonUpdatedEventRecord\",\"namespace\":\"com.skaria.avro.model.aggregate.domain\",\"fields\":[{\"name\":\"eventId\",\"type\":{\"type\":\"string\",\"logicalType\":\"uuid\"}},{\"name\":\"creationTimestamp\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"}},{\"name\":\"personBefore\",\"type\":[\"null\",{\"type\":\"record\",\"name\":\"Person\",\"namespace\":\"com.skaria.avro.model\",\"fields\":[{\"name\":\"person\",\"type\":\"Person\"}]}],\"default\":null},{\"name\":\"personAfter\",\"type\":\"com.skaria.avro.model.Person\"}]}");
   public static org.apache.avro.Schema getClassSchema() { return SCHEMA$; }
 
   private static final SpecificData MODEL$ = new SpecificData();
+  static {
+    MODEL$.addLogicalTypeConversion(new org.apache.avro.Conversions.UUIDConversion());
+  }
 
   private static final BinaryMessageEncoder<PersonUpdatedEventRecord> ENCODER =
       new BinaryMessageEncoder<>(MODEL$, SCHEMA$);
@@ -73,6 +75,8 @@ public class PersonUpdatedEventRecord extends org.apache.avro.specific.SpecificR
     return DECODER.decode(b);
   }
 
+  private java.util.UUID eventId;
+  private java.lang.String creationTimestamp;
   private com.skaria.avro.model.Person personBefore;
   private com.skaria.avro.model.Person personAfter;
 
@@ -85,10 +89,14 @@ public class PersonUpdatedEventRecord extends org.apache.avro.specific.SpecificR
 
   /**
    * All-args constructor.
+   * @param eventId The new value for eventId
+   * @param creationTimestamp The new value for creationTimestamp
    * @param personBefore The new value for personBefore
    * @param personAfter The new value for personAfter
    */
-  public PersonUpdatedEventRecord(com.skaria.avro.model.Person personBefore, com.skaria.avro.model.Person personAfter) {
+  public PersonUpdatedEventRecord(java.util.UUID eventId, java.lang.String creationTimestamp, com.skaria.avro.model.Person personBefore, com.skaria.avro.model.Person personAfter) {
+    this.eventId = eventId;
+    this.creationTimestamp = creationTimestamp;
     this.personBefore = personBefore;
     this.personAfter = personAfter;
   }
@@ -103,10 +111,26 @@ public class PersonUpdatedEventRecord extends org.apache.avro.specific.SpecificR
   @Override
   public java.lang.Object get(int field$) {
     switch (field$) {
-    case 0: return personBefore;
-    case 1: return personAfter;
+    case 0: return eventId;
+    case 1: return creationTimestamp;
+    case 2: return personBefore;
+    case 3: return personAfter;
     default: throw new IndexOutOfBoundsException("Invalid index: " + field$);
     }
+  }
+
+  private static final org.apache.avro.Conversion<?>[] conversions =
+      new org.apache.avro.Conversion<?>[] {
+      new org.apache.avro.Conversions.UUIDConversion(),
+      null,
+      null,
+      null,
+      null
+  };
+
+  @Override
+  public org.apache.avro.Conversion<?> getConversion(int field) {
+    return conversions[field];
   }
 
   // Used by DatumReader.  Applications should not call.
@@ -114,10 +138,60 @@ public class PersonUpdatedEventRecord extends org.apache.avro.specific.SpecificR
   @SuppressWarnings(value="unchecked")
   public void put(int field$, java.lang.Object value$) {
     switch (field$) {
-    case 0: personBefore = (com.skaria.avro.model.Person)value$; break;
-    case 1: personAfter = (com.skaria.avro.model.Person)value$; break;
+    case 0: eventId = (java.util.UUID)value$; break;
+    case 1: creationTimestamp = value$ != null ? value$.toString() : null; break;
+    case 2: personBefore = (com.skaria.avro.model.Person)value$; break;
+    case 3: personAfter = (com.skaria.avro.model.Person)value$; break;
     default: throw new IndexOutOfBoundsException("Invalid index: " + field$);
     }
+  }
+
+  /**
+   * Gets the value of the 'eventId' field.
+   * @return The value of the 'eventId' field.
+   */
+  public java.util.UUID getEventId() {
+    return eventId;
+  }
+
+  /**
+   * Gets the value of the 'eventId' field as an Optional&lt;java.util.UUID&gt;.
+   * @return The value wrapped in an Optional&lt;java.util.UUID&gt;.
+   */
+  public Optional<java.util.UUID> getOptionalEventId() {
+    return Optional.<java.util.UUID>ofNullable(eventId);
+  }
+
+  /**
+   * Sets the value of the 'eventId' field.
+   * @param value the value to set.
+   */
+  public void setEventId(java.util.UUID value) {
+    this.eventId = value;
+  }
+
+  /**
+   * Gets the value of the 'creationTimestamp' field.
+   * @return The value of the 'creationTimestamp' field.
+   */
+  public java.lang.String getCreationTimestamp() {
+    return creationTimestamp;
+  }
+
+  /**
+   * Gets the value of the 'creationTimestamp' field as an Optional&lt;java.lang.String&gt;.
+   * @return The value wrapped in an Optional&lt;java.lang.String&gt;.
+   */
+  public Optional<java.lang.String> getOptionalCreationTimestamp() {
+    return Optional.<java.lang.String>ofNullable(creationTimestamp);
+  }
+
+  /**
+   * Sets the value of the 'creationTimestamp' field.
+   * @param value the value to set.
+   */
+  public void setCreationTimestamp(java.lang.String value) {
+    this.creationTimestamp = value;
   }
 
   /**
@@ -209,6 +283,8 @@ public class PersonUpdatedEventRecord extends org.apache.avro.specific.SpecificR
   public static class Builder extends org.apache.avro.specific.SpecificRecordBuilderBase<PersonUpdatedEventRecord>
     implements org.apache.avro.data.RecordBuilder<PersonUpdatedEventRecord> {
 
+    private java.util.UUID eventId;
+    private java.lang.String creationTimestamp;
     private com.skaria.avro.model.Person personBefore;
     private com.skaria.avro.model.Person.Builder personBeforeBuilder;
     private com.skaria.avro.model.Person personAfter;
@@ -225,16 +301,24 @@ public class PersonUpdatedEventRecord extends org.apache.avro.specific.SpecificR
      */
     private Builder(com.skaria.avro.model.aggregate.domain.PersonUpdatedEventRecord.Builder other) {
       super(other);
-      if (isValidValue(fields()[0], other.personBefore)) {
-        this.personBefore = data().deepCopy(fields()[0].schema(), other.personBefore);
+      if (isValidValue(fields()[0], other.eventId)) {
+        this.eventId = data().deepCopy(fields()[0].schema(), other.eventId);
         fieldSetFlags()[0] = other.fieldSetFlags()[0];
+      }
+      if (isValidValue(fields()[1], other.creationTimestamp)) {
+        this.creationTimestamp = data().deepCopy(fields()[1].schema(), other.creationTimestamp);
+        fieldSetFlags()[1] = other.fieldSetFlags()[1];
+      }
+      if (isValidValue(fields()[2], other.personBefore)) {
+        this.personBefore = data().deepCopy(fields()[2].schema(), other.personBefore);
+        fieldSetFlags()[2] = other.fieldSetFlags()[2];
       }
       if (other.hasPersonBeforeBuilder()) {
         this.personBeforeBuilder = com.skaria.avro.model.Person.newBuilder(other.getPersonBeforeBuilder());
       }
-      if (isValidValue(fields()[1], other.personAfter)) {
-        this.personAfter = data().deepCopy(fields()[1].schema(), other.personAfter);
-        fieldSetFlags()[1] = other.fieldSetFlags()[1];
+      if (isValidValue(fields()[3], other.personAfter)) {
+        this.personAfter = data().deepCopy(fields()[3].schema(), other.personAfter);
+        fieldSetFlags()[3] = other.fieldSetFlags()[3];
       }
       if (other.hasPersonAfterBuilder()) {
         this.personAfterBuilder = com.skaria.avro.model.Person.newBuilder(other.getPersonAfterBuilder());
@@ -247,16 +331,118 @@ public class PersonUpdatedEventRecord extends org.apache.avro.specific.SpecificR
      */
     private Builder(com.skaria.avro.model.aggregate.domain.PersonUpdatedEventRecord other) {
       super(SCHEMA$, MODEL$);
-      if (isValidValue(fields()[0], other.personBefore)) {
-        this.personBefore = data().deepCopy(fields()[0].schema(), other.personBefore);
+      if (isValidValue(fields()[0], other.eventId)) {
+        this.eventId = data().deepCopy(fields()[0].schema(), other.eventId);
         fieldSetFlags()[0] = true;
       }
-      this.personBeforeBuilder = null;
-      if (isValidValue(fields()[1], other.personAfter)) {
-        this.personAfter = data().deepCopy(fields()[1].schema(), other.personAfter);
+      if (isValidValue(fields()[1], other.creationTimestamp)) {
+        this.creationTimestamp = data().deepCopy(fields()[1].schema(), other.creationTimestamp);
         fieldSetFlags()[1] = true;
       }
+      if (isValidValue(fields()[2], other.personBefore)) {
+        this.personBefore = data().deepCopy(fields()[2].schema(), other.personBefore);
+        fieldSetFlags()[2] = true;
+      }
+      this.personBeforeBuilder = null;
+      if (isValidValue(fields()[3], other.personAfter)) {
+        this.personAfter = data().deepCopy(fields()[3].schema(), other.personAfter);
+        fieldSetFlags()[3] = true;
+      }
       this.personAfterBuilder = null;
+    }
+
+    /**
+      * Gets the value of the 'eventId' field.
+      * @return The value.
+      */
+    public java.util.UUID getEventId() {
+      return eventId;
+    }
+
+    /**
+      * Gets the value of the 'eventId' field as an Optional&lt;java.util.UUID&gt;.
+      * @return The value wrapped in an Optional&lt;java.util.UUID&gt;.
+      */
+    public Optional<java.util.UUID> getOptionalEventId() {
+      return Optional.<java.util.UUID>ofNullable(eventId);
+    }
+
+    /**
+      * Sets the value of the 'eventId' field.
+      * @param value The value of 'eventId'.
+      * @return This builder.
+      */
+    public com.skaria.avro.model.aggregate.domain.PersonUpdatedEventRecord.Builder setEventId(java.util.UUID value) {
+      validate(fields()[0], value);
+      this.eventId = value;
+      fieldSetFlags()[0] = true;
+      return this;
+    }
+
+    /**
+      * Checks whether the 'eventId' field has been set.
+      * @return True if the 'eventId' field has been set, false otherwise.
+      */
+    public boolean hasEventId() {
+      return fieldSetFlags()[0];
+    }
+
+
+    /**
+      * Clears the value of the 'eventId' field.
+      * @return This builder.
+      */
+    public com.skaria.avro.model.aggregate.domain.PersonUpdatedEventRecord.Builder clearEventId() {
+      eventId = null;
+      fieldSetFlags()[0] = false;
+      return this;
+    }
+
+    /**
+      * Gets the value of the 'creationTimestamp' field.
+      * @return The value.
+      */
+    public java.lang.String getCreationTimestamp() {
+      return creationTimestamp;
+    }
+
+    /**
+      * Gets the value of the 'creationTimestamp' field as an Optional&lt;java.lang.String&gt;.
+      * @return The value wrapped in an Optional&lt;java.lang.String&gt;.
+      */
+    public Optional<java.lang.String> getOptionalCreationTimestamp() {
+      return Optional.<java.lang.String>ofNullable(creationTimestamp);
+    }
+
+    /**
+      * Sets the value of the 'creationTimestamp' field.
+      * @param value The value of 'creationTimestamp'.
+      * @return This builder.
+      */
+    public com.skaria.avro.model.aggregate.domain.PersonUpdatedEventRecord.Builder setCreationTimestamp(java.lang.String value) {
+      validate(fields()[1], value);
+      this.creationTimestamp = value;
+      fieldSetFlags()[1] = true;
+      return this;
+    }
+
+    /**
+      * Checks whether the 'creationTimestamp' field has been set.
+      * @return True if the 'creationTimestamp' field has been set, false otherwise.
+      */
+    public boolean hasCreationTimestamp() {
+      return fieldSetFlags()[1];
+    }
+
+
+    /**
+      * Clears the value of the 'creationTimestamp' field.
+      * @return This builder.
+      */
+    public com.skaria.avro.model.aggregate.domain.PersonUpdatedEventRecord.Builder clearCreationTimestamp() {
+      creationTimestamp = null;
+      fieldSetFlags()[1] = false;
+      return this;
     }
 
     /**
@@ -281,10 +467,10 @@ public class PersonUpdatedEventRecord extends org.apache.avro.specific.SpecificR
       * @return This builder.
       */
     public com.skaria.avro.model.aggregate.domain.PersonUpdatedEventRecord.Builder setPersonBefore(com.skaria.avro.model.Person value) {
-      validate(fields()[0], value);
+      validate(fields()[2], value);
       this.personBeforeBuilder = null;
       this.personBefore = value;
-      fieldSetFlags()[0] = true;
+      fieldSetFlags()[2] = true;
       return this;
     }
 
@@ -293,7 +479,7 @@ public class PersonUpdatedEventRecord extends org.apache.avro.specific.SpecificR
       * @return True if the 'personBefore' field has been set, false otherwise.
       */
     public boolean hasPersonBefore() {
-      return fieldSetFlags()[0];
+      return fieldSetFlags()[2];
     }
 
     /**
@@ -338,7 +524,7 @@ public class PersonUpdatedEventRecord extends org.apache.avro.specific.SpecificR
     public com.skaria.avro.model.aggregate.domain.PersonUpdatedEventRecord.Builder clearPersonBefore() {
       personBefore = null;
       personBeforeBuilder = null;
-      fieldSetFlags()[0] = false;
+      fieldSetFlags()[2] = false;
       return this;
     }
 
@@ -364,10 +550,10 @@ public class PersonUpdatedEventRecord extends org.apache.avro.specific.SpecificR
       * @return This builder.
       */
     public com.skaria.avro.model.aggregate.domain.PersonUpdatedEventRecord.Builder setPersonAfter(com.skaria.avro.model.Person value) {
-      validate(fields()[1], value);
+      validate(fields()[3], value);
       this.personAfterBuilder = null;
       this.personAfter = value;
-      fieldSetFlags()[1] = true;
+      fieldSetFlags()[3] = true;
       return this;
     }
 
@@ -376,7 +562,7 @@ public class PersonUpdatedEventRecord extends org.apache.avro.specific.SpecificR
       * @return True if the 'personAfter' field has been set, false otherwise.
       */
     public boolean hasPersonAfter() {
-      return fieldSetFlags()[1];
+      return fieldSetFlags()[3];
     }
 
     /**
@@ -421,7 +607,7 @@ public class PersonUpdatedEventRecord extends org.apache.avro.specific.SpecificR
     public com.skaria.avro.model.aggregate.domain.PersonUpdatedEventRecord.Builder clearPersonAfter() {
       personAfter = null;
       personAfterBuilder = null;
-      fieldSetFlags()[1] = false;
+      fieldSetFlags()[3] = false;
       return this;
     }
 
@@ -430,6 +616,8 @@ public class PersonUpdatedEventRecord extends org.apache.avro.specific.SpecificR
     public PersonUpdatedEventRecord build() {
       try {
         PersonUpdatedEventRecord record = new PersonUpdatedEventRecord();
+        record.eventId = fieldSetFlags()[0] ? this.eventId : (java.util.UUID) defaultValue(fields()[0]);
+        record.creationTimestamp = fieldSetFlags()[1] ? this.creationTimestamp : (java.lang.String) defaultValue(fields()[1]);
         if (personBeforeBuilder != null) {
           try {
             record.personBefore = this.personBeforeBuilder.build();
@@ -438,7 +626,7 @@ public class PersonUpdatedEventRecord extends org.apache.avro.specific.SpecificR
             throw e;
           }
         } else {
-          record.personBefore = fieldSetFlags()[0] ? this.personBefore : (com.skaria.avro.model.Person) defaultValue(fields()[0]);
+          record.personBefore = fieldSetFlags()[2] ? this.personBefore : (com.skaria.avro.model.Person) defaultValue(fields()[2]);
         }
         if (personAfterBuilder != null) {
           try {
@@ -448,7 +636,7 @@ public class PersonUpdatedEventRecord extends org.apache.avro.specific.SpecificR
             throw e;
           }
         } else {
-          record.personAfter = fieldSetFlags()[1] ? this.personAfter : (com.skaria.avro.model.Person) defaultValue(fields()[1]);
+          record.personAfter = fieldSetFlags()[3] ? this.personAfter : (com.skaria.avro.model.Person) defaultValue(fields()[3]);
         }
         return record;
       } catch (org.apache.avro.AvroMissingFieldException e) {
@@ -477,71 +665,6 @@ public class PersonUpdatedEventRecord extends org.apache.avro.specific.SpecificR
     READER$.read(this, SpecificData.getDecoder(in));
   }
 
-  @Override protected boolean hasCustomCoders() { return true; }
-
-  @Override public void customEncode(org.apache.avro.io.Encoder out)
-    throws java.io.IOException
-  {
-    if (this.personBefore == null) {
-      out.writeIndex(0);
-      out.writeNull();
-    } else {
-      out.writeIndex(1);
-      this.personBefore.customEncode(out);
-    }
-
-    this.personAfter.customEncode(out);
-
-  }
-
-  @Override public void customDecode(org.apache.avro.io.ResolvingDecoder in)
-    throws java.io.IOException
-  {
-    org.apache.avro.Schema.Field[] fieldOrder = in.readFieldOrderIfDiff();
-    if (fieldOrder == null) {
-      if (in.readIndex() != 1) {
-        in.readNull();
-        this.personBefore = null;
-      } else {
-        if (this.personBefore == null) {
-          this.personBefore = new com.skaria.avro.model.Person();
-        }
-        this.personBefore.customDecode(in);
-      }
-
-      if (this.personAfter == null) {
-        this.personAfter = new com.skaria.avro.model.Person();
-      }
-      this.personAfter.customDecode(in);
-
-    } else {
-      for (int i = 0; i < 2; i++) {
-        switch (fieldOrder[i].pos()) {
-        case 0:
-          if (in.readIndex() != 1) {
-            in.readNull();
-            this.personBefore = null;
-          } else {
-            if (this.personBefore == null) {
-              this.personBefore = new com.skaria.avro.model.Person();
-            }
-            this.personBefore.customDecode(in);
-          }
-          break;
-
-        case 1:
-          if (this.personAfter == null) {
-            this.personAfter = new com.skaria.avro.model.Person();
-          }
-          this.personAfter.customDecode(in);
-          break;
-
-        default:
-          throw new java.io.IOException("Corrupt ResolvingDecoder.");
-        }
-      }
-    }
-  }
 }
 
 

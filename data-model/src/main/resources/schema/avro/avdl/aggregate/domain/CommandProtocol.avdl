@@ -15,18 +15,28 @@ protocol DomainCommandProtocol {
     }
 
     record ProcessSomeRecordCommandRecord {
+        uuid                                                        eventId;
+        string                                                      creationTimestamp;
         com.skaria.avro.model.SomeRecord someRecord;
     }
 
     record AddIdentifierToSomeListCommandRecord {
+        uuid                                                        eventId;
+        string                                                      creationTimestamp;
+        string                          listId;
         com.skaria.avro.model.SomeList  someList;
     }
 
     record RemoveIdentifierFromListCommandRecord {
-        com.skaria.avro.model.Id    listId;
+        uuid                                                        eventId;
+        string                                                      creationTimestamp;
+        string                          listId;
+        com.skaria.avro.model.SomeList  someList;
     }
 
     record UpdatePersonCommandRecord {
+        uuid                                                        eventId;
+        string                                                      creationTimestamp;
         com.skaria.avro.model.Person  Person;
     }
 
@@ -39,7 +49,7 @@ protocol DomainCommandProtocol {
         com.skaria.avro.model.Identifier       identifier;
 
         /** Timestamp of the Cmd */
-        timestamp_ms                        creationTimestamp;
+        string                        creationTimestamp;
 
         /** Union across the supported  Aggregate Commands */
         union {

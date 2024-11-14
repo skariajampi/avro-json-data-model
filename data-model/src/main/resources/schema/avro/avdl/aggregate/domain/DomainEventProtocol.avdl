@@ -29,14 +29,22 @@ protocol AggregateDomainEventProtocol {
   }
 
   record IdentifierAddedToListEventRecord {
-    com.skaria.avro.model.SomeList                               someList;
+    uuid                                                        eventId;
+    string                                                      creationTimestamp;
+    string                          listId;
+    com.skaria.avro.model.SomeList  someList;
   }
 
   record IdentifierRemovedFromListEventRecord {
-    com.skaria.avro.model.Id                         Id;
+    uuid                                                        eventId;
+    string                                                      creationTimestamp;
+    string                          listId;
+    com.skaria.avro.model.SomeList  someList;
   }
 
   record PersonUpdatedEventRecord {
+    uuid                                                        eventId;
+    string                                                      creationTimestamp;
     union {null, com.skaria.avro.model.Person }                         personBefore = null;
     com.skaria.avro.model.Person                                        personAfter;
   }

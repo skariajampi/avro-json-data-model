@@ -15,14 +15,15 @@ import java.util.Optional;
 /** Command Record */
 @org.apache.avro.specific.AvroGenerated
 public class CommandRecord extends org.apache.avro.specific.SpecificRecordBase implements org.apache.avro.specific.SpecificRecord {
-  private static final long serialVersionUID = 3254708917866520600L;
+  private static final long serialVersionUID = -5303948389403306949L;
 
 
-  public static final org.apache.avro.Schema SCHEMA$ = new org.apache.avro.Schema.Parser().parse("{\"type\":\"record\",\"name\":\"CommandRecord\",\"namespace\":\"com.skaria.avro.model.aggregate.domain\",\"doc\":\"Command Record\",\"fields\":[{\"name\":\"commandType\",\"type\":{\"type\":\"enum\",\"name\":\"CommandType\",\"doc\":\"The list of Commands supported, a Cmd is a request to mutate the state of the system\",\"symbols\":[\"PROCESS_SOME_RECORD_COMMAND\",\"ADD_IDENTIFIER_TO_SOME_LIST_COMMAND\",\"REMOVE_IDENTIFIER_FROM_SOME_LIST_COMMAND\",\"UPDATE_PERSON_COMMAND\"]},\"doc\":\"The type of domain model command\"},{\"name\":\"identifier\",\"type\":{\"type\":\"record\",\"name\":\"Identifier\",\"namespace\":\"com.skaria.avro.model\",\"fields\":[{\"name\":\"identifier\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"}}]}},{\"name\":\"creationTimestamp\",\"type\":{\"type\":\"long\",\"logicalType\":\"timestamp-millis\"},\"doc\":\"Timestamp of the Cmd\"},{\"name\":\"command\",\"type\":[{\"type\":\"record\",\"name\":\"ProcessSomeRecordCommandRecord\",\"fields\":[{\"name\":\"someRecord\",\"type\":{\"type\":\"record\",\"name\":\"SomeRecord\",\"namespace\":\"com.skaria.avro.model\",\"fields\":[{\"name\":\"identifier\",\"type\":\"Identifier\"},{\"name\":\"Id\",\"type\":{\"type\":\"record\",\"name\":\"Id\",\"fields\":[{\"name\":\"id\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"}}]}},{\"name\":\"TIMESTAMP\",\"type\":{\"type\":\"long\",\"logicalType\":\"timestamp-millis\"}},{\"name\":\"RECEIVEDDATE\",\"type\":{\"type\":\"long\",\"logicalType\":\"timestamp-millis\"}},{\"name\":\"PRODUCEDDATE\",\"type\":{\"type\":\"long\",\"logicalType\":\"timestamp-millis\"}},{\"name\":\"POSITION\",\"type\":[\"null\",{\"type\":\"record\",\"name\":\"Location\",\"fields\":[{\"name\":\"latitude\",\"type\":\"double\"},{\"name\":\"longitude\",\"type\":\"double\"}]}]},{\"name\":\"MEASURE\",\"type\":[\"null\",\"int\"]}]}}]},{\"type\":\"record\",\"name\":\"AddIdentifierToSomeListCommandRecord\",\"fields\":[{\"name\":\"someList\",\"type\":{\"type\":\"record\",\"name\":\"SomeList\",\"namespace\":\"com.skaria.avro.model\",\"fields\":[{\"name\":\"id\",\"type\":{\"type\":\"record\",\"name\":\"SomeListId\",\"fields\":[{\"name\":\"id\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"}}]}},{\"name\":\"name\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}]},{\"name\":\"middlename\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}]},{\"name\":\"age\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}]},{\"name\":\"action\",\"type\":{\"type\":\"enum\",\"name\":\"Action\",\"symbols\":[\"STOP\",\"GO\"]}}]}}]},{\"type\":\"record\",\"name\":\"RemoveIdentifierFromListCommandRecord\",\"fields\":[{\"name\":\"listId\",\"type\":\"com.skaria.avro.model.Id\"}]},{\"type\":\"record\",\"name\":\"UpdatePersonCommandRecord\",\"fields\":[{\"name\":\"Person\",\"type\":{\"type\":\"record\",\"name\":\"Person\",\"namespace\":\"com.skaria.avro.model\",\"fields\":[{\"name\":\"person\",\"type\":\"Person\"}]}}]}],\"doc\":\"Union across the supported  Aggregate Commands\"}]}");
+  public static final org.apache.avro.Schema SCHEMA$ = new org.apache.avro.Schema.Parser().parse("{\"type\":\"record\",\"name\":\"CommandRecord\",\"namespace\":\"com.skaria.avro.model.aggregate.domain\",\"doc\":\"Command Record\",\"fields\":[{\"name\":\"commandType\",\"type\":{\"type\":\"enum\",\"name\":\"CommandType\",\"doc\":\"The list of Commands supported, a Cmd is a request to mutate the state of the system\",\"symbols\":[\"PROCESS_SOME_RECORD_COMMAND\",\"ADD_IDENTIFIER_TO_SOME_LIST_COMMAND\",\"REMOVE_IDENTIFIER_FROM_SOME_LIST_COMMAND\",\"UPDATE_PERSON_COMMAND\"]},\"doc\":\"The type of domain model command\"},{\"name\":\"identifier\",\"type\":{\"type\":\"record\",\"name\":\"Identifier\",\"namespace\":\"com.skaria.avro.model\",\"fields\":[{\"name\":\"identifier\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"}}]}},{\"name\":\"creationTimestamp\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"},\"doc\":\"Timestamp of the Cmd\"},{\"name\":\"command\",\"type\":[{\"type\":\"record\",\"name\":\"ProcessSomeRecordCommandRecord\",\"fields\":[{\"name\":\"eventId\",\"type\":{\"type\":\"string\",\"logicalType\":\"uuid\"}},{\"name\":\"creationTimestamp\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"}},{\"name\":\"someRecord\",\"type\":{\"type\":\"record\",\"name\":\"SomeRecord\",\"namespace\":\"com.skaria.avro.model\",\"fields\":[{\"name\":\"identifier\",\"type\":\"Identifier\"},{\"name\":\"Id\",\"type\":{\"type\":\"record\",\"name\":\"Id\",\"fields\":[{\"name\":\"id\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"}}]}},{\"name\":\"TIMESTAMP\",\"type\":{\"type\":\"long\",\"logicalType\":\"timestamp-millis\"}},{\"name\":\"RECEIVEDDATE\",\"type\":{\"type\":\"long\",\"logicalType\":\"timestamp-millis\"}},{\"name\":\"PRODUCEDDATE\",\"type\":{\"type\":\"long\",\"logicalType\":\"timestamp-millis\"}},{\"name\":\"POSITION\",\"type\":[\"null\",{\"type\":\"record\",\"name\":\"Location\",\"fields\":[{\"name\":\"latitude\",\"type\":\"double\"},{\"name\":\"longitude\",\"type\":\"double\"}]}]},{\"name\":\"MEASURE\",\"type\":[\"null\",\"int\"]}]}}]},{\"type\":\"record\",\"name\":\"AddIdentifierToSomeListCommandRecord\",\"fields\":[{\"name\":\"eventId\",\"type\":{\"type\":\"string\",\"logicalType\":\"uuid\"}},{\"name\":\"creationTimestamp\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"}},{\"name\":\"listId\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"}},{\"name\":\"someList\",\"type\":{\"type\":\"record\",\"name\":\"SomeList\",\"namespace\":\"com.skaria.avro.model\",\"fields\":[{\"name\":\"id\",\"type\":{\"type\":\"record\",\"name\":\"SomeListId\",\"fields\":[{\"name\":\"id\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"}}]}},{\"name\":\"name\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}]},{\"name\":\"middlename\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}]},{\"name\":\"age\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}]},{\"name\":\"action\",\"type\":{\"type\":\"enum\",\"name\":\"Action\",\"symbols\":[\"STOP\",\"GO\"]}}]}}]},{\"type\":\"record\",\"name\":\"RemoveIdentifierFromListCommandRecord\",\"fields\":[{\"name\":\"eventId\",\"type\":{\"type\":\"string\",\"logicalType\":\"uuid\"}},{\"name\":\"creationTimestamp\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"}},{\"name\":\"listId\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"}},{\"name\":\"someList\",\"type\":\"com.skaria.avro.model.SomeList\"}]},{\"type\":\"record\",\"name\":\"UpdatePersonCommandRecord\",\"fields\":[{\"name\":\"eventId\",\"type\":{\"type\":\"string\",\"logicalType\":\"uuid\"}},{\"name\":\"creationTimestamp\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"}},{\"name\":\"Person\",\"type\":{\"type\":\"record\",\"name\":\"Person\",\"namespace\":\"com.skaria.avro.model\",\"fields\":[{\"name\":\"person\",\"type\":\"Person\"}]}}]}],\"doc\":\"Union across the supported  Aggregate Commands\"}]}");
   public static org.apache.avro.Schema getClassSchema() { return SCHEMA$; }
 
   private static final SpecificData MODEL$ = new SpecificData();
   static {
+    MODEL$.addLogicalTypeConversion(new org.apache.avro.Conversions.UUIDConversion());
     MODEL$.addLogicalTypeConversion(new org.apache.avro.data.TimeConversions.TimestampMillisConversion());
   }
 
@@ -81,7 +82,7 @@ public class CommandRecord extends org.apache.avro.specific.SpecificRecordBase i
   private com.skaria.avro.model.aggregate.domain.CommandType commandType;
   private com.skaria.avro.model.Identifier identifier;
   /** Timestamp of the Cmd */
-  private java.time.Instant creationTimestamp;
+  private java.lang.String creationTimestamp;
   /** Union across the supported  Aggregate Commands */
   private java.lang.Object command;
 
@@ -99,10 +100,10 @@ public class CommandRecord extends org.apache.avro.specific.SpecificRecordBase i
    * @param creationTimestamp Timestamp of the Cmd
    * @param command Union across the supported  Aggregate Commands
    */
-  public CommandRecord(com.skaria.avro.model.aggregate.domain.CommandType commandType, com.skaria.avro.model.Identifier identifier, java.time.Instant creationTimestamp, java.lang.Object command) {
+  public CommandRecord(com.skaria.avro.model.aggregate.domain.CommandType commandType, com.skaria.avro.model.Identifier identifier, java.lang.String creationTimestamp, java.lang.Object command) {
     this.commandType = commandType;
     this.identifier = identifier;
-    this.creationTimestamp = creationTimestamp.truncatedTo(java.time.temporal.ChronoUnit.MILLIS);
+    this.creationTimestamp = creationTimestamp;
     this.command = command;
   }
 
@@ -124,20 +125,6 @@ public class CommandRecord extends org.apache.avro.specific.SpecificRecordBase i
     }
   }
 
-  private static final org.apache.avro.Conversion<?>[] conversions =
-      new org.apache.avro.Conversion<?>[] {
-      null,
-      null,
-      new org.apache.avro.data.TimeConversions.TimestampMillisConversion(),
-      null,
-      null
-  };
-
-  @Override
-  public org.apache.avro.Conversion<?> getConversion(int field) {
-    return conversions[field];
-  }
-
   // Used by DatumReader.  Applications should not call.
   @Override
   @SuppressWarnings(value="unchecked")
@@ -145,7 +132,7 @@ public class CommandRecord extends org.apache.avro.specific.SpecificRecordBase i
     switch (field$) {
     case 0: commandType = (com.skaria.avro.model.aggregate.domain.CommandType)value$; break;
     case 1: identifier = (com.skaria.avro.model.Identifier)value$; break;
-    case 2: creationTimestamp = (java.time.Instant)value$; break;
+    case 2: creationTimestamp = value$ != null ? value$.toString() : null; break;
     case 3: command = value$; break;
     default: throw new IndexOutOfBoundsException("Invalid index: " + field$);
     }
@@ -205,17 +192,17 @@ public class CommandRecord extends org.apache.avro.specific.SpecificRecordBase i
    * Gets the value of the 'creationTimestamp' field.
    * @return Timestamp of the Cmd
    */
-  public java.time.Instant getCreationTimestamp() {
+  public java.lang.String getCreationTimestamp() {
     return creationTimestamp;
   }
 
   /**
-   * Gets the value of the 'creationTimestamp' field as an Optional&lt;java.time.Instant&gt;.
+   * Gets the value of the 'creationTimestamp' field as an Optional&lt;java.lang.String&gt;.
    * Timestamp of the Cmd
-   * @return The value wrapped in an Optional&lt;java.time.Instant&gt;.
+   * @return The value wrapped in an Optional&lt;java.lang.String&gt;.
    */
-  public Optional<java.time.Instant> getOptionalCreationTimestamp() {
-    return Optional.<java.time.Instant>ofNullable(creationTimestamp);
+  public Optional<java.lang.String> getOptionalCreationTimestamp() {
+    return Optional.<java.lang.String>ofNullable(creationTimestamp);
   }
 
   /**
@@ -223,8 +210,8 @@ public class CommandRecord extends org.apache.avro.specific.SpecificRecordBase i
    * Timestamp of the Cmd
    * @param value the value to set.
    */
-  public void setCreationTimestamp(java.time.Instant value) {
-    this.creationTimestamp = value.truncatedTo(java.time.temporal.ChronoUnit.MILLIS);
+  public void setCreationTimestamp(java.lang.String value) {
+    this.creationTimestamp = value;
   }
 
   /**
@@ -299,7 +286,7 @@ public class CommandRecord extends org.apache.avro.specific.SpecificRecordBase i
     private com.skaria.avro.model.Identifier identifier;
     private com.skaria.avro.model.Identifier.Builder identifierBuilder;
     /** Timestamp of the Cmd */
-    private java.time.Instant creationTimestamp;
+    private java.lang.String creationTimestamp;
     /** Union across the supported  Aggregate Commands */
     private java.lang.Object command;
 
@@ -500,17 +487,17 @@ public class CommandRecord extends org.apache.avro.specific.SpecificRecordBase i
       * Timestamp of the Cmd
       * @return The value.
       */
-    public java.time.Instant getCreationTimestamp() {
+    public java.lang.String getCreationTimestamp() {
       return creationTimestamp;
     }
 
     /**
-      * Gets the value of the 'creationTimestamp' field as an Optional&lt;java.time.Instant&gt;.
+      * Gets the value of the 'creationTimestamp' field as an Optional&lt;java.lang.String&gt;.
       * Timestamp of the Cmd
-      * @return The value wrapped in an Optional&lt;java.time.Instant&gt;.
+      * @return The value wrapped in an Optional&lt;java.lang.String&gt;.
       */
-    public Optional<java.time.Instant> getOptionalCreationTimestamp() {
-      return Optional.<java.time.Instant>ofNullable(creationTimestamp);
+    public Optional<java.lang.String> getOptionalCreationTimestamp() {
+      return Optional.<java.lang.String>ofNullable(creationTimestamp);
     }
 
     /**
@@ -519,9 +506,9 @@ public class CommandRecord extends org.apache.avro.specific.SpecificRecordBase i
       * @param value The value of 'creationTimestamp'.
       * @return This builder.
       */
-    public com.skaria.avro.model.aggregate.domain.CommandRecord.Builder setCreationTimestamp(java.time.Instant value) {
+    public com.skaria.avro.model.aggregate.domain.CommandRecord.Builder setCreationTimestamp(java.lang.String value) {
       validate(fields()[2], value);
-      this.creationTimestamp = value.truncatedTo(java.time.temporal.ChronoUnit.MILLIS);
+      this.creationTimestamp = value;
       fieldSetFlags()[2] = true;
       return this;
     }
@@ -542,6 +529,7 @@ public class CommandRecord extends org.apache.avro.specific.SpecificRecordBase i
       * @return This builder.
       */
     public com.skaria.avro.model.aggregate.domain.CommandRecord.Builder clearCreationTimestamp() {
+      creationTimestamp = null;
       fieldSetFlags()[2] = false;
       return this;
     }
@@ -614,7 +602,7 @@ public class CommandRecord extends org.apache.avro.specific.SpecificRecordBase i
         } else {
           record.identifier = fieldSetFlags()[1] ? this.identifier : (com.skaria.avro.model.Identifier) defaultValue(fields()[1]);
         }
-        record.creationTimestamp = fieldSetFlags()[2] ? this.creationTimestamp : (java.time.Instant) defaultValue(fields()[2]);
+        record.creationTimestamp = fieldSetFlags()[2] ? this.creationTimestamp : (java.lang.String) defaultValue(fields()[2]);
         record.command = fieldSetFlags()[3] ? this.command :  defaultValue(fields()[3]);
         return record;
       } catch (org.apache.avro.AvroMissingFieldException e) {
