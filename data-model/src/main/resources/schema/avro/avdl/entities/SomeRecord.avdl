@@ -5,19 +5,12 @@ protocol IdentifierAggregateProtocol {
     import idl "../value-objects/Identifier.avdl";
     import idl "../value-objects/Id.avdl";
 
-    record Location {
-            double latitude;
-            double longitude;
-        }
 
     record SomeRecord {
 
         Identifier             identifier;
         Id           Id;
-        timestamp_ms    TIMESTAMP;
-        timestamp_ms    RECEIVEDDATE;
-        timestamp_ms    PRODUCEDDATE;
-        union{null, Location}   POSITION;
+        string    TIMESTAMP;
 		union{null, int}    MEASURE;
 
 

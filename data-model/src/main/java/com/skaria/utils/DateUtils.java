@@ -7,7 +7,7 @@ import java.time.format.DateTimeFormatter;
 public class DateUtils {
 
     public static final String ISO_DATE_TIME_STANDARD = "yyyy-MM-dd'T'HH:mm:ss.SSSXXX";
-    public static DateTimeFormatter standardDateTimeFormatter;
+    public static final DateTimeFormatter standardDateTimeFormatter;
 
     static {
         standardDateTimeFormatter = DateTimeFormatter.ofPattern(ISO_DATE_TIME_STANDARD);

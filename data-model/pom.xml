@@ -95,7 +95,7 @@
                         <configuration>
                             <sourceDirectory>${project.basedir}/src/main/resources/schema/json</sourceDirectory>
                             <outputDirectory>${project.basedir}/src/main/java</outputDirectory>
-                            <targetPackage>org.example</targetPackage>
+                            <targetPackage>com.skaria.json.model</targetPackage>
                             <includeGetters>${enable}</includeGetters>
                             <includeSetters>${enable}</includeSetters>
                             <includeToString>${enable}</includeToString>

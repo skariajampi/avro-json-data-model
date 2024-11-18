@@ -14,16 +14,13 @@ import org.apache.avro.message.SchemaStore;
 import java.util.Optional;
 @org.apache.avro.specific.AvroGenerated
 public class SomeRecord extends org.apache.avro.specific.SpecificRecordBase implements org.apache.avro.specific.SpecificRecord {
-  private static final long serialVersionUID = -3873753461888376309L;
+  private static final long serialVersionUID = 5628696943588425017L;
 
 
-  public static final org.apache.avro.Schema SCHEMA$ = new org.apache.avro.Schema.Parser().parse("{\"type\":\"record\",\"name\":\"SomeRecord\",\"namespace\":\"com.skaria.avro.model\",\"fields\":[{\"name\":\"identifier\",\"type\":{\"type\":\"record\",\"name\":\"Identifier\",\"fields\":[{\"name\":\"identifier\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"}}]}},{\"name\":\"Id\",\"type\":{\"type\":\"record\",\"name\":\"Id\",\"fields\":[{\"name\":\"id\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"}}]}},{\"name\":\"TIMESTAMP\",\"type\":{\"type\":\"long\",\"logicalType\":\"timestamp-millis\"}},{\"name\":\"RECEIVEDDATE\",\"type\":{\"type\":\"long\",\"logicalType\":\"timestamp-millis\"}},{\"name\":\"PRODUCEDDATE\",\"type\":{\"type\":\"long\",\"logicalType\":\"timestamp-millis\"}},{\"name\":\"POSITION\",\"type\":[\"null\",{\"type\":\"record\",\"name\":\"Location\",\"fields\":[{\"name\":\"latitude\",\"type\":\"double\"},{\"name\":\"longitude\",\"type\":\"double\"}]}]},{\"name\":\"MEASURE\",\"type\":[\"null\",\"int\"]}]}");
+  public static final org.apache.avro.Schema SCHEMA$ = new org.apache.avro.Schema.Parser().parse("{\"type\":\"record\",\"name\":\"SomeRecord\",\"namespace\":\"com.skaria.avro.model\",\"fields\":[{\"name\":\"identifier\",\"type\":{\"type\":\"record\",\"name\":\"Identifier\",\"fields\":[{\"name\":\"identifier\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"}}]}},{\"name\":\"Id\",\"type\":{\"type\":\"record\",\"name\":\"Id\",\"fields\":[{\"name\":\"id\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"}}]}},{\"name\":\"TIMESTAMP\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"}},{\"name\":\"MEASURE\",\"type\":[\"null\",\"int\"]}]}");
   public static org.apache.avro.Schema getClassSchema() { return SCHEMA$; }
 
   private static final SpecificData MODEL$ = new SpecificData();
-  static {
-    MODEL$.addLogicalTypeConversion(new org.apache.avro.data.TimeConversions.TimestampMillisConversion());
-  }
 
   private static final BinaryMessageEncoder<SomeRecord> ENCODER =
       new BinaryMessageEncoder<>(MODEL$, SCHEMA$);
@@ -78,10 +75,7 @@ public class SomeRecord extends org.apache.avro.specific.SpecificRecordBase impl
 
   private com.skaria.avro.model.Identifier identifier;
   private com.skaria.avro.model.Id Id;
-  private java.time.Instant TIMESTAMP;
-  private java.time.Instant RECEIVEDDATE;
-  private java.time.Instant PRODUCEDDATE;
-  private com.skaria.avro.model.Location POSITION;
+  private java.lang.String TIMESTAMP;
   private java.lang.Integer MEASURE;
 
   /**
@@ -96,18 +90,12 @@ public class SomeRecord extends org.apache.avro.specific.SpecificRecordBase impl
    * @param identifier The new value for identifier
    * @param Id The new value for Id
    * @param TIMESTAMP The new value for TIMESTAMP
-   * @param RECEIVEDDATE The new value for RECEIVEDDATE
-   * @param PRODUCEDDATE The new value for PRODUCEDDATE
-   * @param POSITION The new value for POSITION
    * @param MEASURE The new value for MEASURE
    */
-  public SomeRecord(com.skaria.avro.model.Identifier identifier, com.skaria.avro.model.Id Id, java.time.Instant TIMESTAMP, java.time.Instant RECEIVEDDATE, java.time.Instant PRODUCEDDATE, com.skaria.avro.model.Location POSITION, java.lang.Integer MEASURE) {
+  public SomeRecord(com.skaria.avro.model.Identifier identifier, com.skaria.avro.model.Id Id, java.lang.String TIMESTAMP, java.lang.Integer MEASURE) {
     this.identifier = identifier;
     this.Id = Id;
-    this.TIMESTAMP = TIMESTAMP.truncatedTo(java.time.temporal.ChronoUnit.MILLIS);
-    this.RECEIVEDDATE = RECEIVEDDATE.truncatedTo(java.time.temporal.ChronoUnit.MILLIS);
-    this.PRODUCEDDATE = PRODUCEDDATE.truncatedTo(java.time.temporal.ChronoUnit.MILLIS);
-    this.POSITION = POSITION;
+    this.TIMESTAMP = TIMESTAMP;
     this.MEASURE = MEASURE;
   }
 
@@ -124,29 +112,9 @@ public class SomeRecord extends org.apache.avro.specific.SpecificRecordBase impl
     case 0: return identifier;
     case 1: return Id;
     case 2: return TIMESTAMP;
-    case 3: return RECEIVEDDATE;
-    case 4: return PRODUCEDDATE;
-    case 5: return POSITION;
-    case 6: return MEASURE;
+    case 3: return MEASURE;
     default: throw new IndexOutOfBoundsException("Invalid index: " + field$);
     }
-  }
-
-  private static final org.apache.avro.Conversion<?>[] conversions =
-      new org.apache.avro.Conversion<?>[] {
-      null,
-      null,
-      new org.apache.avro.data.TimeConversions.TimestampMillisConversion(),
-      new org.apache.avro.data.TimeConversions.TimestampMillisConversion(),
-      new org.apache.avro.data.TimeConversions.TimestampMillisConversion(),
-      null,
-      null,
-      null
-  };
-
-  @Override
-  public org.apache.avro.Conversion<?> getConversion(int field) {
-    return conversions[field];
   }
 
   // Used by DatumReader.  Applications should not call.
@@ -156,11 +124,8 @@ public class SomeRecord extends org.apache.avro.specific.SpecificRecordBase impl
     switch (field$) {
     case 0: identifier = (com.skaria.avro.model.Identifier)value$; break;
     case 1: Id = (com.skaria.avro.model.Id)value$; break;
-    case 2: TIMESTAMP = (java.time.Instant)value$; break;
-    case 3: RECEIVEDDATE = (java.time.Instant)value$; break;
-    case 4: PRODUCEDDATE = (java.time.Instant)value$; break;
-    case 5: POSITION = (com.skaria.avro.model.Location)value$; break;
-    case 6: MEASURE = (java.lang.Integer)value$; break;
+    case 2: TIMESTAMP = value$ != null ? value$.toString() : null; break;
+    case 3: MEASURE = (java.lang.Integer)value$; break;
     default: throw new IndexOutOfBoundsException("Invalid index: " + field$);
     }
   }
@@ -217,96 +182,24 @@ public class SomeRecord extends org.apache.avro.specific.SpecificRecordBase impl
    * Gets the value of the 'TIMESTAMP' field.
    * @return The value of the 'TIMESTAMP' field.
    */
-  public java.time.Instant getTIMESTAMP() {
+  public java.lang.String getTIMESTAMP() {
     return TIMESTAMP;
   }
 
   /**
-   * Gets the value of the 'TIMESTAMP' field as an Optional&lt;java.time.Instant&gt;.
-   * @return The value wrapped in an Optional&lt;java.time.Instant&gt;.
+   * Gets the value of the 'TIMESTAMP' field as an Optional&lt;java.lang.String&gt;.
+   * @return The value wrapped in an Optional&lt;java.lang.String&gt;.
    */
-  public Optional<java.time.Instant> getOptionalTIMESTAMP() {
-    return Optional.<java.time.Instant>ofNullable(TIMESTAMP);
+  public Optional<java.lang.String> getOptionalTIMESTAMP() {
+    return Optional.<java.lang.String>ofNullable(TIMESTAMP);
   }
 
   /**
    * Sets the value of the 'TIMESTAMP' field.
    * @param value the value to set.
    */
-  public void setTIMESTAMP(java.time.Instant value) {
-    this.TIMESTAMP = value.truncatedTo(java.time.temporal.ChronoUnit.MILLIS);
-  }
-
-  /**
-   * Gets the value of the 'RECEIVEDDATE' field.
-   * @return The value of the 'RECEIVEDDATE' field.
-   */
-  public java.time.Instant getRECEIVEDDATE() {
-    return RECEIVEDDATE;
-  }
-
-  /**
-   * Gets the value of the 'RECEIVEDDATE' field as an Optional&lt;java.time.Instant&gt;.
-   * @return The value wrapped in an Optional&lt;java.time.Instant&gt;.
-   */
-  public Optional<java.time.Instant> getOptionalRECEIVEDDATE() {
-    return Optional.<java.time.Instant>ofNullable(RECEIVEDDATE);
-  }
-
-  /**
-   * Sets the value of the 'RECEIVEDDATE' field.
-   * @param value the value to set.
-   */
-  public void setRECEIVEDDATE(java.time.Instant value) {
-    this.RECEIVEDDATE = value.truncatedTo(java.time.temporal.ChronoUnit.MILLIS);
-  }
-
-  /**
-   * Gets the value of the 'PRODUCEDDATE' field.
-   * @return The value of the 'PRODUCEDDATE' field.
-   */
-  public java.time.Instant getPRODUCEDDATE() {
-    return PRODUCEDDATE;
-  }
-
-  /**
-   * Gets the value of the 'PRODUCEDDATE' field as an Optional&lt;java.time.Instant&gt;.
-   * @return The value wrapped in an Optional&lt;java.time.Instant&gt;.
-   */
-  public Optional<java.time.Instant> getOptionalPRODUCEDDATE() {
-    return Optional.<java.time.Instant>ofNullable(PRODUCEDDATE);
-  }
-
-  /**
-   * Sets the value of the 'PRODUCEDDATE' field.
-   * @param value the value to set.
-   */
-  public void setPRODUCEDDATE(java.time.Instant value) {
-    this.PRODUCEDDATE = value.truncatedTo(java.time.temporal.ChronoUnit.MILLIS);
-  }
-
-  /**
-   * Gets the value of the 'POSITION' field.
-   * @return The value of the 'POSITION' field.
-   */
-  public com.skaria.avro.model.Location getPOSITION() {
-    return POSITION;
-  }
-
-  /**
-   * Gets the value of the 'POSITION' field as an Optional&lt;com.skaria.avro.model.Location&gt;.
-   * @return The value wrapped in an Optional&lt;com.skaria.avro.model.Location&gt;.
-   */
-  public Optional<com.skaria.avro.model.Location> getOptionalPOSITION() {
-    return Optional.<com.skaria.avro.model.Location>ofNullable(POSITION);
-  }
-
-  /**
-   * Sets the value of the 'POSITION' field.
-   * @param value the value to set.
-   */
-  public void setPOSITION(com.skaria.avro.model.Location value) {
-    this.POSITION = value;
+  public void setTIMESTAMP(java.lang.String value) {
+    this.TIMESTAMP = value;
   }
 
   /**
@@ -378,11 +271,7 @@ public class SomeRecord extends org.apache.avro.specific.SpecificRecordBase impl
     private com.skaria.avro.model.Identifier.Builder identifierBuilder;
     private com.skaria.avro.model.Id Id;
     private com.skaria.avro.model.Id.Builder IdBuilder;
-    private java.time.Instant TIMESTAMP;
-    private java.time.Instant RECEIVEDDATE;
-    private java.time.Instant PRODUCEDDATE;
-    private com.skaria.avro.model.Location POSITION;
-    private com.skaria.avro.model.Location.Builder POSITIONBuilder;
+    private java.lang.String TIMESTAMP;
     private java.lang.Integer MEASURE;
 
     /** Creates a new Builder */
@@ -414,24 +303,9 @@ public class SomeRecord extends org.apache.avro.specific.SpecificRecordBase impl
         this.TIMESTAMP = data().deepCopy(fields()[2].schema(), other.TIMESTAMP);
         fieldSetFlags()[2] = other.fieldSetFlags()[2];
       }
-      if (isValidValue(fields()[3], other.RECEIVEDDATE)) {
-        this.RECEIVEDDATE = data().deepCopy(fields()[3].schema(), other.RECEIVEDDATE);
+      if (isValidValue(fields()[3], other.MEASURE)) {
+        this.MEASURE = data().deepCopy(fields()[3].schema(), other.MEASURE);
         fieldSetFlags()[3] = other.fieldSetFlags()[3];
-      }
-      if (isValidValue(fields()[4], other.PRODUCEDDATE)) {
-        this.PRODUCEDDATE = data().deepCopy(fields()[4].schema(), other.PRODUCEDDATE);
-        fieldSetFlags()[4] = other.fieldSetFlags()[4];
-      }
-      if (isValidValue(fields()[5], other.POSITION)) {
-        this.POSITION = data().deepCopy(fields()[5].schema(), other.POSITION);
-        fieldSetFlags()[5] = other.fieldSetFlags()[5];
-      }
-      if (other.hasPOSITIONBuilder()) {
-        this.POSITIONBuilder = com.skaria.avro.model.Location.newBuilder(other.getPOSITIONBuilder());
-      }
-      if (isValidValue(fields()[6], other.MEASURE)) {
-        this.MEASURE = data().deepCopy(fields()[6].schema(), other.MEASURE);
-        fieldSetFlags()[6] = other.fieldSetFlags()[6];
       }
     }
 
@@ -455,22 +329,9 @@ public class SomeRecord extends org.apache.avro.specific.SpecificRecordBase impl
         this.TIMESTAMP = data().deepCopy(fields()[2].schema(), other.TIMESTAMP);
         fieldSetFlags()[2] = true;
       }
-      if (isValidValue(fields()[3], other.RECEIVEDDATE)) {
-        this.RECEIVEDDATE = data().deepCopy(fields()[3].schema(), other.RECEIVEDDATE);
+      if (isValidValue(fields()[3], other.MEASURE)) {
+        this.MEASURE = data().deepCopy(fields()[3].schema(), other.MEASURE);
         fieldSetFlags()[3] = true;
-      }
-      if (isValidValue(fields()[4], other.PRODUCEDDATE)) {
-        this.PRODUCEDDATE = data().deepCopy(fields()[4].schema(), other.PRODUCEDDATE);
-        fieldSetFlags()[4] = true;
-      }
-      if (isValidValue(fields()[5], other.POSITION)) {
-        this.POSITION = data().deepCopy(fields()[5].schema(), other.POSITION);
-        fieldSetFlags()[5] = true;
-      }
-      this.POSITIONBuilder = null;
-      if (isValidValue(fields()[6], other.MEASURE)) {
-        this.MEASURE = data().deepCopy(fields()[6].schema(), other.MEASURE);
-        fieldSetFlags()[6] = true;
       }
     }
 
@@ -644,16 +505,16 @@ public class SomeRecord extends org.apache.avro.specific.SpecificRecordBase impl
       * Gets the value of the 'TIMESTAMP' field.
       * @return The value.
       */
-    public java.time.Instant getTIMESTAMP() {
+    public java.lang.String getTIMESTAMP() {
       return TIMESTAMP;
     }
 
     /**
-      * Gets the value of the 'TIMESTAMP' field as an Optional&lt;java.time.Instant&gt;.
-      * @return The value wrapped in an Optional&lt;java.time.Instant&gt;.
+      * Gets the value of the 'TIMESTAMP' field as an Optional&lt;java.lang.String&gt;.
+      * @return The value wrapped in an Optional&lt;java.lang.String&gt;.
       */
-    public Optional<java.time.Instant> getOptionalTIMESTAMP() {
-      return Optional.<java.time.Instant>ofNullable(TIMESTAMP);
+    public Optional<java.lang.String> getOptionalTIMESTAMP() {
+      return Optional.<java.lang.String>ofNullable(TIMESTAMP);
     }
 
     /**
@@ -661,9 +522,9 @@ public class SomeRecord extends org.apache.avro.specific.SpecificRecordBase impl
       * @param value The value of 'TIMESTAMP'.
       * @return This builder.
       */
-    public com.skaria.avro.model.SomeRecord.Builder setTIMESTAMP(java.time.Instant value) {
+    public com.skaria.avro.model.SomeRecord.Builder setTIMESTAMP(java.lang.String value) {
       validate(fields()[2], value);
-      this.TIMESTAMP = value.truncatedTo(java.time.temporal.ChronoUnit.MILLIS);
+      this.TIMESTAMP = value;
       fieldSetFlags()[2] = true;
       return this;
     }
@@ -682,182 +543,8 @@ public class SomeRecord extends org.apache.avro.specific.SpecificRecordBase impl
       * @return This builder.
       */
     public com.skaria.avro.model.SomeRecord.Builder clearTIMESTAMP() {
+      TIMESTAMP = null;
       fieldSetFlags()[2] = false;
-      return this;
-    }
-
-    /**
-      * Gets the value of the 'RECEIVEDDATE' field.
-      * @return The value.
-      */
-    public java.time.Instant getRECEIVEDDATE() {
-      return RECEIVEDDATE;
-    }
-
-    /**
-      * Gets the value of the 'RECEIVEDDATE' field as an Optional&lt;java.time.Instant&gt;.
-      * @return The value wrapped in an Optional&lt;java.time.Instant&gt;.
-      */
-    public Optional<java.time.Instant> getOptionalRECEIVEDDATE() {
-      return Optional.<java.time.Instant>ofNullable(RECEIVEDDATE);
-    }
-
-    /**
-      * Sets the value of the 'RECEIVEDDATE' field.
-      * @param value The value of 'RECEIVEDDATE'.
-      * @return This builder.
-      */
-    public com.skaria.avro.model.SomeRecord.Builder setRECEIVEDDATE(java.time.Instant value) {
-      validate(fields()[3], value);
-      this.RECEIVEDDATE = value.truncatedTo(java.time.temporal.ChronoUnit.MILLIS);
-      fieldSetFlags()[3] = true;
-      return this;
-    }
-
-    /**
-      * Checks whether the 'RECEIVEDDATE' field has been set.
-      * @return True if the 'RECEIVEDDATE' field has been set, false otherwise.
-      */
-    public boolean hasRECEIVEDDATE() {
-      return fieldSetFlags()[3];
-    }
-
-
-    /**
-      * Clears the value of the 'RECEIVEDDATE' field.
-      * @return This builder.
-      */
-    public com.skaria.avro.model.SomeRecord.Builder clearRECEIVEDDATE() {
-      fieldSetFlags()[3] = false;
-      return this;
-    }
-
-    /**
-      * Gets the value of the 'PRODUCEDDATE' field.
-      * @return The value.
-      */
-    public java.time.Instant getPRODUCEDDATE() {
-      return PRODUCEDDATE;
-    }
-
-    /**
-      * Gets the value of the 'PRODUCEDDATE' field as an Optional&lt;java.time.Instant&gt;.
-      * @return The value wrapped in an Optional&lt;java.time.Instant&gt;.
-      */
-    public Optional<java.time.Instant> getOptionalPRODUCEDDATE() {
-      return Optional.<java.time.Instant>ofNullable(PRODUCEDDATE);
-    }
-
-    /**
-      * Sets the value of the 'PRODUCEDDATE' field.
-      * @param value The value of 'PRODUCEDDATE'.
-      * @return This builder.
-      */
-    public com.skaria.avro.model.SomeRecord.Builder setPRODUCEDDATE(java.time.Instant value) {
-      validate(fields()[4], value);
-      this.PRODUCEDDATE = value.truncatedTo(java.time.temporal.ChronoUnit.MILLIS);
-      fieldSetFlags()[4] = true;
-      return this;
-    }
-
-    /**
-      * Checks whether the 'PRODUCEDDATE' field has been set.
-      * @return True if the 'PRODUCEDDATE' field has been set, false otherwise.
-      */
-    public boolean hasPRODUCEDDATE() {
-      return fieldSetFlags()[4];
-    }
-
-
-    /**
-      * Clears the value of the 'PRODUCEDDATE' field.
-      * @return This builder.
-      */
-    public com.skaria.avro.model.SomeRecord.Builder clearPRODUCEDDATE() {
-      fieldSetFlags()[4] = false;
-      return this;
-    }
-
-    /**
-      * Gets the value of the 'POSITION' field.
-      * @return The value.
-      */
-    public com.skaria.avro.model.Location getPOSITION() {
-      return POSITION;
-    }
-
-    /**
-      * Gets the value of the 'POSITION' field as an Optional&lt;com.skaria.avro.model.Location&gt;.
-      * @return The value wrapped in an Optional&lt;com.skaria.avro.model.Location&gt;.
-      */
-    public Optional<com.skaria.avro.model.Location> getOptionalPOSITION() {
-      return Optional.<com.skaria.avro.model.Location>ofNullable(POSITION);
-    }
-
-    /**
-      * Sets the value of the 'POSITION' field.
-      * @param value The value of 'POSITION'.
-      * @return This builder.
-      */
-    public com.skaria.avro.model.SomeRecord.Builder setPOSITION(com.skaria.avro.model.Location value) {
-      validate(fields()[5], value);
-      this.POSITIONBuilder = null;
-      this.POSITION = value;
-      fieldSetFlags()[5] = true;
-      return this;
-    }
-
-    /**
-      * Checks whether the 'POSITION' field has been set.
-      * @return True if the 'POSITION' field has been set, false otherwise.
-      */
-    public boolean hasPOSITION() {
-      return fieldSetFlags()[5];
-    }
-
-    /**
-     * Gets the Builder instance for the 'POSITION' field and creates one if it doesn't exist yet.
-     * @return This builder.
-     */
-    public com.skaria.avro.model.Location.Builder getPOSITIONBuilder() {
-      if (POSITIONBuilder == null) {
-        if (hasPOSITION()) {
-          setPOSITIONBuilder(com.skaria.avro.model.Location.newBuilder(POSITION));
-        } else {
-          setPOSITIONBuilder(com.skaria.avro.model.Location.newBuilder());
-        }
-      }
-      return POSITIONBuilder;
-    }
-
-    /**
-     * Sets the Builder instance for the 'POSITION' field
-     * @param value The builder instance that must be set.
-     * @return This builder.
-     */
-
-    public com.skaria.avro.model.SomeRecord.Builder setPOSITIONBuilder(com.skaria.avro.model.Location.Builder value) {
-      clearPOSITION();
-      POSITIONBuilder = value;
-      return this;
-    }
-
-    /**
-     * Checks whether the 'POSITION' field has an active Builder instance
-     * @return True if the 'POSITION' field has an active Builder instance
-     */
-    public boolean hasPOSITIONBuilder() {
-      return POSITIONBuilder != null;
-    }
-
-    /**
-      * Clears the value of the 'POSITION' field.
-      * @return This builder.
-      */
-    public com.skaria.avro.model.SomeRecord.Builder clearPOSITION() {
-      POSITION = null;
-      POSITIONBuilder = null;
-      fieldSetFlags()[5] = false;
       return this;
     }
 
@@ -883,9 +570,9 @@ public class SomeRecord extends org.apache.avro.specific.SpecificRecordBase impl
       * @return This builder.
       */
     public com.skaria.avro.model.SomeRecord.Builder setMEASURE(java.lang.Integer value) {
-      validate(fields()[6], value);
+      validate(fields()[3], value);
       this.MEASURE = value;
-      fieldSetFlags()[6] = true;
+      fieldSetFlags()[3] = true;
       return this;
     }
 
@@ -894,7 +581,7 @@ public class SomeRecord extends org.apache.avro.specific.SpecificRecordBase impl
       * @return True if the 'MEASURE' field has been set, false otherwise.
       */
     public boolean hasMEASURE() {
-      return fieldSetFlags()[6];
+      return fieldSetFlags()[3];
     }
 
 
@@ -904,7 +591,7 @@ public class SomeRecord extends org.apache.avro.specific.SpecificRecordBase impl
       */
     public com.skaria.avro.model.SomeRecord.Builder clearMEASURE() {
       MEASURE = null;
-      fieldSetFlags()[6] = false;
+      fieldSetFlags()[3] = false;
       return this;
     }
 
@@ -933,20 +620,8 @@ public class SomeRecord extends org.apache.avro.specific.SpecificRecordBase impl
         } else {
           record.Id = fieldSetFlags()[1] ? this.Id : (com.skaria.avro.model.Id) defaultValue(fields()[1]);
         }
-        record.TIMESTAMP = fieldSetFlags()[2] ? this.TIMESTAMP : (java.time.Instant) defaultValue(fields()[2]);
-        record.RECEIVEDDATE = fieldSetFlags()[3] ? this.RECEIVEDDATE : (java.time.Instant) defaultValue(fields()[3]);
-        record.PRODUCEDDATE = fieldSetFlags()[4] ? this.PRODUCEDDATE : (java.time.Instant) defaultValue(fields()[4]);
-        if (POSITIONBuilder != null) {
-          try {
-            record.POSITION = this.POSITIONBuilder.build();
-          } catch (org.apache.avro.AvroMissingFieldException e) {
-            e.addParentField(record.getSchema().getField("POSITION"));
-            throw e;
-          }
-        } else {
-          record.POSITION = fieldSetFlags()[5] ? this.POSITION : (com.skaria.avro.model.Location) defaultValue(fields()[5]);
-        }
-        record.MEASURE = fieldSetFlags()[6] ? this.MEASURE : (java.lang.Integer) defaultValue(fields()[6]);
+        record.TIMESTAMP = fieldSetFlags()[2] ? this.TIMESTAMP : (java.lang.String) defaultValue(fields()[2]);
+        record.MEASURE = fieldSetFlags()[3] ? this.MEASURE : (java.lang.Integer) defaultValue(fields()[3]);
         return record;
       } catch (org.apache.avro.AvroMissingFieldException e) {
         throw e;
@@ -974,6 +649,87 @@ public class SomeRecord extends org.apache.avro.specific.SpecificRecordBase impl
     READER$.read(this, SpecificData.getDecoder(in));
   }
 
+  @Override protected boolean hasCustomCoders() { return true; }
+
+  @Override public void customEncode(org.apache.avro.io.Encoder out)
+    throws java.io.IOException
+  {
+    this.identifier.customEncode(out);
+
+    this.Id.customEncode(out);
+
+    out.writeString(this.TIMESTAMP);
+
+    if (this.MEASURE == null) {
+      out.writeIndex(0);
+      out.writeNull();
+    } else {
+      out.writeIndex(1);
+      out.writeInt(this.MEASURE);
+    }
+
+  }
+
+  @Override public void customDecode(org.apache.avro.io.ResolvingDecoder in)
+    throws java.io.IOException
+  {
+    org.apache.avro.Schema.Field[] fieldOrder = in.readFieldOrderIfDiff();
+    if (fieldOrder == null) {
+      if (this.identifier == null) {
+        this.identifier = new com.skaria.avro.model.Identifier();
+      }
+      this.identifier.customDecode(in);
+
+      if (this.Id == null) {
+        this.Id = new com.skaria.avro.model.Id();
+      }
+      this.Id.customDecode(in);
+
+      this.TIMESTAMP = in.readString();
+
+      if (in.readIndex() != 1) {
+        in.readNull();
+        this.MEASURE = null;
+      } else {
+        this.MEASURE = in.readInt();
+      }
+
+    } else {
+      for (int i = 0; i < 4; i++) {
+        switch (fieldOrder[i].pos()) {
+        case 0:
+          if (this.identifier == null) {
+            this.identifier = new com.skaria.avro.model.Identifier();
+          }
+          this.identifier.customDecode(in);
+          break;
+
+        case 1:
+          if (this.Id == null) {
+            this.Id = new com.skaria.avro.model.Id();
+          }
+          this.Id.customDecode(in);
+          break;
+
+        case 2:
+          this.TIMESTAMP = in.readString();
+          break;
+
+        case 3:
+          if (in.readIndex() != 1) {
+            in.readNull();
+            this.MEASURE = null;
+          } else {
+            this.MEASURE = in.readInt();
+          }
+          break;
+
+        default:
+          throw new java.io.IOException("Corrupt ResolvingDecoder.");
+        }
+      }
+    }
+  }
 }
 
 

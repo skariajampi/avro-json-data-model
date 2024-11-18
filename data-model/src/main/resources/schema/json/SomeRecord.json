@@ -1,0 +1,24 @@
+{
+  "$schema": "https://json-schema.org/draft-04/schema#",
+  "title": "SomeRecord",
+  "type": "object",
+  "properties": {
+    "Id": {
+      "type": "string"
+    },
+    "Timestamp": {
+      "type": "string"
+    },
+    "Identifier": {
+      "type": "string"
+    },
+    "Measure": {
+      "type": "integer"
+    }
+  },
+  "required": [
+    "Id",
+    "Identifier",
+    "Timestamp"
+  ]
+}
