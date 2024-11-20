@@ -28,13 +28,13 @@ protocol AggregateDomainEventProtocol {
         //union {null, com.skaria.avro.model.Person}                person = null;
   }
 
-  /*record IdentifierAddedToListEventRecord {
+  record IdentifierAddedToListEventRecord {
     uuid                                                        eventId;
     string                                                      creationTimestamp;
     com.skaria.avro.model.SomeList  someList;
   }
 
-  record IdentifierRemovedFromListEventRecord {
+  /*record IdentifierRemovedFromListEventRecord {
     uuid                                                        eventId;
     string                                                      creationTimestamp;
     com.skaria.avro.model.SomeListId  someListId;
@@ -61,10 +61,10 @@ protocol AggregateDomainEventProtocol {
 
     /** Union of the supported Domain events */
     union {
-          SomeRecordUpdatedEventRecord
-                  /*IdentifierAddedToListEventRecord,
-                  IdentifierRemovedFromListEventRecord,
-                  PersonUpdatedEventRecord*/
+          SomeRecordUpdatedEventRecord,
+                  IdentifierAddedToListEventRecord
+          /*IdentifierRemovedFromListEventRecord,
+		  PersonUpdatedEventRecord*/
     } event;
   }
 }
