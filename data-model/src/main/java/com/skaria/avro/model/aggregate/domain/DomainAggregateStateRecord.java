@@ -14,16 +14,13 @@ import org.apache.avro.message.SchemaStore;
 import java.util.Optional;
 @org.apache.avro.specific.AvroGenerated
 public class DomainAggregateStateRecord extends org.apache.avro.specific.SpecificRecordBase implements org.apache.avro.specific.SpecificRecord {
-  private static final long serialVersionUID = 5999709552328607836L;
+  private static final long serialVersionUID = 3726137555580281658L;
 
 
-  public static final org.apache.avro.Schema SCHEMA$ = new org.apache.avro.Schema.Parser().parse("{\"type\":\"record\",\"name\":\"DomainAggregateStateRecord\",\"namespace\":\"com.skaria.avro.model.aggregate.domain\",\"fields\":[{\"name\":\"creationTimestamp\",\"type\":{\"type\":\"long\",\"logicalType\":\"timestamp-millis\"}},{\"name\":\"lastUpdatedTimestamp\",\"type\":{\"type\":\"long\",\"logicalType\":\"timestamp-millis\"}},{\"name\":\"person\",\"type\":[\"null\",{\"type\":\"record\",\"name\":\"Person\",\"namespace\":\"com.skaria.avro.model\",\"fields\":[{\"name\":\"person\",\"type\":\"Person\"}]}],\"default\":null},{\"name\":\"someList\",\"type\":[\"null\",{\"type\":\"map\",\"values\":{\"type\":\"record\",\"name\":\"SomeList\",\"namespace\":\"com.skaria.avro.model\",\"fields\":[{\"name\":\"id\",\"type\":{\"type\":\"record\",\"name\":\"SomeListId\",\"fields\":[{\"name\":\"firstName\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"}},{\"name\":\"lastName\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"}}]}},{\"name\":\"firstName\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"}},{\"name\":\"lastName\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"}},{\"name\":\"middlename\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}]},{\"name\":\"age\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}]},{\"name\":\"action\",\"type\":{\"type\":\"enum\",\"name\":\"Action\",\"symbols\":[\"STOP\",\"GO\"]}}]},\"avro.java.string\":\"String\"}],\"default\":null}]}");
+  public static final org.apache.avro.Schema SCHEMA$ = new org.apache.avro.Schema.Parser().parse("{\"type\":\"record\",\"name\":\"DomainAggregateStateRecord\",\"namespace\":\"com.skaria.avro.model.aggregate.domain\",\"fields\":[{\"name\":\"creationTimestamp\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"}},{\"name\":\"lastUpdatedTimestamp\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"}},{\"name\":\"person\",\"type\":[\"null\",{\"type\":\"record\",\"name\":\"Person\",\"namespace\":\"com.skaria.avro.model\",\"fields\":[{\"name\":\"person\",\"type\":\"Person\"}]}],\"default\":null},{\"name\":\"someList\",\"type\":[\"null\",{\"type\":\"map\",\"values\":{\"type\":\"record\",\"name\":\"SomeList\",\"namespace\":\"com.skaria.avro.model\",\"fields\":[{\"name\":\"id\",\"type\":{\"type\":\"record\",\"name\":\"SomeListId\",\"fields\":[{\"name\":\"firstName\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"}},{\"name\":\"lastName\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"}}]}},{\"name\":\"firstName\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"}},{\"name\":\"lastName\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"}},{\"name\":\"middlename\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}]},{\"name\":\"age\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}]},{\"name\":\"action\",\"type\":{\"type\":\"enum\",\"name\":\"Action\",\"symbols\":[\"STOP\",\"GO\"]}}]},\"avro.java.string\":\"String\"}],\"default\":null}]}");
   public static org.apache.avro.Schema getClassSchema() { return SCHEMA$; }
 
   private static final SpecificData MODEL$ = new SpecificData();
-  static {
-    MODEL$.addLogicalTypeConversion(new org.apache.avro.data.TimeConversions.TimestampMillisConversion());
-  }
 
   private static final BinaryMessageEncoder<DomainAggregateStateRecord> ENCODER =
       new BinaryMessageEncoder<>(MODEL$, SCHEMA$);
@@ -76,8 +73,8 @@ public class DomainAggregateStateRecord extends org.apache.avro.specific.Specifi
     return DECODER.decode(b);
   }
 
-  private java.time.Instant creationTimestamp;
-  private java.time.Instant lastUpdatedTimestamp;
+  private java.lang.String creationTimestamp;
+  private java.lang.String lastUpdatedTimestamp;
   private com.skaria.avro.model.Person person;
   private java.util.Map<java.lang.String,com.skaria.avro.model.SomeList> someList;
 
@@ -95,9 +92,9 @@ public class DomainAggregateStateRecord extends org.apache.avro.specific.Specifi
    * @param person The new value for person
    * @param someList The new value for someList
    */
-  public DomainAggregateStateRecord(java.time.Instant creationTimestamp, java.time.Instant lastUpdatedTimestamp, com.skaria.avro.model.Person person, java.util.Map<java.lang.String,com.skaria.avro.model.SomeList> someList) {
-    this.creationTimestamp = creationTimestamp.truncatedTo(java.time.temporal.ChronoUnit.MILLIS);
-    this.lastUpdatedTimestamp = lastUpdatedTimestamp.truncatedTo(java.time.temporal.ChronoUnit.MILLIS);
+  public DomainAggregateStateRecord(java.lang.String creationTimestamp, java.lang.String lastUpdatedTimestamp, com.skaria.avro.model.Person person, java.util.Map<java.lang.String,com.skaria.avro.model.SomeList> someList) {
+    this.creationTimestamp = creationTimestamp;
+    this.lastUpdatedTimestamp = lastUpdatedTimestamp;
     this.person = person;
     this.someList = someList;
   }
@@ -120,27 +117,13 @@ public class DomainAggregateStateRecord extends org.apache.avro.specific.Specifi
     }
   }
 
-  private static final org.apache.avro.Conversion<?>[] conversions =
-      new org.apache.avro.Conversion<?>[] {
-      new org.apache.avro.data.TimeConversions.TimestampMillisConversion(),
-      new org.apache.avro.data.TimeConversions.TimestampMillisConversion(),
-      null,
-      null,
-      null
-  };
-
-  @Override
-  public org.apache.avro.Conversion<?> getConversion(int field) {
-    return conversions[field];
-  }
-
   // Used by DatumReader.  Applications should not call.
   @Override
   @SuppressWarnings(value="unchecked")
   public void put(int field$, java.lang.Object value$) {
     switch (field$) {
-    case 0: creationTimestamp = (java.time.Instant)value$; break;
-    case 1: lastUpdatedTimestamp = (java.time.Instant)value$; break;
+    case 0: creationTimestamp = value$ != null ? value$.toString() : null; break;
+    case 1: lastUpdatedTimestamp = value$ != null ? value$.toString() : null; break;
     case 2: person = (com.skaria.avro.model.Person)value$; break;
     case 3: someList = (java.util.Map<java.lang.String,com.skaria.avro.model.SomeList>)value$; break;
     default: throw new IndexOutOfBoundsException("Invalid index: " + field$);
@@ -151,48 +134,48 @@ public class DomainAggregateStateRecord extends org.apache.avro.specific.Specifi
    * Gets the value of the 'creationTimestamp' field.
    * @return The value of the 'creationTimestamp' field.
    */
-  public java.time.Instant getCreationTimestamp() {
+  public java.lang.String getCreationTimestamp() {
     return creationTimestamp;
   }
 
   /**
-   * Gets the value of the 'creationTimestamp' field as an Optional&lt;java.time.Instant&gt;.
-   * @return The value wrapped in an Optional&lt;java.time.Instant&gt;.
+   * Gets the value of the 'creationTimestamp' field as an Optional&lt;java.lang.String&gt;.
+   * @return The value wrapped in an Optional&lt;java.lang.String&gt;.
    */
-  public Optional<java.time.Instant> getOptionalCreationTimestamp() {
-    return Optional.<java.time.Instant>ofNullable(creationTimestamp);
+  public Optional<java.lang.String> getOptionalCreationTimestamp() {
+    return Optional.<java.lang.String>ofNullable(creationTimestamp);
   }
 
   /**
    * Sets the value of the 'creationTimestamp' field.
    * @param value the value to set.
    */
-  public void setCreationTimestamp(java.time.Instant value) {
-    this.creationTimestamp = value.truncatedTo(java.time.temporal.ChronoUnit.MILLIS);
+  public void setCreationTimestamp(java.lang.String value) {
+    this.creationTimestamp = value;
   }
 
   /**
    * Gets the value of the 'lastUpdatedTimestamp' field.
    * @return The value of the 'lastUpdatedTimestamp' field.
    */
-  public java.time.Instant getLastUpdatedTimestamp() {
+  public java.lang.String getLastUpdatedTimestamp() {
     return lastUpdatedTimestamp;
   }
 
   /**
-   * Gets the value of the 'lastUpdatedTimestamp' field as an Optional&lt;java.time.Instant&gt;.
-   * @return The value wrapped in an Optional&lt;java.time.Instant&gt;.
+   * Gets the value of the 'lastUpdatedTimestamp' field as an Optional&lt;java.lang.String&gt;.
+   * @return The value wrapped in an Optional&lt;java.lang.String&gt;.
    */
-  public Optional<java.time.Instant> getOptionalLastUpdatedTimestamp() {
-    return Optional.<java.time.Instant>ofNullable(lastUpdatedTimestamp);
+  public Optional<java.lang.String> getOptionalLastUpdatedTimestamp() {
+    return Optional.<java.lang.String>ofNullable(lastUpdatedTimestamp);
   }
 
   /**
    * Sets the value of the 'lastUpdatedTimestamp' field.
    * @param value the value to set.
    */
-  public void setLastUpdatedTimestamp(java.time.Instant value) {
-    this.lastUpdatedTimestamp = value.truncatedTo(java.time.temporal.ChronoUnit.MILLIS);
+  public void setLastUpdatedTimestamp(java.lang.String value) {
+    this.lastUpdatedTimestamp = value;
   }
 
   /**
@@ -284,8 +267,8 @@ public class DomainAggregateStateRecord extends org.apache.avro.specific.Specifi
   public static class Builder extends org.apache.avro.specific.SpecificRecordBuilderBase<DomainAggregateStateRecord>
     implements org.apache.avro.data.RecordBuilder<DomainAggregateStateRecord> {
 
-    private java.time.Instant creationTimestamp;
-    private java.time.Instant lastUpdatedTimestamp;
+    private java.lang.String creationTimestamp;
+    private java.lang.String lastUpdatedTimestamp;
     private com.skaria.avro.model.Person person;
     private com.skaria.avro.model.Person.Builder personBuilder;
     private java.util.Map<java.lang.String,com.skaria.avro.model.SomeList> someList;
@@ -351,16 +334,16 @@ public class DomainAggregateStateRecord extends org.apache.avro.specific.Specifi
       * Gets the value of the 'creationTimestamp' field.
       * @return The value.
       */
-    public java.time.Instant getCreationTimestamp() {
+    public java.lang.String getCreationTimestamp() {
       return creationTimestamp;
     }
 
     /**
-      * Gets the value of the 'creationTimestamp' field as an Optional&lt;java.time.Instant&gt;.
-      * @return The value wrapped in an Optional&lt;java.time.Instant&gt;.
+      * Gets the value of the 'creationTimestamp' field as an Optional&lt;java.lang.String&gt;.
+      * @return The value wrapped in an Optional&lt;java.lang.String&gt;.
       */
-    public Optional<java.time.Instant> getOptionalCreationTimestamp() {
-      return Optional.<java.time.Instant>ofNullable(creationTimestamp);
+    public Optional<java.lang.String> getOptionalCreationTimestamp() {
+      return Optional.<java.lang.String>ofNullable(creationTimestamp);
     }
 
     /**
@@ -368,9 +351,9 @@ public class DomainAggregateStateRecord extends org.apache.avro.specific.Specifi
       * @param value The value of 'creationTimestamp'.
       * @return This builder.
       */
-    public com.skaria.avro.model.aggregate.domain.DomainAggregateStateRecord.Builder setCreationTimestamp(java.time.Instant value) {
+    public com.skaria.avro.model.aggregate.domain.DomainAggregateStateRecord.Builder setCreationTimestamp(java.lang.String value) {
       validate(fields()[0], value);
-      this.creationTimestamp = value.truncatedTo(java.time.temporal.ChronoUnit.MILLIS);
+      this.creationTimestamp = value;
       fieldSetFlags()[0] = true;
       return this;
     }
@@ -389,6 +372,7 @@ public class DomainAggregateStateRecord extends org.apache.avro.specific.Specifi
       * @return This builder.
       */
     public com.skaria.avro.model.aggregate.domain.DomainAggregateStateRecord.Builder clearCreationTimestamp() {
+      creationTimestamp = null;
       fieldSetFlags()[0] = false;
       return this;
     }
@@ -397,16 +381,16 @@ public class DomainAggregateStateRecord extends org.apache.avro.specific.Specifi
       * Gets the value of the 'lastUpdatedTimestamp' field.
       * @return The value.
       */
-    public java.time.Instant getLastUpdatedTimestamp() {
+    public java.lang.String getLastUpdatedTimestamp() {
       return lastUpdatedTimestamp;
     }
 
     /**
-      * Gets the value of the 'lastUpdatedTimestamp' field as an Optional&lt;java.time.Instant&gt;.
-      * @return The value wrapped in an Optional&lt;java.time.Instant&gt;.
+      * Gets the value of the 'lastUpdatedTimestamp' field as an Optional&lt;java.lang.String&gt;.
+      * @return The value wrapped in an Optional&lt;java.lang.String&gt;.
       */
-    public Optional<java.time.Instant> getOptionalLastUpdatedTimestamp() {
-      return Optional.<java.time.Instant>ofNullable(lastUpdatedTimestamp);
+    public Optional<java.lang.String> getOptionalLastUpdatedTimestamp() {
+      return Optional.<java.lang.String>ofNullable(lastUpdatedTimestamp);
     }
 
     /**
@@ -414,9 +398,9 @@ public class DomainAggregateStateRecord extends org.apache.avro.specific.Specifi
       * @param value The value of 'lastUpdatedTimestamp'.
       * @return This builder.
       */
-    public com.skaria.avro.model.aggregate.domain.DomainAggregateStateRecord.Builder setLastUpdatedTimestamp(java.time.Instant value) {
+    public com.skaria.avro.model.aggregate.domain.DomainAggregateStateRecord.Builder setLastUpdatedTimestamp(java.lang.String value) {
       validate(fields()[1], value);
-      this.lastUpdatedTimestamp = value.truncatedTo(java.time.temporal.ChronoUnit.MILLIS);
+      this.lastUpdatedTimestamp = value;
       fieldSetFlags()[1] = true;
       return this;
     }
@@ -435,6 +419,7 @@ public class DomainAggregateStateRecord extends org.apache.avro.specific.Specifi
       * @return This builder.
       */
     public com.skaria.avro.model.aggregate.domain.DomainAggregateStateRecord.Builder clearLastUpdatedTimestamp() {
+      lastUpdatedTimestamp = null;
       fieldSetFlags()[1] = false;
       return this;
     }
@@ -574,8 +559,8 @@ public class DomainAggregateStateRecord extends org.apache.avro.specific.Specifi
     public DomainAggregateStateRecord build() {
       try {
         DomainAggregateStateRecord record = new DomainAggregateStateRecord();
-        record.creationTimestamp = fieldSetFlags()[0] ? this.creationTimestamp : (java.time.Instant) defaultValue(fields()[0]);
-        record.lastUpdatedTimestamp = fieldSetFlags()[1] ? this.lastUpdatedTimestamp : (java.time.Instant) defaultValue(fields()[1]);
+        record.creationTimestamp = fieldSetFlags()[0] ? this.creationTimestamp : (java.lang.String) defaultValue(fields()[0]);
+        record.lastUpdatedTimestamp = fieldSetFlags()[1] ? this.lastUpdatedTimestamp : (java.lang.String) defaultValue(fields()[1]);
         if (personBuilder != null) {
           try {
             record.person = this.personBuilder.build();
@@ -614,6 +599,144 @@ public class DomainAggregateStateRecord extends org.apache.avro.specific.Specifi
     READER$.read(this, SpecificData.getDecoder(in));
   }
 
+  @Override protected boolean hasCustomCoders() { return true; }
+
+  @Override public void customEncode(org.apache.avro.io.Encoder out)
+    throws java.io.IOException
+  {
+    out.writeString(this.creationTimestamp);
+
+    out.writeString(this.lastUpdatedTimestamp);
+
+    if (this.person == null) {
+      out.writeIndex(0);
+      out.writeNull();
+    } else {
+      out.writeIndex(1);
+      this.person.customEncode(out);
+    }
+
+    if (this.someList == null) {
+      out.writeIndex(0);
+      out.writeNull();
+    } else {
+      out.writeIndex(1);
+      long size0 = this.someList.size();
+      out.writeMapStart();
+      out.setItemCount(size0);
+      long actualSize0 = 0;
+      for (java.util.Map.Entry<java.lang.String, com.skaria.avro.model.SomeList> e0: this.someList.entrySet()) {
+        actualSize0++;
+        out.startItem();
+        out.writeString(e0.getKey());
+        com.skaria.avro.model.SomeList v0 = e0.getValue();
+        v0.customEncode(out);
+      }
+      out.writeMapEnd();
+      if (actualSize0 != size0)
+      throw new java.util.ConcurrentModificationException("Map-size written was " + size0 + ", but element count was " + actualSize0 + ".");
+    }
+
+  }
+
+  @Override public void customDecode(org.apache.avro.io.ResolvingDecoder in)
+    throws java.io.IOException
+  {
+    org.apache.avro.Schema.Field[] fieldOrder = in.readFieldOrderIfDiff();
+    if (fieldOrder == null) {
+      this.creationTimestamp = in.readString();
+
+      this.lastUpdatedTimestamp = in.readString();
+
+      if (in.readIndex() != 1) {
+        in.readNull();
+        this.person = null;
+      } else {
+        if (this.person == null) {
+          this.person = new com.skaria.avro.model.Person();
+        }
+        this.person.customDecode(in);
+      }
+
+      if (in.readIndex() != 1) {
+        in.readNull();
+        this.someList = null;
+      } else {
+        long size0 = in.readMapStart();
+        java.util.Map<java.lang.String,com.skaria.avro.model.SomeList> m0 = this.someList; // Need fresh name due to limitation of macro system
+        if (m0 == null) {
+          m0 = new java.util.HashMap<java.lang.String,com.skaria.avro.model.SomeList>((int)size0);
+          this.someList = m0;
+        } else m0.clear();
+        for ( ; 0 < size0; size0 = in.mapNext()) {
+          for ( ; size0 != 0; size0--) {
+            java.lang.String k0 = null;
+            k0 = in.readString();
+            com.skaria.avro.model.SomeList v0 = null;
+            if (v0 == null) {
+              v0 = new com.skaria.avro.model.SomeList();
+            }
+            v0.customDecode(in);
+            m0.put(k0, v0);
+          }
+        }
+      }
+
+    } else {
+      for (int i = 0; i < 4; i++) {
+        switch (fieldOrder[i].pos()) {
+        case 0:
+          this.creationTimestamp = in.readString();
+          break;
+
+        case 1:
+          this.lastUpdatedTimestamp = in.readString();
+          break;
+
+        case 2:
+          if (in.readIndex() != 1) {
+            in.readNull();
+            this.person = null;
+          } else {
+            if (this.person == null) {
+              this.person = new com.skaria.avro.model.Person();
+            }
+            this.person.customDecode(in);
+          }
+          break;
+
+        case 3:
+          if (in.readIndex() != 1) {
+            in.readNull();
+            this.someList = null;
+          } else {
+            long size0 = in.readMapStart();
+            java.util.Map<java.lang.String,com.skaria.avro.model.SomeList> m0 = this.someList; // Need fresh name due to limitation of macro system
+            if (m0 == null) {
+              m0 = new java.util.HashMap<java.lang.String,com.skaria.avro.model.SomeList>((int)size0);
+              this.someList = m0;
+            } else m0.clear();
+            for ( ; 0 < size0; size0 = in.mapNext()) {
+              for ( ; size0 != 0; size0--) {
+                java.lang.String k0 = null;
+                k0 = in.readString();
+                com.skaria.avro.model.SomeList v0 = null;
+                if (v0 == null) {
+                  v0 = new com.skaria.avro.model.SomeList();
+                }
+                v0.customDecode(in);
+                m0.put(k0, v0);
+              }
+            }
+          }
+          break;
+
+        default:
+          throw new java.io.IOException("Corrupt ResolvingDecoder.");
+        }
+      }
+    }
+  }
 }
 
 

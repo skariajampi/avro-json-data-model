@@ -16,16 +16,15 @@ protocol AggregateDomainEventProtocol {
 
   record SomeRecordUpdatedEventRecord {
         uuid                                                        eventId;
-        com.skaria.avro.model.SomeRecord                            someRecord;
+
         string                                                      creationTimestamp;
-        union {null,  map<com.skaria.avro.model.SomeList>}       matches = null;
-        union {null, com.skaria.avro.model.Person}                person = null;
+
   }
 
   /**  Aggregate Domain Event **/
   record DomainEventRecord {
 
-          com.skaria.avro.model.Identifier                                   identifier;
+          com.skaria.avro.model.Identifier                                   Identifier;
 
     /** The Domain Event type in the  Record envelope **/
     EventType                                                    eventType;

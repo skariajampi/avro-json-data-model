@@ -6,8 +6,8 @@ protocol DomainAggregateProtocol {
     import idl "../../entities/Person.avdl";
 
    record DomainAggregateStateRecord {
-      timestamp_ms                                                  creationTimestamp;
-      timestamp_ms                                                  lastUpdatedTimestamp;
+      string                                                  creationTimestamp;
+      string                                                  lastUpdatedTimestamp;
 
       union {null,  com.skaria.avro.model.Person}                  person = null;
 

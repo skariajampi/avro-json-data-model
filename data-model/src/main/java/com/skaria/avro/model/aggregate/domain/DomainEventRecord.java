@@ -15,10 +15,10 @@ import java.util.Optional;
 /** Aggregate Domain Event * */
 @org.apache.avro.specific.AvroGenerated
 public class DomainEventRecord extends org.apache.avro.specific.SpecificRecordBase implements org.apache.avro.specific.SpecificRecord {
-  private static final long serialVersionUID = -2490984029653148377L;
+  private static final long serialVersionUID = 4875436372913344752L;
 
 
-  public static final org.apache.avro.Schema SCHEMA$ = new org.apache.avro.Schema.Parser().parse("{\"type\":\"record\",\"name\":\"DomainEventRecord\",\"namespace\":\"com.skaria.avro.model.aggregate.domain\",\"doc\":\"Aggregate Domain Event *\",\"fields\":[{\"name\":\"identifier\",\"type\":{\"type\":\"record\",\"name\":\"Identifier\",\"namespace\":\"com.skaria.avro.model\",\"fields\":[{\"name\":\"identifier\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"}}]}},{\"name\":\"eventType\",\"type\":{\"type\":\"enum\",\"name\":\"EventType\",\"doc\":\"The list of Domain Events the VRN Aggregate can produce\",\"symbols\":[\"SOME_RECORD_ENRICHED_EVENT\"]},\"doc\":\"The Domain Event type in the  Record envelope *\"},{\"name\":\"creationTimestamp\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"},\"doc\":\"Timestamp of this Domain Event\"},{\"name\":\"event\",\"type\":[{\"type\":\"record\",\"name\":\"SomeRecordUpdatedEventRecord\",\"fields\":[{\"name\":\"eventId\",\"type\":{\"type\":\"string\",\"logicalType\":\"uuid\"}},{\"name\":\"someRecord\",\"type\":{\"type\":\"record\",\"name\":\"SomeRecord\",\"namespace\":\"com.skaria.avro.model\",\"fields\":[{\"name\":\"identifier\",\"type\":\"Identifier\"},{\"name\":\"Id\",\"type\":{\"type\":\"record\",\"name\":\"Id\",\"fields\":[{\"name\":\"id\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"}}]}},{\"name\":\"TIMESTAMP\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"}},{\"name\":\"MEASURE\",\"type\":[\"null\",\"int\"]}]}},{\"name\":\"creationTimestamp\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"}},{\"name\":\"matches\",\"type\":[\"null\",{\"type\":\"map\",\"values\":{\"type\":\"record\",\"name\":\"SomeList\",\"namespace\":\"com.skaria.avro.model\",\"fields\":[{\"name\":\"id\",\"type\":{\"type\":\"record\",\"name\":\"SomeListId\",\"fields\":[{\"name\":\"firstName\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"}},{\"name\":\"lastName\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"}}]}},{\"name\":\"firstName\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"}},{\"name\":\"lastName\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"}},{\"name\":\"middlename\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}]},{\"name\":\"age\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}]},{\"name\":\"action\",\"type\":{\"type\":\"enum\",\"name\":\"Action\",\"symbols\":[\"STOP\",\"GO\"]}}]},\"avro.java.string\":\"String\"}],\"default\":null},{\"name\":\"person\",\"type\":[\"null\",{\"type\":\"record\",\"name\":\"Person\",\"namespace\":\"com.skaria.avro.model\",\"fields\":[{\"name\":\"person\",\"type\":\"Person\"}]}],\"default\":null}]}],\"doc\":\"Union of the supported Domain events\"}]}");
+  public static final org.apache.avro.Schema SCHEMA$ = new org.apache.avro.Schema.Parser().parse("{\"type\":\"record\",\"name\":\"DomainEventRecord\",\"namespace\":\"com.skaria.avro.model.aggregate.domain\",\"doc\":\"Aggregate Domain Event *\",\"fields\":[{\"name\":\"Identifier\",\"type\":{\"type\":\"record\",\"name\":\"Identifier\",\"namespace\":\"com.skaria.avro.model\",\"fields\":[{\"name\":\"identifier\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"}}]}},{\"name\":\"eventType\",\"type\":{\"type\":\"enum\",\"name\":\"EventType\",\"doc\":\"The list of Domain Events the VRN Aggregate can produce\",\"symbols\":[\"SOME_RECORD_ENRICHED_EVENT\"]},\"doc\":\"The Domain Event type in the  Record envelope *\"},{\"name\":\"creationTimestamp\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"},\"doc\":\"Timestamp of this Domain Event\"},{\"name\":\"event\",\"type\":[{\"type\":\"record\",\"name\":\"SomeRecordUpdatedEventRecord\",\"fields\":[{\"name\":\"eventId\",\"type\":{\"type\":\"string\",\"logicalType\":\"uuid\"}},{\"name\":\"creationTimestamp\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"}}]}],\"doc\":\"Union of the supported Domain events\"}]}");
   public static org.apache.avro.Schema getClassSchema() { return SCHEMA$; }
 
   private static final SpecificData MODEL$ = new SpecificData();
@@ -77,7 +77,7 @@ public class DomainEventRecord extends org.apache.avro.specific.SpecificRecordBa
     return DECODER.decode(b);
   }
 
-  private com.skaria.avro.model.Identifier identifier;
+  private com.skaria.avro.model.Identifier Identifier;
   /** The Domain Event type in the  Record envelope * */
   private com.skaria.avro.model.aggregate.domain.EventType eventType;
   /** Timestamp of this Domain Event */
@@ -94,13 +94,13 @@ public class DomainEventRecord extends org.apache.avro.specific.SpecificRecordBa
 
   /**
    * All-args constructor.
-   * @param identifier The new value for identifier
+   * @param Identifier The new value for Identifier
    * @param eventType The Domain Event type in the  Record envelope *
    * @param creationTimestamp Timestamp of this Domain Event
    * @param event Union of the supported Domain events
    */
-  public DomainEventRecord(com.skaria.avro.model.Identifier identifier, com.skaria.avro.model.aggregate.domain.EventType eventType, java.lang.String creationTimestamp, java.lang.Object event) {
-    this.identifier = identifier;
+  public DomainEventRecord(com.skaria.avro.model.Identifier Identifier, com.skaria.avro.model.aggregate.domain.EventType eventType, java.lang.String creationTimestamp, java.lang.Object event) {
+    this.Identifier = Identifier;
     this.eventType = eventType;
     this.creationTimestamp = creationTimestamp;
     this.event = event;
@@ -116,7 +116,7 @@ public class DomainEventRecord extends org.apache.avro.specific.SpecificRecordBa
   @Override
   public java.lang.Object get(int field$) {
     switch (field$) {
-    case 0: return identifier;
+    case 0: return Identifier;
     case 1: return eventType;
     case 2: return creationTimestamp;
     case 3: return event;
@@ -129,7 +129,7 @@ public class DomainEventRecord extends org.apache.avro.specific.SpecificRecordBa
   @SuppressWarnings(value="unchecked")
   public void put(int field$, java.lang.Object value$) {
     switch (field$) {
-    case 0: identifier = (com.skaria.avro.model.Identifier)value$; break;
+    case 0: Identifier = (com.skaria.avro.model.Identifier)value$; break;
     case 1: eventType = (com.skaria.avro.model.aggregate.domain.EventType)value$; break;
     case 2: creationTimestamp = value$ != null ? value$.toString() : null; break;
     case 3: event = value$; break;
@@ -138,27 +138,27 @@ public class DomainEventRecord extends org.apache.avro.specific.SpecificRecordBa
   }
 
   /**
-   * Gets the value of the 'identifier' field.
-   * @return The value of the 'identifier' field.
+   * Gets the value of the 'Identifier' field.
+   * @return The value of the 'Identifier' field.
    */
   public com.skaria.avro.model.Identifier getIdentifier() {
-    return identifier;
+    return Identifier;
   }
 
   /**
-   * Gets the value of the 'identifier' field as an Optional&lt;com.skaria.avro.model.Identifier&gt;.
+   * Gets the value of the 'Identifier' field as an Optional&lt;com.skaria.avro.model.Identifier&gt;.
    * @return The value wrapped in an Optional&lt;com.skaria.avro.model.Identifier&gt;.
    */
   public Optional<com.skaria.avro.model.Identifier> getOptionalIdentifier() {
-    return Optional.<com.skaria.avro.model.Identifier>ofNullable(identifier);
+    return Optional.<com.skaria.avro.model.Identifier>ofNullable(Identifier);
   }
 
   /**
-   * Sets the value of the 'identifier' field.
+   * Sets the value of the 'Identifier' field.
    * @param value the value to set.
    */
   public void setIdentifier(com.skaria.avro.model.Identifier value) {
-    this.identifier = value;
+    this.Identifier = value;
   }
 
   /**
@@ -280,8 +280,8 @@ public class DomainEventRecord extends org.apache.avro.specific.SpecificRecordBa
   public static class Builder extends org.apache.avro.specific.SpecificRecordBuilderBase<DomainEventRecord>
     implements org.apache.avro.data.RecordBuilder<DomainEventRecord> {
 
-    private com.skaria.avro.model.Identifier identifier;
-    private com.skaria.avro.model.Identifier.Builder identifierBuilder;
+    private com.skaria.avro.model.Identifier Identifier;
+    private com.skaria.avro.model.Identifier.Builder IdentifierBuilder;
     /** The Domain Event type in the  Record envelope * */
     private com.skaria.avro.model.aggregate.domain.EventType eventType;
     /** Timestamp of this Domain Event */
@@ -300,12 +300,12 @@ public class DomainEventRecord extends org.apache.avro.specific.SpecificRecordBa
      */
     private Builder(com.skaria.avro.model.aggregate.domain.DomainEventRecord.Builder other) {
       super(other);
-      if (isValidValue(fields()[0], other.identifier)) {
-        this.identifier = data().deepCopy(fields()[0].schema(), other.identifier);
+      if (isValidValue(fields()[0], other.Identifier)) {
+        this.Identifier = data().deepCopy(fields()[0].schema(), other.Identifier);
         fieldSetFlags()[0] = other.fieldSetFlags()[0];
       }
       if (other.hasIdentifierBuilder()) {
-        this.identifierBuilder = com.skaria.avro.model.Identifier.newBuilder(other.getIdentifierBuilder());
+        this.IdentifierBuilder = com.skaria.avro.model.Identifier.newBuilder(other.getIdentifierBuilder());
       }
       if (isValidValue(fields()[1], other.eventType)) {
         this.eventType = data().deepCopy(fields()[1].schema(), other.eventType);
@@ -327,11 +327,11 @@ public class DomainEventRecord extends org.apache.avro.specific.SpecificRecordBa
      */
     private Builder(com.skaria.avro.model.aggregate.domain.DomainEventRecord other) {
       super(SCHEMA$, MODEL$);
-      if (isValidValue(fields()[0], other.identifier)) {
-        this.identifier = data().deepCopy(fields()[0].schema(), other.identifier);
+      if (isValidValue(fields()[0], other.Identifier)) {
+        this.Identifier = data().deepCopy(fields()[0].schema(), other.Identifier);
         fieldSetFlags()[0] = true;
       }
-      this.identifierBuilder = null;
+      this.IdentifierBuilder = null;
       if (isValidValue(fields()[1], other.eventType)) {
         this.eventType = data().deepCopy(fields()[1].schema(), other.eventType);
         fieldSetFlags()[1] = true;
@@ -347,84 +347,84 @@ public class DomainEventRecord extends org.apache.avro.specific.SpecificRecordBa
     }
 
     /**
-      * Gets the value of the 'identifier' field.
+      * Gets the value of the 'Identifier' field.
       * @return The value.
       */
     public com.skaria.avro.model.Identifier getIdentifier() {
-      return identifier;
+      return Identifier;
     }
 
     /**
-      * Gets the value of the 'identifier' field as an Optional&lt;com.skaria.avro.model.Identifier&gt;.
+      * Gets the value of the 'Identifier' field as an Optional&lt;com.skaria.avro.model.Identifier&gt;.
       * @return The value wrapped in an Optional&lt;com.skaria.avro.model.Identifier&gt;.
       */
     public Optional<com.skaria.avro.model.Identifier> getOptionalIdentifier() {
-      return Optional.<com.skaria.avro.model.Identifier>ofNullable(identifier);
+      return Optional.<com.skaria.avro.model.Identifier>ofNullable(Identifier);
     }
 
     /**
-      * Sets the value of the 'identifier' field.
-      * @param value The value of 'identifier'.
+      * Sets the value of the 'Identifier' field.
+      * @param value The value of 'Identifier'.
       * @return This builder.
       */
     public com.skaria.avro.model.aggregate.domain.DomainEventRecord.Builder setIdentifier(com.skaria.avro.model.Identifier value) {
       validate(fields()[0], value);
-      this.identifierBuilder = null;
-      this.identifier = value;
+      this.IdentifierBuilder = null;
+      this.Identifier = value;
       fieldSetFlags()[0] = true;
       return this;
     }
 
     /**
-      * Checks whether the 'identifier' field has been set.
-      * @return True if the 'identifier' field has been set, false otherwise.
+      * Checks whether the 'Identifier' field has been set.
+      * @return True if the 'Identifier' field has been set, false otherwise.
       */
     public boolean hasIdentifier() {
       return fieldSetFlags()[0];
     }
 
     /**
-     * Gets the Builder instance for the 'identifier' field and creates one if it doesn't exist yet.
+     * Gets the Builder instance for the 'Identifier' field and creates one if it doesn't exist yet.
      * @return This builder.
      */
     public com.skaria.avro.model.Identifier.Builder getIdentifierBuilder() {
-      if (identifierBuilder == null) {
+      if (IdentifierBuilder == null) {
         if (hasIdentifier()) {
-          setIdentifierBuilder(com.skaria.avro.model.Identifier.newBuilder(identifier));
+          setIdentifierBuilder(com.skaria.avro.model.Identifier.newBuilder(Identifier));
         } else {
           setIdentifierBuilder(com.skaria.avro.model.Identifier.newBuilder());
         }
       }
-      return identifierBuilder;
+      return IdentifierBuilder;
     }
 
     /**
-     * Sets the Builder instance for the 'identifier' field
+     * Sets the Builder instance for the 'Identifier' field
      * @param value The builder instance that must be set.
      * @return This builder.
      */
 
     public com.skaria.avro.model.aggregate.domain.DomainEventRecord.Builder setIdentifierBuilder(com.skaria.avro.model.Identifier.Builder value) {
       clearIdentifier();
-      identifierBuilder = value;
+      IdentifierBuilder = value;
       return this;
     }
 
     /**
-     * Checks whether the 'identifier' field has an active Builder instance
-     * @return True if the 'identifier' field has an active Builder instance
+     * Checks whether the 'Identifier' field has an active Builder instance
+     * @return True if the 'Identifier' field has an active Builder instance
      */
     public boolean hasIdentifierBuilder() {
-      return identifierBuilder != null;
+      return IdentifierBuilder != null;
     }
 
     /**
-      * Clears the value of the 'identifier' field.
+      * Clears the value of the 'Identifier' field.
       * @return This builder.
       */
     public com.skaria.avro.model.aggregate.domain.DomainEventRecord.Builder clearIdentifier() {
-      identifier = null;
-      identifierBuilder = null;
+      Identifier = null;
+      IdentifierBuilder = null;
       fieldSetFlags()[0] = false;
       return this;
     }
@@ -590,15 +590,15 @@ public class DomainEventRecord extends org.apache.avro.specific.SpecificRecordBa
     public DomainEventRecord build() {
       try {
         DomainEventRecord record = new DomainEventRecord();
-        if (identifierBuilder != null) {
+        if (IdentifierBuilder != null) {
           try {
-            record.identifier = this.identifierBuilder.build();
+            record.Identifier = this.IdentifierBuilder.build();
           } catch (org.apache.avro.AvroMissingFieldException e) {
-            e.addParentField(record.getSchema().getField("identifier"));
+            e.addParentField(record.getSchema().getField("Identifier"));
             throw e;
           }
         } else {
-          record.identifier = fieldSetFlags()[0] ? this.identifier : (com.skaria.avro.model.Identifier) defaultValue(fields()[0]);
+          record.Identifier = fieldSetFlags()[0] ? this.Identifier : (com.skaria.avro.model.Identifier) defaultValue(fields()[0]);
         }
         record.eventType = fieldSetFlags()[1] ? this.eventType : (com.skaria.avro.model.aggregate.domain.EventType) defaultValue(fields()[1]);
         record.creationTimestamp = fieldSetFlags()[2] ? this.creationTimestamp : (java.lang.String) defaultValue(fields()[2]);
