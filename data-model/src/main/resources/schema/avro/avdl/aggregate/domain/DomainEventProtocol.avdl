@@ -16,9 +16,8 @@ protocol AggregateDomainEventProtocol {
 
   record SomeRecordUpdatedEventRecord {
         uuid                                                        eventId;
-
         string                                                      creationTimestamp;
-
+        com.skaria.avro.model.SomeRecord                            someRecord;
   }
 
   /**  Aggregate Domain Event **/

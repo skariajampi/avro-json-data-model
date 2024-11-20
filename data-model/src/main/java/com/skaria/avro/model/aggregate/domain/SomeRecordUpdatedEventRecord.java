@@ -14,10 +14,10 @@ import org.apache.avro.message.SchemaStore;
 import java.util.Optional;
 @org.apache.avro.specific.AvroGenerated
 public class SomeRecordUpdatedEventRecord extends org.apache.avro.specific.SpecificRecordBase implements org.apache.avro.specific.SpecificRecord {
-  private static final long serialVersionUID = -6150220465680378255L;
+  private static final long serialVersionUID = -4973092155735473755L;
 
 
-  public static final org.apache.avro.Schema SCHEMA$ = new org.apache.avro.Schema.Parser().parse("{\"type\":\"record\",\"name\":\"SomeRecordUpdatedEventRecord\",\"namespace\":\"com.skaria.avro.model.aggregate.domain\",\"fields\":[{\"name\":\"eventId\",\"type\":{\"type\":\"string\",\"logicalType\":\"uuid\"}},{\"name\":\"creationTimestamp\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"}}]}");
+  public static final org.apache.avro.Schema SCHEMA$ = new org.apache.avro.Schema.Parser().parse("{\"type\":\"record\",\"name\":\"SomeRecordUpdatedEventRecord\",\"namespace\":\"com.skaria.avro.model.aggregate.domain\",\"fields\":[{\"name\":\"eventId\",\"type\":{\"type\":\"string\",\"logicalType\":\"uuid\"}},{\"name\":\"creationTimestamp\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"}},{\"name\":\"someRecord\",\"type\":{\"type\":\"record\",\"name\":\"SomeRecord\",\"namespace\":\"com.skaria.avro.model\",\"fields\":[{\"name\":\"identifier\",\"type\":{\"type\":\"record\",\"name\":\"Identifier\",\"fields\":[{\"name\":\"identifier\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"}}]}},{\"name\":\"Id\",\"type\":{\"type\":\"record\",\"name\":\"Id\",\"fields\":[{\"name\":\"id\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"}}]}},{\"name\":\"TIMESTAMP\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"}},{\"name\":\"MEASURE\",\"type\":[\"null\",\"int\"]}]}}]}");
   public static org.apache.avro.Schema getClassSchema() { return SCHEMA$; }
 
   private static final SpecificData MODEL$ = new SpecificData();
@@ -78,6 +78,7 @@ public class SomeRecordUpdatedEventRecord extends org.apache.avro.specific.Speci
 
   private java.util.UUID eventId;
   private java.lang.String creationTimestamp;
+  private com.skaria.avro.model.SomeRecord someRecord;
 
   /**
    * Default constructor.  Note that this does not initialize fields
@@ -90,10 +91,12 @@ public class SomeRecordUpdatedEventRecord extends org.apache.avro.specific.Speci
    * All-args constructor.
    * @param eventId The new value for eventId
    * @param creationTimestamp The new value for creationTimestamp
+   * @param someRecord The new value for someRecord
    */
-  public SomeRecordUpdatedEventRecord(java.util.UUID eventId, java.lang.String creationTimestamp) {
+  public SomeRecordUpdatedEventRecord(java.util.UUID eventId, java.lang.String creationTimestamp, com.skaria.avro.model.SomeRecord someRecord) {
     this.eventId = eventId;
     this.creationTimestamp = creationTimestamp;
+    this.someRecord = someRecord;
   }
 
   @Override
@@ -108,6 +111,7 @@ public class SomeRecordUpdatedEventRecord extends org.apache.avro.specific.Speci
     switch (field$) {
     case 0: return eventId;
     case 1: return creationTimestamp;
+    case 2: return someRecord;
     default: throw new IndexOutOfBoundsException("Invalid index: " + field$);
     }
   }
@@ -115,6 +119,7 @@ public class SomeRecordUpdatedEventRecord extends org.apache.avro.specific.Speci
   private static final org.apache.avro.Conversion<?>[] conversions =
       new org.apache.avro.Conversion<?>[] {
       new org.apache.avro.Conversions.UUIDConversion(),
+      null,
       null,
       null
   };
@@ -131,6 +136,7 @@ public class SomeRecordUpdatedEventRecord extends org.apache.avro.specific.Speci
     switch (field$) {
     case 0: eventId = (java.util.UUID)value$; break;
     case 1: creationTimestamp = value$ != null ? value$.toString() : null; break;
+    case 2: someRecord = (com.skaria.avro.model.SomeRecord)value$; break;
     default: throw new IndexOutOfBoundsException("Invalid index: " + field$);
     }
   }
@@ -184,6 +190,30 @@ public class SomeRecordUpdatedEventRecord extends org.apache.avro.specific.Speci
   }
 
   /**
+   * Gets the value of the 'someRecord' field.
+   * @return The value of the 'someRecord' field.
+   */
+  public com.skaria.avro.model.SomeRecord getSomeRecord() {
+    return someRecord;
+  }
+
+  /**
+   * Gets the value of the 'someRecord' field as an Optional&lt;com.skaria.avro.model.SomeRecord&gt;.
+   * @return The value wrapped in an Optional&lt;com.skaria.avro.model.SomeRecord&gt;.
+   */
+  public Optional<com.skaria.avro.model.SomeRecord> getOptionalSomeRecord() {
+    return Optional.<com.skaria.avro.model.SomeRecord>ofNullable(someRecord);
+  }
+
+  /**
+   * Sets the value of the 'someRecord' field.
+   * @param value the value to set.
+   */
+  public void setSomeRecord(com.skaria.avro.model.SomeRecord value) {
+    this.someRecord = value;
+  }
+
+  /**
    * Creates a new SomeRecordUpdatedEventRecord RecordBuilder.
    * @return A new SomeRecordUpdatedEventRecord RecordBuilder
    */
@@ -226,6 +256,8 @@ public class SomeRecordUpdatedEventRecord extends org.apache.avro.specific.Speci
 
     private java.util.UUID eventId;
     private java.lang.String creationTimestamp;
+    private com.skaria.avro.model.SomeRecord someRecord;
+    private com.skaria.avro.model.SomeRecord.Builder someRecordBuilder;
 
     /** Creates a new Builder */
     private Builder() {
@@ -246,6 +278,13 @@ public class SomeRecordUpdatedEventRecord extends org.apache.avro.specific.Speci
         this.creationTimestamp = data().deepCopy(fields()[1].schema(), other.creationTimestamp);
         fieldSetFlags()[1] = other.fieldSetFlags()[1];
       }
+      if (isValidValue(fields()[2], other.someRecord)) {
+        this.someRecord = data().deepCopy(fields()[2].schema(), other.someRecord);
+        fieldSetFlags()[2] = other.fieldSetFlags()[2];
+      }
+      if (other.hasSomeRecordBuilder()) {
+        this.someRecordBuilder = com.skaria.avro.model.SomeRecord.newBuilder(other.getSomeRecordBuilder());
+      }
     }
 
     /**
@@ -262,6 +301,11 @@ public class SomeRecordUpdatedEventRecord extends org.apache.avro.specific.Speci
         this.creationTimestamp = data().deepCopy(fields()[1].schema(), other.creationTimestamp);
         fieldSetFlags()[1] = true;
       }
+      if (isValidValue(fields()[2], other.someRecord)) {
+        this.someRecord = data().deepCopy(fields()[2].schema(), other.someRecord);
+        fieldSetFlags()[2] = true;
+      }
+      this.someRecordBuilder = null;
     }
 
     /**
@@ -358,6 +402,89 @@ public class SomeRecordUpdatedEventRecord extends org.apache.avro.specific.Speci
       return this;
     }
 
+    /**
+      * Gets the value of the 'someRecord' field.
+      * @return The value.
+      */
+    public com.skaria.avro.model.SomeRecord getSomeRecord() {
+      return someRecord;
+    }
+
+    /**
+      * Gets the value of the 'someRecord' field as an Optional&lt;com.skaria.avro.model.SomeRecord&gt;.
+      * @return The value wrapped in an Optional&lt;com.skaria.avro.model.SomeRecord&gt;.
+      */
+    public Optional<com.skaria.avro.model.SomeRecord> getOptionalSomeRecord() {
+      return Optional.<com.skaria.avro.model.SomeRecord>ofNullable(someRecord);
+    }
+
+    /**
+      * Sets the value of the 'someRecord' field.
+      * @param value The value of 'someRecord'.
+      * @return This builder.
+      */
+    public com.skaria.avro.model.aggregate.domain.SomeRecordUpdatedEventRecord.Builder setSomeRecord(com.skaria.avro.model.SomeRecord value) {
+      validate(fields()[2], value);
+      this.someRecordBuilder = null;
+      this.someRecord = value;
+      fieldSetFlags()[2] = true;
+      return this;
+    }
+
+    /**
+      * Checks whether the 'someRecord' field has been set.
+      * @return True if the 'someRecord' field has been set, false otherwise.
+      */
+    public boolean hasSomeRecord() {
+      return fieldSetFlags()[2];
+    }
+
+    /**
+     * Gets the Builder instance for the 'someRecord' field and creates one if it doesn't exist yet.
+     * @return This builder.
+     */
+    public com.skaria.avro.model.SomeRecord.Builder getSomeRecordBuilder() {
+      if (someRecordBuilder == null) {
+        if (hasSomeRecord()) {
+          setSomeRecordBuilder(com.skaria.avro.model.SomeRecord.newBuilder(someRecord));
+        } else {
+          setSomeRecordBuilder(com.skaria.avro.model.SomeRecord.newBuilder());
+        }
+      }
+      return someRecordBuilder;
+    }
+
+    /**
+     * Sets the Builder instance for the 'someRecord' field
+     * @param value The builder instance that must be set.
+     * @return This builder.
+     */
+
+    public com.skaria.avro.model.aggregate.domain.SomeRecordUpdatedEventRecord.Builder setSomeRecordBuilder(com.skaria.avro.model.SomeRecord.Builder value) {
+      clearSomeRecord();
+      someRecordBuilder = value;
+      return this;
+    }
+
+    /**
+     * Checks whether the 'someRecord' field has an active Builder instance
+     * @return True if the 'someRecord' field has an active Builder instance
+     */
+    public boolean hasSomeRecordBuilder() {
+      return someRecordBuilder != null;
+    }
+
+    /**
+      * Clears the value of the 'someRecord' field.
+      * @return This builder.
+      */
+    public com.skaria.avro.model.aggregate.domain.SomeRecordUpdatedEventRecord.Builder clearSomeRecord() {
+      someRecord = null;
+      someRecordBuilder = null;
+      fieldSetFlags()[2] = false;
+      return this;
+    }
+
     @Override
     @SuppressWarnings("unchecked")
     public SomeRecordUpdatedEventRecord build() {
@@ -365,6 +492,16 @@ public class SomeRecordUpdatedEventRecord extends org.apache.avro.specific.Speci
         SomeRecordUpdatedEventRecord record = new SomeRecordUpdatedEventRecord();
         record.eventId = fieldSetFlags()[0] ? this.eventId : (java.util.UUID) defaultValue(fields()[0]);
         record.creationTimestamp = fieldSetFlags()[1] ? this.creationTimestamp : (java.lang.String) defaultValue(fields()[1]);
+        if (someRecordBuilder != null) {
+          try {
+            record.someRecord = this.someRecordBuilder.build();
+          } catch (org.apache.avro.AvroMissingFieldException e) {
+            e.addParentField(record.getSchema().getField("someRecord"));
+            throw e;
+          }
+        } else {
+          record.someRecord = fieldSetFlags()[2] ? this.someRecord : (com.skaria.avro.model.SomeRecord) defaultValue(fields()[2]);
+        }
         return record;
       } catch (org.apache.avro.AvroMissingFieldException e) {
         throw e;

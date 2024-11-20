@@ -14,7 +14,7 @@ protocol DomainCommandProtocol {
     record ProcessSomeRecordCommandRecord {
         uuid                                                        eventId;
         string                                                      creationTimestamp;
-        com.skaria.avro.model.SomeRecord someRecord;
+        com.skaria.avro.model.SomeRecord                            someRecord;
     }
 
     /** Command Record */
