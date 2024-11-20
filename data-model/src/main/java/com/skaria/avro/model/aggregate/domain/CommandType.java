@@ -7,8 +7,8 @@ package com.skaria.avro.model.aggregate.domain;
 /** The list of Commands supported, a Cmd is a request to mutate the state of the system */
 @org.apache.avro.specific.AvroGenerated
 public enum CommandType implements org.apache.avro.generic.GenericEnumSymbol<CommandType> {
-  PROCESS_SOME_RECORD_COMMAND  ;
-  public static final org.apache.avro.Schema SCHEMA$ = new org.apache.avro.Schema.Parser().parse("{\"type\":\"enum\",\"name\":\"CommandType\",\"namespace\":\"com.skaria.avro.model.aggregate.domain\",\"doc\":\"The list of Commands supported, a Cmd is a request to mutate the state of the system\",\"symbols\":[\"PROCESS_SOME_RECORD_COMMAND\"]}");
+  PROCESS_SOME_RECORD_COMMAND, ADD_IDENTIFIER_TO_SOME_LIST_COMMAND, REMOVE_IDENTIFIER_FROM_SOME_LIST_COMMAND, UPDATE_PERSON_COMMAND  ;
+  public static final org.apache.avro.Schema SCHEMA$ = new org.apache.avro.Schema.Parser().parse("{\"type\":\"enum\",\"name\":\"CommandType\",\"namespace\":\"com.skaria.avro.model.aggregate.domain\",\"doc\":\"The list of Commands supported, a Cmd is a request to mutate the state of the system\",\"symbols\":[\"PROCESS_SOME_RECORD_COMMAND\",\"ADD_IDENTIFIER_TO_SOME_LIST_COMMAND\",\"REMOVE_IDENTIFIER_FROM_SOME_LIST_COMMAND\",\"UPDATE_PERSON_COMMAND\"]}");
   public static org.apache.avro.Schema getClassSchema() { return SCHEMA$; }
 
   @Override

@@ -8,7 +8,10 @@ protocol DomainCommandProtocol {
 
     /** The list of Commands supported, a Cmd is a request to mutate the state of the system */
     enum CommandType {
-          PROCESS_SOME_RECORD_COMMAND
+          PROCESS_SOME_RECORD_COMMAND,
+          ADD_IDENTIFIER_TO_SOME_LIST_COMMAND,
+          REMOVE_IDENTIFIER_FROM_SOME_LIST_COMMAND,
+          UPDATE_PERSON_COMMAND
     }
 
     record ProcessSomeRecordCommandRecord {
@@ -16,6 +19,24 @@ protocol DomainCommandProtocol {
         string                                                      creationTimestamp;
         com.skaria.avro.model.SomeRecord                            someRecord;
     }
+
+    /*record AddIdentifierToSomeListCommandRecord {
+        uuid                                                        eventId;
+        string                                                      creationTimestamp;
+        com.skaria.avro.model.SomeList  someList;
+    }
+
+    record RemoveIdentifierFromListCommandRecord {
+        uuid                                                        eventId;
+        string                                                      creationTimestamp;
+        com.skaria.avro.model.SomeListId                          someListId;
+    }
+
+    record UpdatePersonCommandRecord {
+        uuid                                                        eventId;
+        string                                                      creationTimestamp;
+        com.skaria.avro.model.Person  Person;
+    }*/
 
     /** Command Record */
     record CommandRecord {
@@ -31,6 +52,9 @@ protocol DomainCommandProtocol {
         /** Union across the supported  Aggregate Commands */
         union {
             ProcessSomeRecordCommandRecord
+           /*AddIdentifierToSomeListCommandRecord,
+            RemoveIdentifierFromListCommandRecord,
+            UpdatePersonCommandRecord*/
         } command;
     }
 }

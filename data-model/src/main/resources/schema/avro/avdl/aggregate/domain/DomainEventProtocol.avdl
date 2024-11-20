@@ -11,14 +11,42 @@ protocol AggregateDomainEventProtocol {
   /** The list of Domain Events the VRN Aggregate can produce */
   enum EventType {
     // Processed a Domain object
-    SOME_RECORD_ENRICHED_EVENT
+    SOME_RECORD_ENRICHED_EVENT,
+
+    // Added a Vrn to a watch list
+    IDENTIFIER_ADDED_TO_LIST_EVENT,
+
+    IDENTIFIER_REMOVED_FROM_LIST_EVENT,
+    PERSON_UPDATED_EVENT
   }
 
   record SomeRecordUpdatedEventRecord {
         uuid                                                        eventId;
-        string                                                      creationTimestamp;
         com.skaria.avro.model.SomeRecord                            someRecord;
+        string                                                      creationTimestamp;
+        //union {null,  map<com.skaria.avro.model.SomeList>}       matches = null;
+        //union {null, com.skaria.avro.model.Person}                person = null;
   }
+
+  /*record IdentifierAddedToListEventRecord {
+    uuid                                                        eventId;
+    string                                                      creationTimestamp;
+    com.skaria.avro.model.SomeList  someList;
+  }
+
+  record IdentifierRemovedFromListEventRecord {
+    uuid                                                        eventId;
+    string                                                      creationTimestamp;
+    com.skaria.avro.model.SomeListId  someListId;
+  }
+
+  record PersonUpdatedEventRecord {
+    uuid                                                        eventId;
+    string                                                      creationTimestamp;
+    union {null, com.skaria.avro.model.Person }                         personBefore = null;
+    com.skaria.avro.model.Person                                        personAfter;
+  }*/
+
 
   /**  Aggregate Domain Event **/
   record DomainEventRecord {
@@ -34,6 +62,9 @@ protocol AggregateDomainEventProtocol {
     /** Union of the supported Domain events */
     union {
           SomeRecordUpdatedEventRecord
+                  /*IdentifierAddedToListEventRecord,
+                  IdentifierRemovedFromListEventRecord,
+                  PersonUpdatedEventRecord*/
     } event;
   }
 }

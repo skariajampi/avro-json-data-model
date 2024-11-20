@@ -14,10 +14,10 @@ import org.apache.avro.message.SchemaStore;
 import java.util.Optional;
 @org.apache.avro.specific.AvroGenerated
 public class SomeRecordUpdatedEventRecord extends org.apache.avro.specific.SpecificRecordBase implements org.apache.avro.specific.SpecificRecord {
-  private static final long serialVersionUID = -4973092155735473755L;
+  private static final long serialVersionUID = -6138267592032068768L;
 
 
-  public static final org.apache.avro.Schema SCHEMA$ = new org.apache.avro.Schema.Parser().parse("{\"type\":\"record\",\"name\":\"SomeRecordUpdatedEventRecord\",\"namespace\":\"com.skaria.avro.model.aggregate.domain\",\"fields\":[{\"name\":\"eventId\",\"type\":{\"type\":\"string\",\"logicalType\":\"uuid\"}},{\"name\":\"creationTimestamp\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"}},{\"name\":\"someRecord\",\"type\":{\"type\":\"record\",\"name\":\"SomeRecord\",\"namespace\":\"com.skaria.avro.model\",\"fields\":[{\"name\":\"identifier\",\"type\":{\"type\":\"record\",\"name\":\"Identifier\",\"fields\":[{\"name\":\"identifier\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"}}]}},{\"name\":\"Id\",\"type\":{\"type\":\"record\",\"name\":\"Id\",\"fields\":[{\"name\":\"id\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"}}]}},{\"name\":\"TIMESTAMP\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"}},{\"name\":\"MEASURE\",\"type\":[\"null\",\"int\"]}]}}]}");
+  public static final org.apache.avro.Schema SCHEMA$ = new org.apache.avro.Schema.Parser().parse("{\"type\":\"record\",\"name\":\"SomeRecordUpdatedEventRecord\",\"namespace\":\"com.skaria.avro.model.aggregate.domain\",\"fields\":[{\"name\":\"eventId\",\"type\":{\"type\":\"string\",\"logicalType\":\"uuid\"}},{\"name\":\"someRecord\",\"type\":{\"type\":\"record\",\"name\":\"SomeRecord\",\"namespace\":\"com.skaria.avro.model\",\"fields\":[{\"name\":\"identifier\",\"type\":{\"type\":\"record\",\"name\":\"Identifier\",\"fields\":[{\"name\":\"identifier\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"}}]}},{\"name\":\"Id\",\"type\":{\"type\":\"record\",\"name\":\"Id\",\"fields\":[{\"name\":\"id\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"}}]}},{\"name\":\"TIMESTAMP\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"}},{\"name\":\"MEASURE\",\"type\":[\"null\",\"int\"]}]}},{\"name\":\"creationTimestamp\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"}}]}");
   public static org.apache.avro.Schema getClassSchema() { return SCHEMA$; }
 
   private static final SpecificData MODEL$ = new SpecificData();
@@ -77,8 +77,8 @@ public class SomeRecordUpdatedEventRecord extends org.apache.avro.specific.Speci
   }
 
   private java.util.UUID eventId;
-  private java.lang.String creationTimestamp;
   private com.skaria.avro.model.SomeRecord someRecord;
+  private java.lang.String creationTimestamp;
 
   /**
    * Default constructor.  Note that this does not initialize fields
@@ -90,13 +90,13 @@ public class SomeRecordUpdatedEventRecord extends org.apache.avro.specific.Speci
   /**
    * All-args constructor.
    * @param eventId The new value for eventId
-   * @param creationTimestamp The new value for creationTimestamp
    * @param someRecord The new value for someRecord
+   * @param creationTimestamp The new value for creationTimestamp
    */
-  public SomeRecordUpdatedEventRecord(java.util.UUID eventId, java.lang.String creationTimestamp, com.skaria.avro.model.SomeRecord someRecord) {
+  public SomeRecordUpdatedEventRecord(java.util.UUID eventId, com.skaria.avro.model.SomeRecord someRecord, java.lang.String creationTimestamp) {
     this.eventId = eventId;
-    this.creationTimestamp = creationTimestamp;
     this.someRecord = someRecord;
+    this.creationTimestamp = creationTimestamp;
   }
 
   @Override
@@ -110,8 +110,8 @@ public class SomeRecordUpdatedEventRecord extends org.apache.avro.specific.Speci
   public java.lang.Object get(int field$) {
     switch (field$) {
     case 0: return eventId;
-    case 1: return creationTimestamp;
-    case 2: return someRecord;
+    case 1: return someRecord;
+    case 2: return creationTimestamp;
     default: throw new IndexOutOfBoundsException("Invalid index: " + field$);
     }
   }
@@ -135,8 +135,8 @@ public class SomeRecordUpdatedEventRecord extends org.apache.avro.specific.Speci
   public void put(int field$, java.lang.Object value$) {
     switch (field$) {
     case 0: eventId = (java.util.UUID)value$; break;
-    case 1: creationTimestamp = value$ != null ? value$.toString() : null; break;
-    case 2: someRecord = (com.skaria.avro.model.SomeRecord)value$; break;
+    case 1: someRecord = (com.skaria.avro.model.SomeRecord)value$; break;
+    case 2: creationTimestamp = value$ != null ? value$.toString() : null; break;
     default: throw new IndexOutOfBoundsException("Invalid index: " + field$);
     }
   }
@@ -166,30 +166,6 @@ public class SomeRecordUpdatedEventRecord extends org.apache.avro.specific.Speci
   }
 
   /**
-   * Gets the value of the 'creationTimestamp' field.
-   * @return The value of the 'creationTimestamp' field.
-   */
-  public java.lang.String getCreationTimestamp() {
-    return creationTimestamp;
-  }
-
-  /**
-   * Gets the value of the 'creationTimestamp' field as an Optional&lt;java.lang.String&gt;.
-   * @return The value wrapped in an Optional&lt;java.lang.String&gt;.
-   */
-  public Optional<java.lang.String> getOptionalCreationTimestamp() {
-    return Optional.<java.lang.String>ofNullable(creationTimestamp);
-  }
-
-  /**
-   * Sets the value of the 'creationTimestamp' field.
-   * @param value the value to set.
-   */
-  public void setCreationTimestamp(java.lang.String value) {
-    this.creationTimestamp = value;
-  }
-
-  /**
    * Gets the value of the 'someRecord' field.
    * @return The value of the 'someRecord' field.
    */
@@ -211,6 +187,30 @@ public class SomeRecordUpdatedEventRecord extends org.apache.avro.specific.Speci
    */
   public void setSomeRecord(com.skaria.avro.model.SomeRecord value) {
     this.someRecord = value;
+  }
+
+  /**
+   * Gets the value of the 'creationTimestamp' field.
+   * @return The value of the 'creationTimestamp' field.
+   */
+  public java.lang.String getCreationTimestamp() {
+    return creationTimestamp;
+  }
+
+  /**
+   * Gets the value of the 'creationTimestamp' field as an Optional&lt;java.lang.String&gt;.
+   * @return The value wrapped in an Optional&lt;java.lang.String&gt;.
+   */
+  public Optional<java.lang.String> getOptionalCreationTimestamp() {
+    return Optional.<java.lang.String>ofNullable(creationTimestamp);
+  }
+
+  /**
+   * Sets the value of the 'creationTimestamp' field.
+   * @param value the value to set.
+   */
+  public void setCreationTimestamp(java.lang.String value) {
+    this.creationTimestamp = value;
   }
 
   /**
@@ -255,9 +255,9 @@ public class SomeRecordUpdatedEventRecord extends org.apache.avro.specific.Speci
     implements org.apache.avro.data.RecordBuilder<SomeRecordUpdatedEventRecord> {
 
     private java.util.UUID eventId;
-    private java.lang.String creationTimestamp;
     private com.skaria.avro.model.SomeRecord someRecord;
     private com.skaria.avro.model.SomeRecord.Builder someRecordBuilder;
+    private java.lang.String creationTimestamp;
 
     /** Creates a new Builder */
     private Builder() {
@@ -274,16 +274,16 @@ public class SomeRecordUpdatedEventRecord extends org.apache.avro.specific.Speci
         this.eventId = data().deepCopy(fields()[0].schema(), other.eventId);
         fieldSetFlags()[0] = other.fieldSetFlags()[0];
       }
-      if (isValidValue(fields()[1], other.creationTimestamp)) {
-        this.creationTimestamp = data().deepCopy(fields()[1].schema(), other.creationTimestamp);
+      if (isValidValue(fields()[1], other.someRecord)) {
+        this.someRecord = data().deepCopy(fields()[1].schema(), other.someRecord);
         fieldSetFlags()[1] = other.fieldSetFlags()[1];
-      }
-      if (isValidValue(fields()[2], other.someRecord)) {
-        this.someRecord = data().deepCopy(fields()[2].schema(), other.someRecord);
-        fieldSetFlags()[2] = other.fieldSetFlags()[2];
       }
       if (other.hasSomeRecordBuilder()) {
         this.someRecordBuilder = com.skaria.avro.model.SomeRecord.newBuilder(other.getSomeRecordBuilder());
+      }
+      if (isValidValue(fields()[2], other.creationTimestamp)) {
+        this.creationTimestamp = data().deepCopy(fields()[2].schema(), other.creationTimestamp);
+        fieldSetFlags()[2] = other.fieldSetFlags()[2];
       }
     }
 
@@ -297,15 +297,15 @@ public class SomeRecordUpdatedEventRecord extends org.apache.avro.specific.Speci
         this.eventId = data().deepCopy(fields()[0].schema(), other.eventId);
         fieldSetFlags()[0] = true;
       }
-      if (isValidValue(fields()[1], other.creationTimestamp)) {
-        this.creationTimestamp = data().deepCopy(fields()[1].schema(), other.creationTimestamp);
+      if (isValidValue(fields()[1], other.someRecord)) {
+        this.someRecord = data().deepCopy(fields()[1].schema(), other.someRecord);
         fieldSetFlags()[1] = true;
       }
-      if (isValidValue(fields()[2], other.someRecord)) {
-        this.someRecord = data().deepCopy(fields()[2].schema(), other.someRecord);
+      this.someRecordBuilder = null;
+      if (isValidValue(fields()[2], other.creationTimestamp)) {
+        this.creationTimestamp = data().deepCopy(fields()[2].schema(), other.creationTimestamp);
         fieldSetFlags()[2] = true;
       }
-      this.someRecordBuilder = null;
     }
 
     /**
@@ -356,53 +356,6 @@ public class SomeRecordUpdatedEventRecord extends org.apache.avro.specific.Speci
     }
 
     /**
-      * Gets the value of the 'creationTimestamp' field.
-      * @return The value.
-      */
-    public java.lang.String getCreationTimestamp() {
-      return creationTimestamp;
-    }
-
-    /**
-      * Gets the value of the 'creationTimestamp' field as an Optional&lt;java.lang.String&gt;.
-      * @return The value wrapped in an Optional&lt;java.lang.String&gt;.
-      */
-    public Optional<java.lang.String> getOptionalCreationTimestamp() {
-      return Optional.<java.lang.String>ofNullable(creationTimestamp);
-    }
-
-    /**
-      * Sets the value of the 'creationTimestamp' field.
-      * @param value The value of 'creationTimestamp'.
-      * @return This builder.
-      */
-    public com.skaria.avro.model.aggregate.domain.SomeRecordUpdatedEventRecord.Builder setCreationTimestamp(java.lang.String value) {
-      validate(fields()[1], value);
-      this.creationTimestamp = value;
-      fieldSetFlags()[1] = true;
-      return this;
-    }
-
-    /**
-      * Checks whether the 'creationTimestamp' field has been set.
-      * @return True if the 'creationTimestamp' field has been set, false otherwise.
-      */
-    public boolean hasCreationTimestamp() {
-      return fieldSetFlags()[1];
-    }
-
-
-    /**
-      * Clears the value of the 'creationTimestamp' field.
-      * @return This builder.
-      */
-    public com.skaria.avro.model.aggregate.domain.SomeRecordUpdatedEventRecord.Builder clearCreationTimestamp() {
-      creationTimestamp = null;
-      fieldSetFlags()[1] = false;
-      return this;
-    }
-
-    /**
       * Gets the value of the 'someRecord' field.
       * @return The value.
       */
@@ -424,10 +377,10 @@ public class SomeRecordUpdatedEventRecord extends org.apache.avro.specific.Speci
       * @return This builder.
       */
     public com.skaria.avro.model.aggregate.domain.SomeRecordUpdatedEventRecord.Builder setSomeRecord(com.skaria.avro.model.SomeRecord value) {
-      validate(fields()[2], value);
+      validate(fields()[1], value);
       this.someRecordBuilder = null;
       this.someRecord = value;
-      fieldSetFlags()[2] = true;
+      fieldSetFlags()[1] = true;
       return this;
     }
 
@@ -436,7 +389,7 @@ public class SomeRecordUpdatedEventRecord extends org.apache.avro.specific.Speci
       * @return True if the 'someRecord' field has been set, false otherwise.
       */
     public boolean hasSomeRecord() {
-      return fieldSetFlags()[2];
+      return fieldSetFlags()[1];
     }
 
     /**
@@ -481,6 +434,53 @@ public class SomeRecordUpdatedEventRecord extends org.apache.avro.specific.Speci
     public com.skaria.avro.model.aggregate.domain.SomeRecordUpdatedEventRecord.Builder clearSomeRecord() {
       someRecord = null;
       someRecordBuilder = null;
+      fieldSetFlags()[1] = false;
+      return this;
+    }
+
+    /**
+      * Gets the value of the 'creationTimestamp' field.
+      * @return The value.
+      */
+    public java.lang.String getCreationTimestamp() {
+      return creationTimestamp;
+    }
+
+    /**
+      * Gets the value of the 'creationTimestamp' field as an Optional&lt;java.lang.String&gt;.
+      * @return The value wrapped in an Optional&lt;java.lang.String&gt;.
+      */
+    public Optional<java.lang.String> getOptionalCreationTimestamp() {
+      return Optional.<java.lang.String>ofNullable(creationTimestamp);
+    }
+
+    /**
+      * Sets the value of the 'creationTimestamp' field.
+      * @param value The value of 'creationTimestamp'.
+      * @return This builder.
+      */
+    public com.skaria.avro.model.aggregate.domain.SomeRecordUpdatedEventRecord.Builder setCreationTimestamp(java.lang.String value) {
+      validate(fields()[2], value);
+      this.creationTimestamp = value;
+      fieldSetFlags()[2] = true;
+      return this;
+    }
+
+    /**
+      * Checks whether the 'creationTimestamp' field has been set.
+      * @return True if the 'creationTimestamp' field has been set, false otherwise.
+      */
+    public boolean hasCreationTimestamp() {
+      return fieldSetFlags()[2];
+    }
+
+
+    /**
+      * Clears the value of the 'creationTimestamp' field.
+      * @return This builder.
+      */
+    public com.skaria.avro.model.aggregate.domain.SomeRecordUpdatedEventRecord.Builder clearCreationTimestamp() {
+      creationTimestamp = null;
       fieldSetFlags()[2] = false;
       return this;
     }
@@ -491,7 +491,6 @@ public class SomeRecordUpdatedEventRecord extends org.apache.avro.specific.Speci
       try {
         SomeRecordUpdatedEventRecord record = new SomeRecordUpdatedEventRecord();
         record.eventId = fieldSetFlags()[0] ? this.eventId : (java.util.UUID) defaultValue(fields()[0]);
-        record.creationTimestamp = fieldSetFlags()[1] ? this.creationTimestamp : (java.lang.String) defaultValue(fields()[1]);
         if (someRecordBuilder != null) {
           try {
             record.someRecord = this.someRecordBuilder.build();
@@ -500,8 +499,9 @@ public class SomeRecordUpdatedEventRecord extends org.apache.avro.specific.Speci
             throw e;
           }
         } else {
-          record.someRecord = fieldSetFlags()[2] ? this.someRecord : (com.skaria.avro.model.SomeRecord) defaultValue(fields()[2]);
+          record.someRecord = fieldSetFlags()[1] ? this.someRecord : (com.skaria.avro.model.SomeRecord) defaultValue(fields()[1]);
         }
+        record.creationTimestamp = fieldSetFlags()[2] ? this.creationTimestamp : (java.lang.String) defaultValue(fields()[2]);
         return record;
       } catch (org.apache.avro.AvroMissingFieldException e) {
         throw e;
