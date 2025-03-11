@@ -1,0 +1,78 @@
+{
+  "$schema": "https://json-schema.org/draft-04/schema#",
+  "title": "SomeListData",
+  "type": "object",
+  "javaType": "com.skaria.json.model.external.inbound.SomeListData",
+  "javaInterfaces": [
+    "com.skaria.json.JsonPrintable"
+  ],
+  "properties": {
+    "messageId": {
+      "type": "string"
+    },
+    "name": {
+      "type": "string"
+    },
+    "systemId": {
+      "type": "string"
+    },
+    "timestamp": {
+      "type": "string"
+    },
+    "entryData": {
+      "$ref": "#/definitions/entryData"
+    },
+    "status": {
+      "$ref": "#/definitions/status"
+    }
+  },
+  "required": [
+    "messageId",
+    "name",
+    "timestamp",
+    "systemId",
+    "entryData",
+    "status"
+  ],
+  "additionalProperties": false,
+  "definitions": {
+    "status": {
+      "type": "string",
+      "enum": [
+        "Active",
+        "Inactive"
+      ],
+      "javaEnumNames": [
+        "Active",
+        "Inactive"
+      ]
+    },
+    "entryData": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "javaType": "com.skaria.json.model.external.inbound.SomeListEntryData",
+        "javaInterfaces": [
+          "com.skaria.json.JsonPrintable"
+        ],
+        "properties": {
+          "identifier": {
+            "type": "string"
+          },
+          "reason": {
+            "type": "string"
+          },
+          "startDate": {
+            "type": "string"
+          },
+          "endDate": {
+            "type": "string"
+          },
+          "contact": {
+            "type": "string"
+          }
+        }
+      }
+    }
+  }
+}

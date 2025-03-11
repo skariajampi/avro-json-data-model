@@ -2,6 +2,10 @@
   "$schema": "https://json-schema.org/draft-04/schema#",
   "title": "SomeRecord",
   "type": "object",
+  "javaType": "com.skaria.json.model.SomeRecord",
+  "javaInterfaces": [
+    "com.skaria.json.JsonPrintable"
+  ],
   "properties": {
     "Id": {
       "type": "string"

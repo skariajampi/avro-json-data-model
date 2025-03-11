@@ -6,6 +6,7 @@ import javax.validation.constraints.NotNull;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.skaria.json.JsonPrintable;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -30,7 +31,8 @@ import lombok.NoArgsConstructor;
     "Measure"
 })
 @Generated("jsonschema2pojo")
-public class SomeRecord {
+public class SomeRecord implements JsonPrintable
+{
 
     /**
      * 
