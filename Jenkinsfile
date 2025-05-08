@@ -15,7 +15,7 @@ pipeline{
         }
         stage('Build'){
             steps{
-                dir('./avr0-json-data-model'){
+                dir('./avro-json-data-model'){
                 sh '''
                                                 echo "Executing Tests..."
                                                 mvn clean test
@@ -26,7 +26,7 @@ pipeline{
         }
         stage('Package'){
         steps{
-                        dir('./avr0-json-data-model') {
+                        dir('./avro-json-data-model') {
                         sh '''
                                         echo "Packaging version ${VERSION}..."
                                         mvn clean package
