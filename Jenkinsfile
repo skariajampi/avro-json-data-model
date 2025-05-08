@@ -29,10 +29,20 @@ pipeline{
                         dir('.') {
                         sh '''
                                         echo "Packaging version ${VERSION}..."
-                                        mvn clean package
+                                        mvn package
                                         '''
                               }
                     }
         }
+        stage('Deploy'){
+                steps{
+                                dir('.') {
+                                sh '''
+                                                echo "Packaging version ${VERSION}..."
+                                                mvn deploy
+                                                '''
+                                      }
+                            }
+                }
     }
 }
